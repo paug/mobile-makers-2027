@@ -5,7 +5,7 @@ import type { Model } from '../../i18n/model';
 const { m } = Astro.props as { m: Model };
 const { t } = m;
 ---
-<section id="sponsors" class="mm-section" style="margin-top:96px;background:var(--graphite);color:var(--paper-1);padding:clamp(56px,7vw,96px) 0;position:relative;overflow:hidden">
+<section id="sponsors" class="mm-section" data-reveal style="margin-top:96px;background:var(--graphite);color:var(--paper-1);padding:clamp(56px,7vw,96px) 0;position:relative;overflow:hidden">
   <div aria-hidden="true" class="hidden desk:block" style="position:absolute;right:-120px;bottom:-240px;width:440px;height:440px;background:linear-gradient(90deg,var(--red-light) 50%,var(--red-dark) 50%);clip-path:polygon(50% 0,100% 100%,0 100%);opacity:.9"></div>
   <div class="mm-wrap" style="position:relative">
     <SectionHead eyebrow={t.sponsorsEyebrow} title={t.sponsorsTitle} lead={t.sponsorsLead} maxWidth={760} inverse />

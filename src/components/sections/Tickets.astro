@@ -8,7 +8,7 @@ import type { Model } from '../../i18n/model';
 const { m } = Astro.props as { m: Model };
 const { t } = m;
 ---
-<section id="tickets" class="mm-section" style="padding-top:96px">
+<section id="tickets" class="mm-section" data-reveal style="padding-top:96px">
   <div class="mm-wrap">
     <SectionHead eyebrow={t.ticketsEyebrow} title={t.ticketsTitle} lead={t.ticketsLead} />
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,250px),1fr));gap:24px;padding-right:4px;padding-bottom:8px;align-items:stretch">

@@ -65,6 +65,9 @@ export function buildModel(lang: Lang) {
 
   return {
     lang, t, L, socials, navItems, showAgenda, cfpOpen, speakersAnnounced,
+    heroA: t.heroTitle.split('. ')[0] + '.',
+    heroB: t.heroTitle.split('. ').slice(1).join('. '),
+    marquee: Array.from({ length: 12 }, (_, i) => ['Android', 'Flutter', '30.04.2027', 'Paris', 'Kotlin', 'Dart'][i % 6]),
     heroFacts: t.heroFacts.map(([n, l]) => ({ n, l })),
     why: t.why.map(([title, body], i) => ({ n: '0' + (i + 1), title, body, ...WHY_ART[i % 4] })),
     venueStats: t.venueStats.map(([n, l]) => ({ n, l })),

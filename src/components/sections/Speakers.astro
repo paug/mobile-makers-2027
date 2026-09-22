@@ -10,7 +10,7 @@ import type { Model } from '../../i18n/model';
 const { m } = Astro.props as { m: Model };
 const { t } = m;
 ---
-<section id="speakers" class="mm-section" style="padding-top:96px">
+<section id="speakers" class="mm-section" data-reveal style="padding-top:96px">
   <div class="mm-wrap">
     <SectionHead eyebrow={t.speakersEyebrow} title={t.speakersTitle} />
     {!m.speakersAnnounced && (

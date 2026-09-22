@@ -8,6 +8,12 @@
 @import "./ds/tokens/base.css";
 @import "./components.css";
 
+/* The design was authored against the browser default box model; undo Tailwind preflight's border-box
+   so max-width + padding containers match it. Elements that need border-box set it explicitly. */
+@layer base {
+  *, ::before, ::after { box-sizing: content-box; }
+}
+
 html { scroll-behavior: smooth; }
 body { margin: 0; background: var(--paper-1); color: var(--ink-1); font: 400 17px/1.5 var(--font-body); -webkit-font-smoothing: antialiased; }
 a { color: var(--cyan-dark); }
