@@ -1,0 +1,14 @@
+---
+import type { Lang } from '../i18n/copy';
+interface Props { lang: Lang; long?: boolean }
+const { lang, long } = Astro.props;
+const items = [
+  { value: 'fr', href: '/', label: long ? 'Français' : 'FR' },
+  { value: 'en', href: '/en/', label: long ? 'English' : 'EN' },
+];
+---
+<div style="background:var(--paper-1);padding:2px">
+  <nav class="mm-tabs" aria-label="Langue / Language">
+    {items.map((it) => <a class="mm-tab" href={it.href} hreflang={it.value} lang={it.value} aria-current={it.value === lang ? 'page' : undefined}>{it.label}</a>)}
+  </nav>
+</div>

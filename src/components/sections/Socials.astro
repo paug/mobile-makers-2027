@@ -1,0 +1,12 @@
+---
+import Icon from '../ds/Icon.astro';
+import type { Model } from '../../i18n/model';
+const { socials } = Astro.props as { socials: Model['socials'] };
+---
+<div style="display:flex;gap:8px;flex-wrap:wrap">
+  {socials.map((s) => (
+    <a href={s.href} target={s.target} rel="noreferrer" aria-label={s.label} title={s.label} class="mm-social">
+      {s.icon ? <Icon name={s.icon} size={20} /> : <span style="font:700 18px/1 var(--font-display)">X</span>}
+    </a>
+  ))}
+</div>

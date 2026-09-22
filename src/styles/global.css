@@ -1,0 +1,14 @@
+@import "./ds/tokens/fonts.css";
+@import "tailwindcss";
+@theme { --breakpoint-desk: 1180px; }
+@import "./ds/tokens/colors.css";
+@import "./ds/tokens/typography.css";
+@import "./ds/tokens/spacing.css";
+@import "./ds/tokens/effects.css";
+@import "./ds/tokens/base.css";
+@import "./components.css";
+
+html { scroll-behavior: smooth; }
+body { margin: 0; background: var(--paper-1); color: var(--ink-1); font: 400 17px/1.5 var(--font-body); -webkit-font-smoothing: antialiased; }
+a { color: var(--cyan-dark); }
+a:hover { color: var(--ink-1); }

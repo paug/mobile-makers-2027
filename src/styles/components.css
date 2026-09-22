@@ -1,0 +1,104 @@
+/* Mobile Makers DS components, ported from the React bundle to static CSS. */
+.mm-eyebrow { font: 600 13px/1.4 var(--font-mono); letter-spacing: .12em; text-transform: uppercase; color: var(--cyan-dark); }
+.mm-label { font: 600 12px/1 var(--font-mono); letter-spacing: .12em; text-transform: uppercase; }
+.mm-h2 { display: block; font-family: var(--font-display); font-size: clamp(34px, 4.5vw, 56px); line-height: 1.02; letter-spacing: -0.01em; text-wrap: balance; }
+.mm-section { scroll-margin-top: 88px; }
+.mm-wrap { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+/* Button */
+.mm-btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+  height: var(--control-md); padding: 0 20px; font: var(--weight-semibold) var(--text-md)/1 var(--font-body);
+  border: 0; border-radius: 0; text-decoration: none; white-space: nowrap; cursor: pointer;
+  background: var(--bg); color: var(--fg); box-shadow: var(--shadow-fold-sm);
+  transition: transform var(--dur-spatial-fast) var(--ease-spring), box-shadow var(--dur-effect) var(--ease-emphasized), background var(--dur-effect) var(--ease-emphasized);
+}
+.mm-btn:hover { color: var(--fg); background: var(--hover-bg); box-shadow: var(--glow, var(--shadow-fold-lg)); transform: translateY(-2px); }
+.mm-btn:active { box-shadow: var(--shadow-fold-sm); transform: scale(.97); }
+.mm-btn--sm { height: var(--control-sm); padding: 0 14px; font-size: var(--text-sm); }
+.mm-btn--lg { height: var(--control-lg); padding: 0 28px; font-size: var(--text-lg); }
+.mm-btn--full { width: 100%; }
+.mm-btn--primary { --bg: var(--red); --fg: #fff; --hover-bg: var(--red-light); --glow: var(--shadow-fold-brand); }
+.mm-btn--accent { --bg: var(--cyan); --fg: var(--ink-1); --hover-bg: var(--cyan-light); --glow: var(--shadow-fold-cyan); }
+.mm-btn--secondary { --bg: var(--paper-0); --fg: var(--ink-1); --hover-bg: var(--paper-2); border: var(--border-w-strong) solid var(--border-default); }
+.mm-btn--inverse { --bg: var(--graphite); --fg: var(--paper-1); --hover-bg: var(--ink-2); }
+.mm-btn--ghost { --bg: transparent; --fg: var(--ink-1); --hover-bg: var(--paper-2); }
+.mm-btn--ghost, .mm-btn--ghost:hover, .mm-btn--ghost:active { box-shadow: none; transform: none; }
+.mm-btn[disabled], .mm-btn[disabled]:hover {
+  background: var(--paper-3); color: var(--ink-3); border: var(--border-w-strong) solid var(--paper-3);
+  box-shadow: none; transform: none; cursor: not-allowed; opacity: .7;
+}
+
+/* IconButton */
+.mm-iconbtn {
+  display: inline-grid; place-items: center; padding: 0; width: var(--control-md); height: var(--control-md);
+  border-radius: 0; cursor: pointer; background: var(--paper-0); color: var(--ink-1); border: 1px solid var(--border-default); text-decoration: none;
+  transition: transform var(--dur-spatial-fast) var(--ease-spring), box-shadow var(--dur-effect) var(--ease-emphasized), background var(--dur-effect) var(--ease-emphasized);
+}
+.mm-iconbtn:hover { background: var(--paper-1); color: var(--ink-1); box-shadow: var(--shadow-fold); transform: translateY(-1px); }
+.mm-iconbtn:active { box-shadow: var(--shadow-fold-sm); transform: scale(.96); }
+.mm-iconbtn--sm { width: var(--control-sm); height: var(--control-sm); }
+.mm-iconbtn--ghost { background: transparent; border: none; }
+.mm-iconbtn--ghost:hover { background: var(--paper-2); box-shadow: none; transform: none; }
+
+/* Tabs (boxed) */
+.mm-tabs { display: flex; background: var(--surface-container); padding: 4px; }
+.mm-tab {
+  height: 36px; padding: 0 16px; font: var(--weight-semibold) var(--text-sm)/1 var(--font-ui);
+  background: transparent; color: var(--ink-3); border: 0; border-radius: 0; cursor: pointer; text-decoration: none;
+  display: inline-flex; align-items: center; justify-content: center; flex: 1 1 auto;
+  transition: background var(--dur-effect) var(--ease-emphasized), box-shadow var(--dur-effect), color var(--dur-effect);
+}
+.mm-tab:hover { color: var(--ink-1); }
+.mm-tab[aria-selected="true"], .mm-tab[aria-current="page"] { background: var(--paper-0); color: var(--ink-1); box-shadow: var(--shadow-fold-sm); }
+
+/* Dog-ear + Card */
+.mm-dogear {
+  position: absolute; top: 0; right: 0; width: 14px; height: 14px; background: var(--fold-corner-face);
+  clip-path: polygon(0 0,100% 100%,0 100%); box-shadow: inset 1px -1px 2px rgba(40,40,40,.16); pointer-events: none; z-index: 1;
+}
+.mm-dogear--paper { background: var(--fold-corner-face-paper); }
+.mm-card { position: relative; box-shadow: var(--shadow-fold); }
+.mm-card__inner {
+  position: relative; background: var(--paper-0); color: var(--ink-1); border: 1px solid var(--border-subtle);
+  clip-path: polygon(0 0,calc(100% - 14px) 0,100% 14px,100% 100%,0 100%); height: 100%; box-sizing: border-box; overflow: hidden;
+}
+
+/* Badge + Tag */
+.mm-badge {
+  display: inline-flex; align-items: center; gap: 6px; height: 24px; padding: 0 10px; font: var(--type-caps);
+  letter-spacing: var(--tracking-caps); text-transform: uppercase; white-space: nowrap; background: var(--paper-2); color: var(--ink-1);
+}
+.mm-badge--brand { background: var(--red); color: #fff; }
+.mm-badge--accent { background: var(--cyan); }
+.mm-badge--success { background: var(--green); }
+.mm-badge--info { background: var(--cyan-light); }
+.mm-tag {
+  display: inline-flex; align-items: center; gap: 6px; height: 30px; padding: 0 10px; background: var(--surface-container-low);
+  color: var(--ink-1); border: 1px solid var(--border-default); font: var(--type-label); user-select: none; white-space: nowrap;
+}
+
+/* Fold: decorative folded-paper facet */
+.mm-fold { flex: none; filter: drop-shadow(0 12px 24px rgba(40,40,40,.14)); }
+
+/* SpeakerCard */
+.mm-speaker { display: block; box-shadow: var(--shadow-fold); transition: transform var(--dur-spatial-fast) var(--ease-spring), box-shadow var(--dur-effect) var(--ease-emphasized); }
+.mm-speaker:hover { box-shadow: var(--shadow-fold-lg); transform: translateY(-2px); }
+
+/* Hover-lift tiles */
+.mm-why { transition: transform 260ms var(--ease-spring-soft), box-shadow 180ms var(--ease-emphasized); }
+.mm-why:hover { transform: translateY(-3px); box-shadow: var(--shadow-fold-lg); }
+.mm-social {
+  width: 44px; height: 44px; display: inline-grid; place-items: center; background: var(--paper-0); color: var(--ink-1);
+  border: 1px solid var(--border-default); text-decoration: none;
+  transition: transform var(--dur-spatial-fast) var(--ease-spring), box-shadow var(--dur-effect) var(--ease-emphasized);
+}
+.mm-social:hover { background: var(--paper-1); color: var(--ink-1); transform: translateY(-1px); box-shadow: var(--shadow-fold); }
+
+/* Image placeholder (replaces the prototype's image-slot) */
+.mm-slot { position: absolute; inset: 0; display: grid; place-items: center; padding: 16px; text-align: center;
+  font: 600 12px/1.4 var(--font-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--ink-1); opacity: .6; }
+.mm-slot img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+
+/* ScrollTitle */
+.mm-scroll-title { transition: font-weight 120ms linear, font-variation-settings 120ms linear; }

@@ -1,0 +1,49 @@
+---
+import Button from '../ds/Button.astro';
+import Icon from '../ds/Icon.astro';
+import Slot from '../ds/Slot.astro';
+import SectionHead from './SectionHead.astro';
+import Socials from './Socials.astro';
+import type { Model } from '../../i18n/model';
+const { m } = Astro.props as { m: Model };
+const { t } = m;
+const panel = 'background:var(--paper-0);border:1px solid var(--border-subtle);padding:32px;display:flex;flex-direction:column;gap:16px;box-shadow:var(--shadow-fold-sm)';
+---
+<section id="team" class="mm-section" style="padding-top:96px">
+  <div class="mm-wrap">
+    <SectionHead eyebrow={t.teamEyebrow} title={t.teamTitle} lead={t.teamLead} maxWidth={760} />
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,160px),1fr));gap:20px">
+      {m.team.map((p) => (
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <div style={`position:relative;aspect-ratio:1;background:${p.hue};width:100%;overflow:hidden`}>
+            <Slot placeholder={t.portrait} />
+            <div aria-hidden="true" style={`position:absolute;right:0;bottom:0;width:34%;height:34%;background:linear-gradient(225deg,var(--paper-1) 50%,${p.hueDark} 50%);pointer-events:none`}></div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:2px">
+            <h3 style="margin:0;font:600 18px/1.2 var(--font-display);color:var(--ink-1)">{p.name}</h3>
+            <span style="font:400 15px/1.4 var(--font-body);color:var(--ink-2)">{t.phTeamRole}</span>
+            {p.linkedin && <a href={p.linkedin} target="_blank" rel="noreferrer" class="mm-textlink" style="font-size:14px;min-height:32px">LinkedIn</a>}
+          </div>
+        </div>
+      ))}
+    </div>
+    <div style="margin-top:48px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,360px),1fr));gap:24px">
+      <div style={panel}>
+        <h3 style="margin:0;font:600 26px/1.15 var(--font-display);letter-spacing:-0.01em;color:var(--ink-1)">{t.volTitle}</h3>
+        <p style="margin:0;font:400 17px/1.5 var(--font-body);color:var(--ink-2);text-wrap:pretty">{t.volBody}</p>
+        <div style="display:flex;gap:12px;flex-wrap:wrap"><Button href="mailto:contact@mobilemakers.fr" variant="accent" iconRight="arrow-right">{t.ctaVolunteer}</Button></div>
+      </div>
+      <div style={panel}>
+        <h3 style="margin:0;font:600 26px/1.15 var(--font-display);letter-spacing:-0.01em;color:var(--ink-1)">{t.contactTitle}</h3>
+        <a href="mailto:contact@mobilemakers.fr" class="mm-textlink" style="font:500 18px/1.3 var(--font-mono);overflow-wrap:anywhere;min-height:44px">contact@mobilemakers.fr</a>
+        <Socials socials={m.socials} />
+        <a href={m.L.cocUrl} class="mm-textlink" style="gap:8px;min-height:44px">{t.coc}<Icon name="arrow-right" size={16} /></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .mm-textlink { font: 500 16px/1.3 var(--font-display); color: var(--cyan-dark); text-decoration: none; display: inline-flex; align-items: center; gap: 6px; }
+  .mm-textlink:hover { color: var(--ink-1); }
+</style>

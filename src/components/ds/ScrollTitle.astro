@@ -1,0 +1,6 @@
+---
+// Headline whose weight follows its viewport position (see src/scripts/scroll-title.ts).
+interface Props { as?: 'h1' | 'h2'; mode?: 'center' | 'leave'; class?: string; style?: string }
+const { as: Tag = 'h2', mode = 'center', class: cls, style = '' } = Astro.props;
+---
+<Tag class:list={['mm-scroll-title', cls]} data-scroll-title={mode} style={`margin:0;${style}`}><slot /></Tag>

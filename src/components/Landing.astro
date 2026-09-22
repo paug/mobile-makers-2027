@@ -1,0 +1,51 @@
+---
+import '../styles/global.css';
+import { buildModel } from '../i18n/model';
+import type { Lang } from '../i18n/copy';
+import Header from './sections/Header.astro';
+import Hero from './sections/Hero.astro';
+import WhyVenue from './sections/WhyVenue.astro';
+import Agenda from './sections/Agenda.astro';
+import Speakers from './sections/Speakers.astro';
+import Sponsors from './sections/Sponsors.astro';
+import Tickets from './sections/Tickets.astro';
+import Cfp from './sections/Cfp.astro';
+import Team from './sections/Team.astro';
+import Footer from './sections/Footer.astro';
+
+const { lang } = Astro.props as { lang: Lang };
+const m = buildModel(lang);
+const meta = {
+  fr: { title: 'Mobile Makers 2027 · 30 avril · Paris', description: "Mobile Makers, la conférence Android et Flutter. Une journée de talks, d'ateliers et de conversations, le 30 avril 2027 à l'UGC Ciné Cité Bercy, Paris. Organisée par le PAUG." },
+  en: { title: 'Mobile Makers 2027 · April 30 · Paris', description: 'Mobile Makers, the Android and Flutter conference. One day of talks, workshops and conversations, April 30, 2027 at UGC Ciné Cité Bercy, Paris. Run by PAUG.' },
+}[lang];
+---
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{meta.title}</title>
+    <meta name="description" content={meta.description} />
+    <link rel="alternate" hreflang="fr" href="/" />
+    <link rel="alternate" hreflang="en" href="/en/" />
+    <link rel="icon" href="/assets/logo/lockup.png" />
+  </head>
+  <body>
+    <div style="min-height:100vh;overflow-x:clip">
+      <Header m={m} />
+      <main>
+        <Hero m={m} />
+        <WhyVenue m={m} />
+        {m.showAgenda && <Agenda m={m} />}
+        <Speakers m={m} />
+        <Sponsors m={m} />
+        <Tickets m={m} />
+        <Cfp m={m} />
+        <Team m={m} />
+      </main>
+      <Footer m={m} />
+    </div>
+    <script src="../scripts/scroll-title.ts"></script>
+  </body>
+</html>

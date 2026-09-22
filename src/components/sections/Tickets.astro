@@ -1,0 +1,38 @@
+---
+import Badge from '../ds/Badge.astro';
+import Button from '../ds/Button.astro';
+import Card from '../ds/Card.astro';
+import Icon from '../ds/Icon.astro';
+import SectionHead from './SectionHead.astro';
+import type { Model } from '../../i18n/model';
+const { m } = Astro.props as { m: Model };
+const { t } = m;
+---
+<section id="tickets" class="mm-section" style="padding-top:96px">
+  <div class="mm-wrap">
+    <SectionHead eyebrow={t.ticketsEyebrow} title={t.ticketsTitle} lead={t.ticketsLead} />
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,250px),1fr));gap:24px;padding-right:4px;padding-bottom:8px;align-items:stretch">
+      {m.tickets.map((tk) => (
+        <Card padding="24px" style="height:100%;min-width:0">
+          <div style="display:flex;flex-direction:column;gap:16px;height:100%;box-sizing:border-box">
+            <div style="display:flex;justify-content:space-between;align-items:center;gap:8px;height:26px">
+              <span style={`font:600 13px/1.2 var(--font-mono);letter-spacing:.08em;text-transform:uppercase;color:${tk.nameColor};min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis`}>{tk.name}</span>
+              {tk.badge && <span style="flex:none;white-space:nowrap"><Badge tone={tk.badgeTone}>{tk.badge}</Badge></span>}
+            </div>
+            <div style="display:flex;flex-direction:column;gap:6px"><span style={`font:500 clamp(36px,3.4vw,48px)/1 var(--font-mono);letter-spacing:-0.02em;color:${tk.priceColor};overflow-wrap:anywhere`}>{tk.price}</span><span style="font:400 15px/1.4 var(--font-body);color:var(--ink-2)">{tk.window}</span></div>
+            <div style="border-top:1.5px dashed var(--border-default)"></div>
+            <ul style="list-style:none;margin:0;padding:0;display:grid;gap:10px;font:400 15px/1.45 var(--font-body);color:var(--ink-1);flex:1;align-content:start">
+              {tk.features.map((f) => <li style="display:flex;gap:10px;align-items:flex-start"><Icon name="check" size={16} color="var(--red)" style="margin-top:3px" /><span>{f}</span></li>)}
+            </ul>
+            {tk.available && <Button href={m.L.ticketUrl} target="_blank" fullWidth iconRight="arrow-right">{t.ctaTicket}</Button>}
+            {tk.soon && <Button variant="secondary" fullWidth disabled icon="clock">{t.soon}</Button>}
+            {tk.soldOut && <Button variant="secondary" fullWidth disabled>{t.soldOut}</Button>}
+          </div>
+        </Card>
+      ))}
+    </div>
+    <div style="margin-top:28px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:16px 40px;font:400 15px/1.5 var(--font-body);color:var(--ink-2)">
+      {m.ticketNotes.map((n) => <div style="display:flex;gap:10px;align-items:flex-start"><Icon name={n.icon} size={18} color="var(--cyan-dark)" style="margin-top:3px" /><span>{n.text}</span></div>)}
+    </div>
+  </div>
+</section>

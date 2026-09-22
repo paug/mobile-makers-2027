@@ -1,0 +1,24 @@
+---
+import Tag from './Tag.astro';
+interface Props { name: string; role: string; company?: string; topics?: readonly string[]; photo?: string; hue?: string }
+const { name, role, company, topics = [], photo, hue = 'cyan' } = Astro.props;
+const HUES: Record<string, string> = { cyan: 'var(--cyan)', red: 'var(--red)', green: 'var(--green)', graphite: 'var(--graphite)' };
+const initials = name.split(' ').map((w) => w[0]).join('').slice(0, 2);
+---
+<div class="mm-speaker">
+  <article style="position:relative;background:var(--paper-0);border:1px solid var(--border-subtle);clip-path:polygon(0 0,calc(100% - 14px) 0,100% 14px,100% 100%,0 100%);overflow:hidden">
+    <span class="mm-dogear" aria-hidden="true"></span>
+    <div style={`position:relative;aspect-ratio:1/1;background:${HUES[hue] ?? hue};overflow:hidden`}>
+      {photo
+        ? <img src={photo} alt={name} style="width:100%;height:100%;object-fit:cover;display:block;filter:grayscale(1) contrast(1.05);mix-blend-mode:multiply" />
+        : <div style={`position:absolute;inset:0;display:grid;place-items:center;font:500 72px/1 var(--font-display);letter-spacing:-0.02em;color:${hue === 'cyan' || hue === 'green' ? 'var(--ink-1)' : 'rgba(255,255,255,.95)'}`}>{initials}</div>}
+      <div aria-hidden="true" style="position:absolute;inset:0;background-image:var(--fold-shade);pointer-events:none"></div>
+      <div aria-hidden="true" style="position:absolute;right:0;bottom:0;width:38%;height:38%;background:var(--paper-0);clip-path:polygon(100% 0,100% 100%,0 100%)"></div>
+    </div>
+    <div style="padding:var(--space-4)">
+      <h3 style="margin:0;font:var(--type-h4);letter-spacing:var(--tracking-tight);color:var(--ink-1)">{name}</h3>
+      <div style="font:var(--type-body-sm);color:var(--text-secondary);margin-top:4px">{role}{company && <> · <strong style="font-weight:600">{company}</strong></>}</div>
+      {topics.length > 0 && <div style="display:flex;gap:6px;flex-wrap:wrap;margin-top:12px">{topics.map((t) => <Tag style="height:24px;font-size:12px">{t}</Tag>)}</div>}
+    </div>
+  </article>
+</div>

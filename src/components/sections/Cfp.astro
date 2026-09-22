@@ -1,0 +1,55 @@
+---
+import Badge from '../ds/Badge.astro';
+import Button from '../ds/Button.astro';
+import Icon from '../ds/Icon.astro';
+import ScrollTitle from '../ds/ScrollTitle.astro';
+import Tag from '../ds/Tag.astro';
+import type { Model } from '../../i18n/model';
+const { m } = Astro.props as { m: Model };
+const { t } = m;
+const box = 'background:var(--paper-0);padding:20px;display:flex;flex-direction:column;gap:12px;box-shadow:var(--shadow-fold-sm)';
+const row = 'display:flex;justify-content:space-between;gap:12px;border-bottom:1px solid var(--border-subtle);padding-bottom:8px';
+---
+<section id="cfp" class="mm-section" style="margin-top:96px;padding:0 24px">
+  <div style="max-width:1200px;margin:0 auto;background:var(--surface-container-low);padding:clamp(32px,5vw,64px);position:relative;overflow:hidden">
+    <div aria-hidden="true" style="position:absolute;right:-40px;top:-40px;width:160px;height:160px;background:linear-gradient(90deg,var(--cyan-light) 50%,var(--cyan) 50%);clip-path:polygon(100% 0,100% 100%,0 0);opacity:.9"></div>
+    {m.cfpOpen ? (
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,400px),1fr));gap:48px;position:relative">
+        <div style="display:flex;flex-direction:column;gap:20px;min-width:0">
+          <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap"><span class="mm-eyebrow">{t.cfpEyebrow}</span><Badge tone="success">{t.cfpOpenBadge}</Badge></div>
+          <ScrollTitle><span class="mm-h2" style="color:var(--ink-1)">{t.cfpTitle}</span></ScrollTitle>
+          <p style="margin:0;font:400 19px/1.5 var(--font-body);color:var(--ink-2);text-wrap:pretty">{t.cfpPitch}</p>
+          <div style="display:flex;flex-direction:column;gap:10px">
+            <div class="mm-label" style="color:var(--ink-3)">{t.cfpTopicsLabel}</div>
+            <div style="display:flex;flex-wrap:wrap;gap:8px">{t.cfpTopics.map((tp) => <Tag>{tp}</Tag>)}</div>
+          </div>
+          <div style="display:flex;gap:10px;align-items:center;font:400 16px/1.4 var(--font-body);color:var(--ink-1)"><Icon name="mic" size={20} color="var(--cyan-dark)" /><span>{t.cfpLang}</span></div>
+          <div style="display:flex;gap:12px;flex-wrap:wrap;padding-top:4px"><Button href={m.L.cfpUrl} target="_blank" size="lg" iconRight="arrow-right">{t.ctaTalk}</Button></div>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:16px;align-content:start;min-width:0">
+          <div style={box}>
+            <div class="mm-label" style="color:var(--cyan-dark)">{t.cfpFormatsLabel}</div>
+            {m.cfpFormats.map((f) => <div style={row}><span style="font:500 16px/1.3 var(--font-display);color:var(--ink-1)">{f.name}</span><span style="font:500 14px/1.3 var(--font-mono);color:var(--ink-3);text-align:right">{f.dur}</span></div>)}
+          </div>
+          <div style={box}>
+            <div class="mm-label" style="color:var(--cyan-dark)">{t.cfpDatesLabel}</div>
+            {m.cfpDates.map((d) => <div style={row}><span style="font:500 16px/1.3 var(--font-display);color:var(--ink-1)">{d.name}</span><span style="font:500 14px/1.3 var(--font-mono);color:var(--ink-3);text-align:right">{d.date}</span></div>)}
+          </div>
+          <div style={box + ';grid-column:1 / -1'}>
+            <div class="mm-label" style="color:var(--cyan-dark)">{t.cfpPerksLabel}</div>
+            <ul style="list-style:none;margin:0;padding:0;display:grid;gap:8px;font:400 16px/1.45 var(--font-body);color:var(--ink-1)">
+              {t.cfpPerks.map((p) => <li style="display:flex;gap:10px;align-items:flex-start"><Icon name="check" size={16} color="var(--red)" style="margin-top:4px" /><span>{p}</span></li>)}
+            </ul>
+          </div>
+        </div>
+      </div>
+    ) : (
+      <div style="display:flex;flex-direction:column;gap:20px;max-width:720px;position:relative">
+        <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap"><span class="mm-eyebrow">{t.cfpEyebrow}</span><Badge tone="brand">{t.cfpClosedBadge}</Badge></div>
+        <ScrollTitle><span class="mm-h2" style="color:var(--ink-1)">{t.cfpClosedTitle}</span></ScrollTitle>
+        <p style="margin:0;font:400 19px/1.5 var(--font-body);color:var(--ink-2);text-wrap:pretty">{t.cfpClosedBody}</p>
+        <div style="display:flex;gap:12px;flex-wrap:wrap"><Button href={m.cfpClosedHref} variant="inverse" iconRight="arrow-right">{m.cfpClosedCta}</Button></div>
+      </div>
+    )}
+  </div>
+</section>
