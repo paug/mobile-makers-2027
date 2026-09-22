@@ -16,3 +16,5 @@ if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-mot
     setTimeout(() => el.classList.add('is-in'), 4000);
   });
 }
+
+export {};

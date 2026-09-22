@@ -29,3 +29,5 @@ if (els.length && !window.matchMedia('(prefers-reduced-motion: reduce)').matches
   window.addEventListener('scroll', schedule, { passive: true });
   window.addEventListener('resize', schedule);
 }
+
+export {};
