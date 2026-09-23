@@ -101,7 +101,10 @@
 .mm-slot img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 
 /* ScrollTitle */
-.mm-scroll-title { transition: font-weight 120ms linear, font-variation-settings 120ms linear; }
+.mm-scroll-title { font-weight: 600; }
+
+/* CFP formats and key dates: separators between rows only */
+.mm-cfp-row:not(:last-child) { border-bottom: 1px solid var(--border-subtle); padding-bottom: 8px; }
 
 /* Folding logo (hero) */
 .mm-logo { --mm-red:#e83f2e; --mm-red-2:#ea503f; --mm-blue:#20b9e8; --mm-dur:.75s; --mm-ease:cubic-bezier(.22,1,.36,1);

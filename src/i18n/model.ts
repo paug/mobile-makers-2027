@@ -39,14 +39,15 @@ export function buildModel(lang: Lang) {
     flutter: [mkTalk('Flutter', 'EN'), mkTalk('Flutter', 'FR')],
   }));
 
-  const states = { early: ['available', 'soon', 'soon', 'available'], regular: ['soldOut', 'available', 'soon', 'available'], late: ['soldOut', 'soldOut', 'available', 'available'] }[phase];
+  // Early bird: Early bird or Supporter. Regular: Regular or Student.
+  const states = { early: ['available', 'available', 'soon', 'soon'], regular: ['ended', 'ended', 'available', 'available'] }[phase];
   const tickets = t.tierNames.map((name, i) => {
     const s = states[i];
     return {
-      name, price: t.price(t.ph), window: t.windows[i], features: t.features,
-      available: s === 'available', soon: s === 'soon', soldOut: s === 'soldOut',
-      badge: s === 'soldOut' ? t.soldOut : s === 'soon' ? t.soonBadge : (i === 1 || (i === 0 && phase === 'early')) ? t.available : '',
-      badgeTone: (s === 'soldOut' ? 'brand' : s === 'soon' ? 'neutral' : 'success') as 'brand' | 'neutral' | 'success',
+      name, price: t.price(t.prices[i]), window: t.windows[i], features: t.features,
+      available: s === 'available', soon: s === 'soon', ended: s === 'ended',
+      badge: s === 'ended' ? t.ended : s === 'soon' ? t.soonBadge : t.available,
+      badgeTone: (s === 'ended' ? 'brand' : s === 'soon' ? 'neutral' : 'success') as 'brand' | 'neutral' | 'success',
       nameColor: s === 'available' ? 'var(--red)' : 'var(--ink-3)',
       priceColor: s === 'available' ? 'var(--ink-1)' : 'var(--ink-3)',
     };

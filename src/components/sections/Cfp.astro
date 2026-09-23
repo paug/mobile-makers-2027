@@ -8,7 +8,7 @@ import type { Model } from '../../i18n/model';
 const { m } = Astro.props as { m: Model };
 const { t } = m;
 const box = 'background:var(--paper-0);padding:20px;display:flex;flex-direction:column;gap:12px;box-shadow:var(--shadow-fold-sm)';
-const row = 'display:flex;justify-content:space-between;gap:12px;border-bottom:1px solid var(--border-subtle);padding-bottom:8px';
+const row = 'display:flex;justify-content:space-between;gap:12px';
 ---
 <section id="cfp" class="mm-section" data-reveal style="margin-top:96px;padding:0 24px">
   <div style="max-width:1200px;margin:0 auto;background:var(--surface-container-low);padding:clamp(32px,5vw,64px);position:relative;overflow:hidden">
@@ -24,16 +24,16 @@ const row = 'display:flex;justify-content:space-between;gap:12px;border-bottom:1
             <div style="display:flex;flex-wrap:wrap;gap:8px">{t.cfpTopics.map((tp) => <Tag>{tp}</Tag>)}</div>
           </div>
           <div style="display:flex;gap:10px;align-items:center;font:400 16px/1.4 var(--font-body);color:var(--ink-1)"><Icon name="mic" size={20} color="var(--cyan-dark)" /><span>{t.cfpLang}</span></div>
-          <div style="display:flex;gap:12px;flex-wrap:wrap;padding-top:4px"><Button href={m.L.cfpUrl} target="_blank" size="lg" iconRight="arrow-right">{t.ctaTalk}</Button></div>
+          <div style="display:flex;gap:12px 20px;flex-wrap:wrap;align-items:center;padding-top:4px"><Button href={m.L.cfpUrl} target="_blank" size="lg" iconRight="arrow-right">{t.ctaTalk}</Button><span style="display:flex;gap:8px;align-items:center;font:500 16px/1.4 var(--font-body);color:var(--ink-2)"><Icon name="calendar" size={18} color="var(--red)" />{t.cfpDeadline}</span></div>
         </div>
         <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:16px;align-content:start;min-width:0">
           <div style={box}>
             <div class="mm-label" style="color:var(--cyan-dark)">{t.cfpFormatsLabel}</div>
-            {m.cfpFormats.map((f) => <div style={row}><span style="font:500 16px/1.3 var(--font-display);color:var(--ink-1)">{f.name}</span><span style="font:500 14px/1.3 var(--font-mono);color:var(--ink-3);text-align:right">{f.dur}</span></div>)}
+            {m.cfpFormats.map((f) => <div class="mm-cfp-row" style={row}><span style="font:500 16px/1.3 var(--font-display);color:var(--ink-1)">{f.name}</span><span style="font:500 14px/1.3 var(--font-mono);color:var(--ink-3);text-align:right">{f.dur}</span></div>)}
           </div>
           <div style={box}>
             <div class="mm-label" style="color:var(--cyan-dark)">{t.cfpDatesLabel}</div>
-            {m.cfpDates.map((d) => <div style={row}><span style="font:500 16px/1.3 var(--font-display);color:var(--ink-1)">{d.name}</span><span style="font:500 14px/1.3 var(--font-mono);color:var(--ink-3);text-align:right">{d.date}</span></div>)}
+            {m.cfpDates.map((d) => <div class="mm-cfp-row" style={row}><span style="font:500 16px/1.3 var(--font-display);color:var(--ink-1)">{d.name}</span><span style="font:500 14px/1.3 var(--font-mono);color:var(--ink-3);text-align:right">{d.date}</span></div>)}
           </div>
           <div style={box + ';grid-column:1 / -1'}>
             <div class="mm-label" style="color:var(--cyan-dark)">{t.cfpPerksLabel}</div>
