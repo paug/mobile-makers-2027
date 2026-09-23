@@ -1,0 +1,15 @@
+---
+import Icon from './Icon.astro';
+interface Props {
+  href?: string; variant?: 'primary' | 'accent' | 'secondary' | 'inverse' | 'ghost'; size?: 'sm' | 'md' | 'lg';
+  icon?: string; iconRight?: string; fullWidth?: boolean; disabled?: boolean; target?: string; class?: string; [k: string]: unknown;
+}
+const { href, variant = 'primary', size = 'md', icon, iconRight, fullWidth, disabled, class: cls, ...rest } = Astro.props;
+const classes = ['mm-btn', `mm-btn--${variant}`, size !== 'md' && `mm-btn--${size}`, fullWidth && 'mm-btn--full', cls];
+const isz = size === 'sm' ? 16 : size === 'lg' ? 22 : 18;
+const Tag = href && !disabled ? 'a' : 'button';
+const ext = rest.target === '_blank' ? { rel: 'noreferrer' } : {};
+---
+<Tag class:list={classes} href={Tag === 'a' ? href : undefined} disabled={Tag === 'button' ? disabled : undefined} {...ext} {...rest}>
+  {icon && <Icon name={icon} size={isz} />}<slot />{iconRight && <Icon name={iconRight} size={isz} />}
+</Tag>

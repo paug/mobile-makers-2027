@@ -1,0 +1,63 @@
+---
+import Badge from '../ds/Badge.astro';
+import Button from '../ds/Button.astro';
+import Fold from '../ds/Fold.astro';
+import IconButton from '../ds/IconButton.astro';
+import Slot from '../ds/Slot.astro';
+import SpeakerCard from '../ds/SpeakerCard.astro';
+import SectionHead from './SectionHead.astro';
+import type { Model } from '../../i18n/model';
+const { m } = Astro.props as { m: Model };
+const { t } = m;
+---
+<section id="speakers" class="mm-section" data-reveal style="padding-top:96px">
+  <div class="mm-wrap">
+    <SectionHead eyebrow={t.speakersEyebrow} title={t.speakersTitle} />
+    {!m.speakersAnnounced && (
+      <div style="background:var(--paper-0);border:1px solid var(--border-subtle);padding:clamp(32px,5vw,64px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:32px;align-items:center;box-shadow:var(--shadow-fold-sm)">
+        <div style="display:flex;flex-direction:column;gap:16px">
+          <h3 style="margin:0;font:600 clamp(26px,3vw,36px)/1.1 var(--font-display);letter-spacing:-0.01em;color:var(--ink-1)">{t.speakersEmptyTitle}</h3>
+          <p style="margin:0;font:400 18px/1.5 var(--font-body);color:var(--ink-2);text-wrap:pretty">{t.speakersEmptyBody}</p>
+          <div style="display:flex;gap:12px;flex-wrap:wrap;padding-top:4px"><Button href="#cfp" iconRight="arrow-right">{t.ctaTalk}</Button></div>
+        </div>
+        <div aria-hidden="true" style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap">
+          <Fold shape="crane" hue="green" size={110} />
+          <Fold shape="kite" hue="var(--blue)" size={110} crease="diagonal" />
+          <Fold shape="hexafold" hue="red" size={110} />
+        </div>
+      </div>
+    )}
+    {m.speakersAnnounced && (
+      <>
+        <div style="background:var(--graphite);color:var(--paper-1);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));box-shadow:var(--shadow-fold-lg);margin-bottom:24px">
+          <div style="position:relative;aspect-ratio:1;background:var(--red);min-height:220px;max-height:420px;width:100%;overflow:hidden">
+            <Slot placeholder={t.portrait} />
+            <div aria-hidden="true" style="position:absolute;right:0;bottom:0;width:32%;height:32%;background:var(--graphite);clip-path:polygon(100% 0,100% 100%,0 100%);pointer-events:none"></div>
+          </div>
+          <div style="padding:clamp(24px,3vw,40px);display:flex;flex-direction:column;gap:14px;justify-content:center">
+            <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center"><Badge tone="brand">{t.keynoteBadge}</Badge><span style="font:600 11px/1 var(--font-mono);letter-spacing:.08em;text-transform:uppercase;padding:5px 7px;background:var(--cyan-light);color:var(--ink-1)">{t.trackShared}</span></div>
+            <h3 style="margin:0;font:600 clamp(28px,3.4vw,40px)/1.05 var(--font-display);letter-spacing:-0.01em;color:var(--paper-1)">{t.phName}</h3>
+            <div style="font:400 17px/1.4 var(--font-body);color:var(--paper-3)">{t.phRole}</div>
+            <p style="margin:0;font:400 17px/1.5 var(--font-body);color:var(--paper-3);text-wrap:pretty">{t.phBio}</p>
+            <div style="display:flex;gap:6px;flex-wrap:wrap;padding-top:4px">
+              <IconButton icon="linkedin" label="LinkedIn" size="sm" />
+              <IconButton icon="external-link" label="Site" size="sm" />
+              <IconButton icon="user" label="Profil" size="sm" />
+            </div>
+          </div>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:24px;padding-right:4px">
+          {m.speakers.map((sp) => (
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <SpeakerCard name={sp.name} role={sp.role} company={sp.company} topics={sp.topics} hue={sp.hue} />
+              <div style="display:flex;gap:4px">
+                <IconButton icon="linkedin" label="LinkedIn" variant="ghost" size="sm" />
+                <IconButton icon="external-link" label="Site" variant="ghost" size="sm" />
+              </div>
+            </div>
+          ))}
+        </div>
+      </>
+    )}
+  </div>
+</section>

@@ -1,0 +1,19 @@
+---
+// Decorative folded-paper facet: a hue split into a lit and a shadowed face along a crease.
+const CLIPS: Record<string, string> = {
+  crane: 'polygon(0 100%,50% 0,100% 100%)',
+  kite: 'polygon(50% 0,100% 40%,50% 100%,0 40%)',
+  shard: 'polygon(0 0,100% 0,72% 100%,0 100%)',
+  hexafold: 'polygon(25% 0,75% 0,100% 50%,75% 100%,25% 100%,0 50%)',
+};
+const HUES: Record<string, string> = { cyan: 'var(--cyan)', red: 'var(--red)', green: 'var(--green)', graphite: 'var(--graphite)', ink: 'var(--graphite-dark)', paper: 'var(--paper-0)' };
+interface Props { shape?: string; hue?: string; size?: number; crease?: 'vertical' | 'horizontal' | 'diagonal'; rotate?: number; style?: string }
+const { shape = 'kite', hue = 'cyan', size = 120, crease = 'vertical', rotate = 0, style = '' } = Astro.props;
+const dir = crease === 'horizontal' ? 'to bottom' : crease === 'diagonal' ? '135deg' : 'to right';
+const css = [
+  `width:${size}px`, `height:${size}px`, `clip-path:${CLIPS[shape] ?? CLIPS.kite}`, `background:${HUES[hue] ?? hue}`,
+  `background-image:linear-gradient(${dir}, rgba(255,255,255,.3) 0 50%, rgba(40,40,40,.22) 50% 100%)`,
+  rotate ? `transform:rotate(${rotate}deg)` : '', style,
+].filter(Boolean).join(';');
+---
+<div aria-hidden="true" class="mm-fold" style={css}></div>

@@ -1,0 +1,11 @@
+---
+import ScrollTitle from '../ds/ScrollTitle.astro';
+interface Props { eyebrow: string; title: string; lead?: string; maxWidth?: number; inverse?: boolean }
+const { eyebrow, title, lead, maxWidth = 720, inverse } = Astro.props;
+---
+<div style={`display:flex;flex-direction:column;gap:12px;max-width:${maxWidth}px;margin-bottom:40px`}>
+  <div class="mm-eyebrow" style={inverse ? 'color:var(--cyan-light)' : ''}>{eyebrow}</div>
+  <ScrollTitle><span class="mm-h2" style={`color:${inverse ? 'var(--paper-1)' : 'var(--ink-1)'}`}>{title}</span></ScrollTitle>
+  {lead && <p style={`margin:0;font:400 19px/1.5 var(--font-body);color:${inverse ? 'var(--paper-3)' : 'var(--ink-2)'};text-wrap:pretty`}>{lead}</p>}
+  <slot />
+</div>

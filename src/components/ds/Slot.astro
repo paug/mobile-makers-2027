@@ -1,0 +1,6 @@
+---
+// Image slot: shows `src` when provided, otherwise a labelled placeholder.
+interface Props { src?: string; alt?: string; placeholder: string }
+const { src, alt = '', placeholder } = Astro.props;
+---
+<div class="mm-slot">{src ? <img src={src} alt={alt} loading="lazy" /> : <span>{placeholder}</span>}</div>

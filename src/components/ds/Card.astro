@@ -1,0 +1,7 @@
+---
+interface Props { padding?: string; class?: string; style?: string }
+const { padding = 'var(--space-6)', class: cls, style = '' } = Astro.props;
+---
+<div class:list={['mm-card', cls]} style={style}>
+  <div class="mm-card__inner" style={`padding:${padding}`}><span class="mm-dogear mm-dogear--paper" aria-hidden="true"></span><slot /></div>
+</div>
