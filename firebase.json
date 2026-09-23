@@ -4,6 +4,13 @@
     "cleanUrls": true,
     "trailingSlash": true,
     "ignore": ["firebase.json", "**/.*"],
+    "redirects": [
+      {
+        "source": "/sponsor-deck",
+        "destination": "https://docs.google.com/presentation/d/e/2PACX-1vSYcIiuMHYZ0LLfK1BsuEeblT1rM5KB-3mMEb6K4sfAR-catKvxThGzTj8z27NXRw/pub?start=false&loop=false&delayms=3000",
+        "type": 302
+      }
+    ],
     "headers": [
       {
         "source": "/_astro/**",
