@@ -5,7 +5,7 @@ export const STATES = {
   showAgenda: false,
   cfpOpen: true,
   speakersAnnounced: false,
-  ticketPhase: 'regular' as 'early' | 'regular' | 'late',
+  ticketPhase: 'early' as 'early' | 'regular',
 };
 
 export const LINKS = {

@@ -1,6 +1,6 @@
 :root{
 --font-display:"Gill Sans","Gill Sans Nova","Gill Sans MT",ui-sans-serif,system-ui,sans-serif;
---font-body:"Newsreader",Georgia,"Times New Roman",serif;
+--font-body:"Gill Sans","Gill Sans Nova","Gill Sans MT",ui-sans-serif,system-ui,sans-serif;
 --font-ui:"Gill Sans","Gill Sans Nova","Gill Sans MT",ui-sans-serif,system-ui,sans-serif;/* buttons, tabs, labels, badges */
 --font-display-condensed:"Gill Sans Condensed","Gill Sans",ui-sans-serif,sans-serif;/* big numerals, stat slides */
 --font-mono:"Geist Mono",ui-monospace,SFMono-Regular,Menlo,monospace;

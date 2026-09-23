@@ -1,7 +1,7 @@
 ---
-// Headline whose weight follows its viewport position (see src/scripts/scroll-title.ts).
+// Section headline. The scroll-driven weight of the prototype is dropped: Gill Sans only ships static cuts.
 // The vertical margin reproduces the spacing the design prototype gives every ScrollTitle.
-interface Props { as?: 'h1' | 'h2'; mode?: 'center' | 'leave'; class?: string; style?: string }
-const { as: Tag = 'h2', mode = 'center', class: cls, style = '' } = Astro.props;
+interface Props { as?: 'h1' | 'h2'; class?: string; style?: string }
+const { as: Tag = 'h2', class: cls, style = '' } = Astro.props;
 ---
-<Tag class:list={['mm-scroll-title', cls]} data-scroll-title={mode} style={`margin:${Tag === 'h1' ? 23 : 21}px 0;${style}`}><slot /></Tag>
+<Tag class:list={['mm-scroll-title', cls]} style={`margin:${Tag === 'h1' ? 23 : 21}px 0;${style}`}><slot /></Tag>
