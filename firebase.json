@@ -9,6 +9,16 @@
         "source": "/sponsor-deck",
         "destination": "https://docs.google.com/presentation/d/e/2PACX-1vSYcIiuMHYZ0LLfK1BsuEeblT1rM5KB-3mMEb6K4sfAR-catKvxThGzTj8z27NXRw/pub?start=false&loop=false&delayms=3000",
         "type": 302
+      },
+      {
+        "source": "/tickets",
+        "destination": "https://www.billetweb.fr/mobile-makers-2027",
+        "type": 302
+      },
+      {
+        "source": "/cfp",
+        "destination": "https://conference-hall.io/mobile-makers-2027",
+        "type": 302
       }
     ],
     "headers": [
