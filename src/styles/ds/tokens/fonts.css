@@ -1,14 +1,8 @@
-/* Display / UI: Gill Sans, self-hosted OTF (assets/fonts). Body: Gill Sans too. Mono: Geist Mono, Google Fonts. */
-@import url("https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400..600&display=swap");
-@font-face{font-family:"Gill Sans";font-weight:300;font-style:normal;font-display:swap;src:url("/fonts/GillSans-Light.otf") format("opentype")}
-@font-face{font-family:"Gill Sans";font-weight:300;font-style:italic;font-display:swap;src:url("/fonts/GillSans-LightItalic.otf") format("opentype")}
-@font-face{font-family:"Gill Sans";font-weight:400;font-style:normal;font-display:swap;src:url("/fonts/GillSans-Regular.otf") format("opentype")}
-@font-face{font-family:"Gill Sans";font-weight:400;font-style:italic;font-display:swap;src:url("/fonts/GillSans-Italic.otf") format("opentype")}
-@font-face{font-family:"Gill Sans";font-weight:500;font-style:normal;font-display:swap;src:url("/fonts/GillSans-Medium.otf") format("opentype")}
-@font-face{font-family:"Gill Sans";font-weight:500;font-style:italic;font-display:swap;src:url("/fonts/GillSans-MediumItalic.otf") format("opentype")}
-@font-face{font-family:"Gill Sans";font-weight:600 700;font-style:normal;font-display:swap;src:url("/fonts/GillSans-Bold.otf") format("opentype")}
-@font-face{font-family:"Gill Sans";font-weight:600 700;font-style:italic;font-display:swap;src:url("/fonts/GillSans-BoldItalic.otf") format("opentype")}
-@font-face{font-family:"Gill Sans";font-weight:800 900;font-style:normal;font-display:swap;src:url("/fonts/GillSans-Heavy.otf") format("opentype")}
-@font-face{font-family:"Gill Sans";font-weight:800 900;font-style:italic;font-display:swap;src:url("/fonts/GillSans-HeavyItalic.otf") format("opentype")}
-@font-face{font-family:"Gill Sans Condensed";font-weight:400;font-style:normal;font-display:swap;src:url("/fonts/GillSans-Condensed.otf") format("opentype")}
-@font-face{font-family:"Gill Sans Condensed";font-weight:700;font-style:normal;font-display:swap;src:url("/fonts/GillSans-CondensedBold.otf") format("opentype")}
+/* Display / UI / body: Gill Sans, self-hosted WOFF2 subsets (Latin + Latin Extended), only the cuts the site uses.
+   Mono: Geist Mono variable (SIL OFL 1.1, Vercel), self-hosted so no request leaves the site. */
+@font-face{font-family:"Gill Sans";font-weight:400;font-style:normal;font-display:swap;src:url("/fonts/GillSans-Regular.woff2") format("woff2")}
+@font-face{font-family:"Gill Sans";font-weight:500;font-style:normal;font-display:swap;src:url("/fonts/GillSans-Medium.woff2") format("woff2")}
+@font-face{font-family:"Gill Sans";font-weight:600 700;font-style:normal;font-display:swap;src:url("/fonts/GillSans-Bold.woff2") format("woff2")}
+@font-face{font-family:"Gill Sans";font-weight:600 700;font-style:italic;font-display:swap;src:url("/fonts/GillSans-BoldItalic.woff2") format("woff2")}
+@font-face{font-family:"Gill Sans Condensed";font-weight:700;font-style:normal;font-display:swap;src:url("/fonts/GillSans-CondensedBold.woff2") format("woff2")}
+@font-face{font-family:"Geist Mono";font-weight:100 900;font-style:normal;font-display:swap;src:url("/fonts/GeistMono-Variable.woff2") format("woff2")}

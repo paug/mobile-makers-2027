@@ -1,6 +1,4 @@
 @import "./ds/tokens/fonts.css";
-@import "tailwindcss";
-@theme { --breakpoint-desk: 1180px; }
 @import "./ds/tokens/colors.css";
 @import "./ds/tokens/typography.css";
 @import "./ds/tokens/spacing.css";
@@ -8,10 +6,20 @@
 @import "./ds/tokens/base.css";
 @import "./components.css";
 
-/* The design was authored against the browser default box model; undo Tailwind preflight's border-box
-   so max-width + padding containers match it. Elements that need border-box set it explicitly. */
-@layer base {
-  *, ::before, ::after { box-sizing: content-box; }
+/* Minimal reset (the design was authored against the browser default box model, so no border-box here) */
+a { text-decoration: none; }
+[hidden] { display: none !important; }
+img, svg { max-width: 100%; }
+button { font: inherit; color: inherit; }
+
+/* Responsive visibility, the "desk" breakpoint is 1180px */
+.mm-desk-flex, .mm-desk-block { display: none; }
+.mm-mobile-flex { display: flex; }
+.mm-mobile-only { display: block; }
+@media (min-width: 1180px) {
+  .mm-desk-flex { display: flex; }
+  .mm-desk-block { display: block; }
+  .mm-mobile-flex, .mm-mobile-only, #mobile-menu:not([hidden]) { display: none; }
 }
 
 @media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }

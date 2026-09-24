@@ -1,0 +1,16 @@
+---
+// Paper tab notched out of a media corner, wearing the card's own surface so it reads as the sheet cut through the photo.
+// Two square steps continue the cut along the media edges. Top-right belongs to the page-ear, so it falls back to top-left.
+type Corner = 'top-left' | 'bottom-left' | 'bottom-right' | 'top-right';
+interface Props { corner?: Corner; style?: string }
+let { corner = 'bottom-left', style = '' } = Astro.props;
+if (corner === 'top-right') corner = 'top-left';
+const [v, h] = corner.split('-');
+const oppV = v === 'top' ? 'bottom' : 'top';
+const oppH = h === 'left' ? 'right' : 'left';
+---
+<div class="mm-folded__inset" style={`${v}:0;${h}:0;${style}`}>
+  <span class="mm-folded__step" aria-hidden="true" style={`${v}:0;${oppH}:-10px`}></span>
+  <span class="mm-folded__step" aria-hidden="true" style={`${h}:0;${oppV}:-10px`}></span>
+  <slot />
+</div>

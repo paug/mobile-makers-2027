@@ -1,0 +1,7 @@
+---
+// Caps pin on a FoldedCard media. Default corner is top-left: top-right belongs to the page-ear.
+interface Props { corner?: 'top-left' | 'bottom-left' | 'bottom-right'; tone?: 'brand' | 'accent' | 'success' | 'paper' | 'ink' }
+const { corner = 'top-left', tone = 'brand' } = Astro.props;
+const [v, h] = corner.split('-');
+---
+<span class:list={['mm-folded__pin', `mm-folded__pin--${tone}`]} style={`${v}:12px;${h}:12px`}><slot /></span>

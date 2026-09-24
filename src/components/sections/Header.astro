@@ -11,21 +11,21 @@ const { t } = m;
     <a href={m.home} aria-label="Mobile Makers" style="display:flex;align-items:center;text-decoration:none;flex:none">
       <img src="/assets/logo/lockup-nav.png" alt="Mobile Makers" height="40" width="115" style="height:40px;width:auto;display:block" />
     </a>
-    <nav aria-label="Sections" class="hidden desk:flex" style="gap:2px;flex-wrap:wrap;justify-content:center">
+    <nav aria-label="Sections" class="mm-desk-flex" style="gap:2px;flex-wrap:wrap;justify-content:center">
       {m.navItems.map((n) => <a href={n.href} class="mm-navlink">{n.label}</a>)}
     </nav>
-    <div class="hidden desk:flex" style="gap:12px;align-items:center;flex:none">
+    <div class="mm-desk-flex" style="gap:12px;align-items:center;flex:none">
       <LangSwitch lang={m.lang} hrefs={m.langHrefs} />
       <Button href={m.home + '#tickets'} size="sm" iconRight="arrow-right">{t.navCta}</Button>
     </div>
-    <div class="flex desk:hidden" style="gap:8px;align-items:center">
+    <div class="mm-mobile-flex" style="gap:8px;align-items:center">
       <LangSwitch lang={m.lang} hrefs={m.langHrefs} />
       <button type="button" class="mm-iconbtn" data-menu-toggle aria-expanded="false" aria-controls="mobile-menu" aria-label={t.menu} title={t.menu}>
         <span data-icon-open><Icon name="menu" /></span><span data-icon-close hidden><Icon name="x" /></span>
       </button>
     </div>
   </div>
-  <nav id="mobile-menu" aria-label={t.menuNav} hidden class="desk:hidden" style="border-top:1px solid rgba(255,255,255,.1);background:var(--graphite);padding:12px 24px 20px;flex-direction:column;gap:4px">
+  <nav id="mobile-menu" aria-label={t.menuNav} hidden class="mm-mobile-only" style="border-top:1px solid rgba(255,255,255,.1);background:var(--graphite);padding:12px 24px 20px;flex-direction:column;gap:4px">
     {m.navItems.map((n) => <a href={n.href} data-menu-close class="mm-navlink-mobile">{n.label}</a>)}
     <div style="margin-top:12px"><Button href={m.home + '#tickets'} fullWidth iconRight="arrow-right" data-menu-close>{t.navCta}</Button></div>
   </nav>

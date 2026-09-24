@@ -1,6 +1,7 @@
 ---
 // Image slot: shows `src` when provided, otherwise a labelled placeholder.
-interface Props { src?: string; alt?: string; placeholder: string }
-const { src, alt = '', placeholder } = Astro.props;
+// `width`/`height` are the image's intrinsic size, so the browser reserves the space before it loads (no layout shift).
+interface Props { src?: string; alt?: string; placeholder: string; width?: number; height?: number }
+const { src, alt = '', placeholder, width, height } = Astro.props;
 ---
-<div class="mm-slot">{src ? <img src={src} alt={alt} loading="lazy" /> : <span>{placeholder}</span>}</div>
+<div class="mm-slot">{src ? <img src={src} alt={alt} width={width} height={height} loading="lazy" decoding="async" /> : <span>{placeholder}</span>}</div>

@@ -10,8 +10,8 @@ const panel = 'background:var(--paper-0);border:1px solid var(--border-subtle);p
 ---
 <section id="team" class="mm-section" data-reveal style="padding-top:96px">
   <div class="mm-wrap">
-    <SectionHead eyebrow={t.teamEyebrow} title={t.teamTitle} lead={t.teamLead} maxWidth={760} />
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,160px),1fr));gap:20px">
+    <SectionHead eyebrow={t.teamEyebrow} title={t.teamTitle} lead={t.teamLead} maxWidth={960} />
+    <div data-unfold style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,160px),1fr));gap:20px">
       {m.team.map((p) => (
         <div style="display:flex;flex-direction:column;gap:10px">
           <div style={`position:relative;aspect-ratio:1;background:${p.hue};width:100%;overflow:hidden`}>

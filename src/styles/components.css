@@ -59,17 +59,49 @@
 @media (pointer: coarse) { .mm-tab { height: 44px; } }
 .mm-tab[aria-selected="true"], .mm-tab[aria-current="page"] { background: var(--paper-0); color: var(--ink-1); box-shadow: var(--shadow-fold-sm); }
 
-/* Dog-ear + Card */
-.mm-dogear {
-  position: absolute; top: 0; right: 0; width: 14px; height: 14px; background: var(--fold-corner-face);
-  clip-path: polygon(0 0,100% 100%,0 100%); box-shadow: inset 1px -1px 2px rgba(40,40,40,.16); pointer-events: none; z-index: 1;
+/* FoldedCard: sheet cut on the diagonal, blurred cast shadow under a lit-to-shade flap, fold grows on hover */
+@property --mm-fold-now { syntax: '<length>'; inherits: true; initial-value: 56px; }
+.mm-folded {
+  --mm-fold-now: var(--mm-fold); --mm-folded-bg: var(--paper-0);
+  position: relative; isolation: isolate; display: block; color: var(--ink-1);
+  filter: drop-shadow(0 18px 32px rgba(40,40,40,.14)) drop-shadow(0 2px 4px rgba(40,40,40,.06));
+  transition: --mm-fold-now var(--dur-spatial-fast) var(--ease-spring-soft), transform var(--dur-spatial-fast) var(--ease-spring-soft), filter var(--dur-effect) var(--ease-emphasized);
 }
-.mm-dogear--paper { background: var(--fold-corner-face-paper); }
-.mm-card { position: relative; box-shadow: var(--shadow-fold); }
-.mm-card__inner {
-  position: relative; background: var(--paper-0); color: var(--ink-1); border: 1px solid var(--border-subtle);
-  clip-path: polygon(0 0,calc(100% - 14px) 0,100% 14px,100% 100%,0 100%); height: 100%; box-sizing: border-box; overflow: hidden;
+.mm-folded--inverse { --mm-folded-bg: var(--graphite); color: var(--text-inverse); }
+.mm-folded:hover, .mm-folded:focus-within {
+  --mm-fold-now: var(--mm-fold-hover); transform: translateY(-2px);
+  filter: drop-shadow(0 24px 40px rgba(40,40,40,.18)) drop-shadow(0 2px 4px rgba(40,40,40,.06));
 }
+.mm-folded__sheet {
+  position: relative; display: flex; flex-direction: column; overflow: hidden; height: 100%; box-sizing: border-box;
+  background: var(--mm-folded-bg); color: inherit; box-shadow: inset 0 0 0 1px var(--border-subtle);
+  clip-path: polygon(0 0, calc(100% - var(--mm-fold-now)) 0, 100% var(--mm-fold-now), 100% 100%, 0 100%);
+}
+.mm-folded--inverse .mm-folded__sheet { box-shadow: none; }
+.mm-folded__cast, .mm-folded__flap {
+  position: absolute; top: 0; right: 0; width: var(--mm-fold-now); height: var(--mm-fold-now);
+  clip-path: polygon(0 0, 0 100%, 100% 100%); pointer-events: none;
+}
+.mm-folded__cast { z-index: 1; background: rgba(40,40,40,.3); filter: blur(5px); transform: translate(-3px,4px) scale(1.04); transform-origin: 0 0; opacity: .9; }
+.mm-folded__flap {
+  z-index: 2; background: linear-gradient(135deg, #fff 0%, var(--paper-0) 55%, #C4C4BE 100%);
+  border-bottom-left-radius: 2px; box-shadow: inset 1px -1px 0 rgba(255,255,255,.35);
+}
+.mm-folded--inverse .mm-folded__flap { background: linear-gradient(135deg, rgba(255,255,255,.34) 0%, var(--graphite) 55%, #0C0C0C 100%); }
+.mm-folded__media { position: relative; overflow: hidden; flex: none; background: var(--paper-2); }
+.mm-folded__media-inner { position: absolute; inset: 0; transition: transform var(--dur-spatial) var(--ease-spring-soft); }
+.mm-folded:hover .mm-folded__media-inner, .mm-folded:focus-within .mm-folded__media-inner { transform: scale(1.04); }
+.mm-folded__inset {
+  position: absolute; z-index: 2; display: flex; align-items: center; gap: 8px; padding: 10px 16px; white-space: nowrap;
+  background: var(--mm-folded-bg); color: inherit; font: var(--type-caps); letter-spacing: var(--tracking-caps);
+}
+.mm-folded__step { position: absolute; width: 10px; height: 10px; background: var(--mm-folded-bg); }
+.mm-folded__pin { position: absolute; z-index: 2; padding: 6px 10px; font: var(--type-caps); letter-spacing: var(--tracking-caps); text-transform: uppercase; box-shadow: var(--shadow-fold-sm); }
+.mm-folded__pin--brand { background: var(--red); color: #fff; }
+.mm-folded__pin--accent { background: var(--cyan); color: var(--ink-1); }
+.mm-folded__pin--success { background: var(--green); color: var(--ink-1); }
+.mm-folded__pin--paper { background: var(--paper-0); color: var(--ink-1); }
+.mm-folded__pin--ink { background: var(--graphite); color: var(--text-inverse); }
 
 /* Badge + Tag */
 .mm-badge {
@@ -88,13 +120,15 @@
 /* Fold: decorative folded-paper facet */
 .mm-fold { flex: none; filter: drop-shadow(0 12px 24px rgba(40,40,40,.14)); }
 
-/* SpeakerCard */
-.mm-speaker { display: block; box-shadow: var(--shadow-fold); transition: transform var(--dur-spatial-fast) var(--ease-spring), box-shadow var(--dur-effect) var(--ease-emphasized); }
-.mm-speaker:hover { box-shadow: var(--shadow-fold-lg); transform: translateY(-2px); }
+/* Hero: title, pitch and why cards share one column grid so their edges line up */
+.mm-hero-grid { display: grid; grid-template-columns: minmax(0,1fr); gap: 20px; }
+@media (min-width: 640px) { .mm-hero-grid { grid-template-columns: repeat(2, minmax(0,1fr)); } }
+@media (min-width: 1024px) {
+  .mm-hero-grid { grid-template-columns: repeat(4, minmax(0,1fr)); }
+  .mm-hero-half { grid-column: span 2; }
+}
 
-/* Hover-lift tiles */
-.mm-why { transition: transform 260ms var(--ease-spring-soft), box-shadow 180ms var(--ease-emphasized); }
-.mm-why:hover { transform: translateY(-3px); box-shadow: var(--shadow-fold-lg); }
+/* Social links */
 .mm-social {
   width: 44px; height: 44px; display: inline-grid; place-items: center; background: var(--paper-0); color: var(--ink-1);
   border: 1px solid var(--border-default); text-decoration: none;
@@ -104,7 +138,8 @@
 
 /* Image placeholder (replaces the prototype's image-slot) */
 .mm-slot { position: absolute; inset: 0; display: grid; place-items: center; padding: 16px; text-align: center;
-  font: 600 12px/1.4 var(--font-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--ink-1); opacity: .6; }
+  font: 600 12px/1.4 var(--font-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--ink-1); }
+.mm-slot span { opacity: .6; }
 .mm-slot img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 
 /* ScrollTitle */
@@ -136,8 +171,38 @@
 .rv { opacity:0; transform:translateY(34px); transition:opacity .55s var(--ease-emphasized), transform .75s var(--ease-spring-soft); }
 .rv.is-in { opacity:1; transform:none; }
 
+/* Unfold: children of [data-unfold] swing open on a top hinge (88deg to flat) one after another, then the page-ear folds in.
+   Classes are set by src/scripts/reveal.ts, so everything stays visible without JS. */
+[data-unfold].uf-wait > * { transform: perspective(1200px) rotateX(calc(-1 * var(--fold-angle))); transform-origin: top center; opacity: 0; }
+[data-unfold].uf-wait .mm-folded { --mm-fold-now: 0px; }
+[data-unfold].uf-go > *, [data-unfold].uf-go .mm-folded {
+  transform-origin: top center;
+  transition: transform var(--dur-spatial) var(--ease-spring-soft) var(--uf-delay), opacity var(--dur-effect) var(--ease-emphasized) var(--uf-delay),
+    --mm-fold-now 480ms var(--ease-spring) calc(var(--uf-delay) + 240ms);
+}
+[data-unfold] > * { --uf-delay: calc(var(--uf-i, 0) * 80ms); }
+
+/* On-screen at load (hero): same unfold in pure CSS so the cards never flash before the script runs.
+   Fill is backwards only, so hover lift and the growing ear take over once the entrance is done. */
+@keyframes mm-unfold { from { transform: perspective(1200px) rotateX(calc(-1 * var(--fold-angle))); opacity: 0; } to { transform: perspective(1200px) rotateX(0); opacity: 1; } }
+@keyframes mm-ear { from { --mm-fold-now: 0px; } }
+.mm-unfold-load {
+  transform-origin: top center;
+  animation: mm-unfold 600ms var(--ease-spring-soft) calc(800ms + var(--uf-i, 0) * 90ms) backwards,
+    mm-ear 480ms var(--ease-spring) calc(1150ms + var(--uf-i, 0) * 90ms) backwards;
+}
+
+/* Hero copy rises in once the logo has landed */
+@keyframes mm-rise { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: none; } }
+.mm-rise { animation: mm-rise .8s var(--ease-spring-soft) var(--rise-delay, 0ms) both; }
+
+/* Count-up figures keep a steady width while they tick */
+[data-count] { font-variant-numeric: tabular-nums; }
+
 @media (prefers-reduced-motion: reduce) {
   .mm-marquee-track { animation:none; }
+  .mm-folded, .mm-folded__media-inner { transition:none; }
+  .mm-rise, .mm-unfold-load { animation:none; }
   .rv { opacity:1; transform:none; transition:none; }
 }
 @media print {

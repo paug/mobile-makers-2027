@@ -1,0 +1,9 @@
+---
+// Media area of a FoldedCard: zooms slightly when the card is hovered.
+interface Props { ratio?: string; height?: string; style?: string }
+const { ratio = '4 / 3', height, style = '' } = Astro.props;
+const size = height ? `height:${height}` : `aspect-ratio:${ratio}`;
+---
+<div class="mm-folded__media" style={`${size};${style}`}>
+  <div class="mm-folded__media-inner"><slot /></div>
+</div>
