@@ -23,7 +23,7 @@ const tracks = [
         <span style="font:400 15px/1.45 var(--font-body);color:var(--ink-2)">{t.agendaNotice}</span>
       </div>
     </div>
-    <div class="desk:hidden" style="margin-bottom:20px">
+    <div class="mm-mobile-only" style="margin-bottom:20px">
       <div class="mm-tabs" role="tablist">
         {tracks.map((tr, i) => <button type="button" class="mm-tab" role="tab" id={`tab-${tr.key}`} aria-controls={`panel-${tr.key}`} data-track-tab={tr.key} aria-selected={i === 0 ? 'true' : 'false'} tabindex={i === 0 ? 0 : -1}>{tr.label}</button>)}
       </div>
