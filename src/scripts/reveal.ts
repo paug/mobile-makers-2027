@@ -13,7 +13,8 @@ if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-mot
     if (r.top < innerHeight && r.bottom > 0) return;
     el.classList.add('rv');
     io.observe(el);
-    setTimeout(() => el.classList.add('is-in'), 4000);
+    // Safety net when the observer never fires (in-app browsers, find-in-page): show after 1.2 s
+    setTimeout(() => el.classList.add('is-in'), 1200);
   });
 }
 

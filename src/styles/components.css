@@ -140,3 +140,7 @@
   .mm-marquee-track { animation:none; }
   .rv { opacity:1; transform:none; transition:none; }
 }
+@media print {
+  .rv { opacity:1; transform:none; transition:none; }
+  .mm-marquee, [data-header], .mm-skip { display:none; }
+}
