@@ -14,7 +14,7 @@
   *, ::before, ::after { box-sizing: content-box; }
 }
 
-html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
 body { margin: 0; background: var(--paper-1); color: var(--ink-1); font: 400 17px/1.5 var(--font-body); -webkit-font-smoothing: antialiased; }
-a { color: var(--cyan-dark); }
+a { color: var(--cyan-text); }
 a:hover { color: var(--ink-1); }

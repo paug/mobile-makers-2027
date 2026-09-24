@@ -8,7 +8,8 @@ import type { Model } from '../../i18n/model';
 const { m } = Astro.props as { m: Model };
 const { t } = m;
 ---
-<div data-reveal style="max-width:1200px;margin:0 auto;padding:clamp(64px,7vw,96px) 24px 0">
+<section data-reveal aria-labelledby="why-title" style="max-width:1200px;margin:0 auto;padding:clamp(64px,7vw,96px) 24px 0">
+  <h2 id="why-title" class="mm-sr-only">{t.whyTitle}</h2>
   <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,165px),1fr));gap:16px">
     {m.why.map((w) => (
       <div class="mm-why" style="position:relative;background:var(--paper-0);border:1px solid var(--border-subtle);box-shadow:var(--shadow-fold-sm);display:flex;flex-direction:column;clip-path:polygon(0 0,calc(100% - 28px) 0,100% 28px,100% 100%,0 100%)">
@@ -26,7 +27,7 @@ const { t } = m;
       </div>
     ))}
   </div>
-</div>
+</section>
 
 <div data-reveal style="max-width:1200px;margin:clamp(64px,7vw,96px) auto 0;padding:0 24px">
   <div style="background:var(--paper-2);padding:clamp(32px,4vw,56px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:40px;align-items:start">

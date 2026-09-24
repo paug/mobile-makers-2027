@@ -5,7 +5,7 @@
 --ink-1:#282828;--ink-2:#454545;--ink-3:#737373;--ink-4:#A6A6A6;
 /* Brand hues, sampled from the Mobile Makers logo; each has a lit face (light), a base and a shadow face (dark) */
 --red:#E8402C;--red-light:#E85038;--red-dark:#B83020;          /* MOBILE, left wing of the M */
---cyan:#20B8E8;--cyan-light:#6FD3F2;--cyan-dark:#1890B8;        /* MAKERS, right wing of the M */
+--cyan:#20B8E8;--cyan-light:#6FD3F2;--cyan-dark:#1890B8;--cyan-text:#146F8F; /* cyan-dark reads 3.7:1 on white; cyan-text is the AA-safe (5.2:1) cut for small text */        /* MAKERS, right wing of the M */
 --green:#3DD16E;--green-light:#8BEBA6;--green-dark:#1F9A4B;     /* Android Makers sub-brand, punchy leaf green */
 --blue:#30A8F0;--blue-light:#A8E0F8;--blue-dark:#1058A8;        /* Flutter Makers sub-brand */
 --graphite:#282828;--graphite-light:#3A3A3A;--graphite-dark:#161616; /* inverse surfaces */
@@ -19,5 +19,5 @@
 --border-default:var(--paper-3);--border-subtle:rgba(40,40,40,.1);--border-strong:var(--ink-1);
 --focus-ring:var(--cyan-dark);
 --success:var(--green);--success-dark:var(--green-dark);--warning:var(--red-light);--warning-dark:var(--red);--danger:var(--red);--danger-dark:var(--red-dark);--info:var(--cyan);--info-dark:var(--cyan-dark);
---link:var(--cyan-dark);--link-hover:var(--ink-1);
+--link:var(--cyan-text);--link-hover:var(--ink-1);
 }

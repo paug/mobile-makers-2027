@@ -1,0 +1,28 @@
+---
+// Served by Firebase Hosting for any unknown URL (dist/404.html). Bilingual, since the URL gives no language.
+import { buildModel } from '../i18n/model';
+import Layout from '../components/Layout.astro';
+import Button from '../components/ds/Button.astro';
+import Fold from '../components/ds/Fold.astro';
+
+const m = buildModel('fr');
+---
+<Layout m={m} title="Page introuvable · Mobile Makers 2027" description="Cette page n'existe pas. Retour à l'accueil de Mobile Makers 2027.">
+  <section class="mm-wrap" style="padding:clamp(64px,8vw,120px) 24px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:40px;align-items:center">
+    <div style="display:flex;flex-direction:column;gap:20px">
+      <div class="mm-eyebrow">404</div>
+      <h1 class="mm-h2" style="margin:0;color:var(--ink-1);font-weight:600">Cette page a été pliée ailleurs.</h1>
+      <p style="margin:0;font:400 19px/1.5 var(--font-body);color:var(--ink-2);text-wrap:pretty">L'adresse n'existe pas ou n'existe plus. Le programme, la billetterie et l'appel à talks sont sur la page d'accueil.</p>
+      <p lang="en" style="margin:0;font:400 17px/1.5 var(--font-body);color:var(--ink-3);text-wrap:pretty">This page does not exist. Everything about Mobile Makers 2027 lives on the home page.</p>
+      <div style="display:flex;gap:12px;flex-wrap:wrap;padding-top:4px">
+        <Button href="/" iconRight="arrow-right">Retour à l'accueil</Button>
+        <Button href="/en/" variant="secondary" lang="en">Back to the home page</Button>
+      </div>
+    </div>
+    <div aria-hidden="true" style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap">
+      <Fold shape="crane" hue="red" size={120} />
+      <Fold shape="kite" hue="cyan" size={120} crease="diagonal" />
+      <Fold shape="shard" hue="green" size={120} rotate={12} />
+    </div>
+  </section>
+</Layout>

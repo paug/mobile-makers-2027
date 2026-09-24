@@ -10,12 +10,12 @@ const { t } = m;
   <div class="mm-wrap" style="position:relative">
     <SectionHead eyebrow={t.sponsorsEyebrow} title={t.sponsorsTitle} lead={t.sponsorsLead} maxWidth={760} inverse />
     <div style="display:flex;flex-direction:column;gap:36px">
-      {m.tiers.map((tier) => (
+      {m.showSponsorTiers && m.tiers.map((tier) => (
         <div style="display:flex;flex-direction:column;gap:14px">
           <div style="display:flex;align-items:center;gap:12px"><span class="mm-label" style="color:var(--cyan-light)">{tier.name}</span><span style="flex:1;height:1px;background:rgba(255,255,255,.1)"></span></div>
           <div style={`display:grid;grid-template-columns:repeat(auto-fit,minmax(min(calc(50% - 6px),${tier.minw}px),1fr));gap:12px`}>
             {tier.tiles.map(() => (
-              <div class="mm-logo-tile" style={`--h:${tier.h}px;--ratio:${tier.ratio}`}><span style="font:600 12px/1.3 var(--font-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-4);text-align:center">{t.logoHere}</span></div>
+              <div class="mm-logo-tile" style={`--h:${tier.h}px;--ratio:${tier.ratio}`}><span style="font:600 12px/1.3 var(--font-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);text-align:center">{t.logoHere}</span></div>
             ))}
           </div>
         </div>

@@ -26,7 +26,7 @@ const { t } = m;
             </ul>
             {tk.available && <Button href={m.L.ticketUrl} target="_blank" fullWidth iconRight="arrow-right">{t.ctaTicket}</Button>}
             {tk.soon && <Button variant="secondary" fullWidth disabled icon="clock">{t.soon}</Button>}
-            {tk.soldOut && <Button variant="secondary" fullWidth disabled>{t.soldOut}</Button>}
+            {tk.ended && <Button variant="secondary" fullWidth disabled>{t.ended}</Button>}
           </div>
         </Card>
       ))}

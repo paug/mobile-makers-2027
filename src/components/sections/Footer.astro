@@ -8,25 +8,25 @@ const { t } = m;
 <footer style="background:var(--graphite);color:var(--paper-1);margin-top:96px">
   <div style="max-width:1200px;margin:0 auto;padding:64px 24px 40px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:40px">
     <div style="display:flex;flex-direction:column;gap:16px">
-      <img src="/assets/logo/lockup.png" alt="Mobile Makers" height="44" width="126" style="height:44px;width:auto;display:block" />
+      <img src="/assets/logo/lockup-nav.png" alt="Mobile Makers" height="44" width="126" style="height:44px;width:auto;display:block;align-self:flex-start" />
       <p style="margin:0;font:400 15px/1.5 var(--font-body);color:var(--paper-3);max-width:34ch;text-wrap:pretty">{t.footerBlurb}</p>
       <Socials socials={m.socials} />
     </div>
     <div style="display:flex;flex-direction:column;gap:14px">
       <div class="mm-label" style="color:var(--cyan-light)">{t.footerSections}</div>
-      <nav style="display:grid;gap:4px">{m.navItems.map((n) => <a href={n.href} class="mm-footlink">{n.label}</a>)}</nav>
+      <nav aria-label={t.footerSections} style="display:grid;gap:4px">{m.navItems.map((n) => <a href={n.href} class="mm-footlink">{n.label}</a>)}</nav>
     </div>
     <div style="display:flex;flex-direction:column;gap:14px">
       <div class="mm-label" style="color:var(--cyan-light)">{t.footerAbout}</div>
-      <nav style="display:grid;gap:4px">{m.footerLinks.map((l) => <a href={l.href} class="mm-footlink">{l.label}</a>)}</nav>
+      <nav aria-label={t.footerAbout} style="display:grid;gap:4px">{m.footerLinks.map((l) => <a href={l.href} class="mm-footlink">{l.label}</a>)}</nav>
     </div>
     <div style="display:flex;flex-direction:column;gap:14px;align-items:flex-start">
       <div class="mm-label" style="color:var(--cyan-light)">{t.footerLang}</div>
-      <LangSwitch lang={m.lang} long />
+      <LangSwitch lang={m.lang} hrefs={m.langHrefs} long />
     </div>
   </div>
   <div style="border-top:1px solid rgba(255,255,255,.1)">
-    <div style="max-width:1200px;margin:0 auto;padding:18px 24px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 24px;font:600 12px/1.4 var(--font-mono);letter-spacing:.12em;text-transform:uppercase;color:var(--paper-3)"><span>{t.copyright}</span><span>MADE IN PARIS · FOLDED BY HAND</span></div>
+    <div style="max-width:1200px;margin:0 auto;padding:18px 24px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 24px;font:600 12px/1.4 var(--font-mono);letter-spacing:.12em;text-transform:uppercase;color:var(--paper-3)"><span>{t.copyright}</span><span>MADE IN PARIS · FOLDED BY HAND</span>{/* Brand line, deliberately kept in English on both languages */}</div>
   </div>
 </footer>
 

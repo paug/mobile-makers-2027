@@ -1,0 +1,37 @@
+---
+// Document shell shared by the landing page and the legal pages: head, sticky header, footer.
+import '../styles/global.css';
+import type { Model } from '../i18n/model';
+import Header from './sections/Header.astro';
+import Footer from './sections/Footer.astro';
+
+interface Props { m: Model; title: string; description: string }
+const { m, title, description } = Astro.props;
+---
+<!doctype html>
+<html lang={m.lang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="alternate" hreflang="fr" href={m.langHrefs.fr} />
+    <link rel="alternate" hreflang="en" href={m.langHrefs.en} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/favicon-32x32.png" type="image/png" sizes="32x32" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <meta name="theme-color" content="#282828" />
+  </head>
+  <body>
+    <a href="#main" class="mm-skip">{m.t.skip}</a>
+    <div style="min-height:100vh;overflow-x:clip">
+      <Header m={m} />
+      <main id="main" tabindex="-1">
+        <slot />
+      </main>
+      <Footer m={m} />
+    </div>
+    <script src="../scripts/reveal.ts"></script>
+  </body>
+</html>

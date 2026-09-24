@@ -7,27 +7,27 @@ const { m } = Astro.props as { m: Model };
 const { t } = m;
 ---
 <header data-header style="position:sticky;top:0;z-index:50;background:var(--graphite);border-bottom:1px solid rgba(255,255,255,.1);color:var(--paper-1)">
-  <div style="max-width:1200px;margin:0 auto;padding:0 24px;height:72px;display:flex;align-items:center;justify-content:space-between;gap:16px">
-    <a href="#event" aria-label="Mobile Makers" style="display:flex;align-items:center;text-decoration:none;flex:none">
-      <img src="/assets/logo/lockup.png" alt="Mobile Makers" height="40" width="115" style="height:40px;width:auto;display:block" />
+  <div class="mm-header-bar" style="max-width:1200px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;gap:16px">
+    <a href={m.home} aria-label="Mobile Makers" style="display:flex;align-items:center;text-decoration:none;flex:none">
+      <img src="/assets/logo/lockup-nav.png" alt="Mobile Makers" height="40" width="115" style="height:40px;width:auto;display:block" />
     </a>
     <nav aria-label="Sections" class="hidden desk:flex" style="gap:2px;flex-wrap:wrap;justify-content:center">
       {m.navItems.map((n) => <a href={n.href} class="mm-navlink">{n.label}</a>)}
     </nav>
     <div class="hidden desk:flex" style="gap:12px;align-items:center;flex:none">
-      <LangSwitch lang={m.lang} />
-      <Button href="#tickets" size="sm" iconRight="arrow-right">{t.navCta}</Button>
+      <LangSwitch lang={m.lang} hrefs={m.langHrefs} />
+      <Button href={m.home + '#tickets'} size="sm" iconRight="arrow-right">{t.navCta}</Button>
     </div>
     <div class="flex desk:hidden" style="gap:8px;align-items:center">
-      <LangSwitch lang={m.lang} />
+      <LangSwitch lang={m.lang} hrefs={m.langHrefs} />
       <button type="button" class="mm-iconbtn" data-menu-toggle aria-expanded="false" aria-controls="mobile-menu" aria-label={t.menu} title={t.menu}>
         <span data-icon-open><Icon name="menu" /></span><span data-icon-close hidden><Icon name="x" /></span>
       </button>
     </div>
   </div>
-  <nav id="mobile-menu" aria-label="Sections" hidden class="desk:hidden" style="border-top:1px solid rgba(255,255,255,.1);background:var(--graphite);padding:12px 24px 20px;flex-direction:column;gap:4px">
+  <nav id="mobile-menu" aria-label={t.menuNav} hidden class="desk:hidden" style="border-top:1px solid rgba(255,255,255,.1);background:var(--graphite);padding:12px 24px 20px;flex-direction:column;gap:4px">
     {m.navItems.map((n) => <a href={n.href} data-menu-close class="mm-navlink-mobile">{n.label}</a>)}
-    <div style="margin-top:12px"><Button href="#tickets" fullWidth iconRight="arrow-right" data-menu-close>{t.navCta}</Button></div>
+    <div style="margin-top:12px"><Button href={m.home + '#tickets'} fullWidth iconRight="arrow-right" data-menu-close>{t.navCta}</Button></div>
   </nav>
 </header>
 
@@ -37,18 +37,32 @@ const { t } = m;
   .mm-navlink-mobile { font: 500 20px/1 var(--font-display); color: var(--paper-1); text-decoration: none; height: 52px; display: flex; align-items: center; padding: 0 8px; border-bottom: 1px solid rgba(255,255,255,.1); }
   .mm-navlink-mobile:hover { color: var(--paper-1); background: var(--graphite-light); }
   #mobile-menu:not([hidden]) { display: flex; }
+  .mm-header-bar { height: 72px; }
+  @media (max-width: 1179.98px) { .mm-header-bar { height: 60px; } }
+  /* Open menu fills the viewport below the bar so the page cannot scroll away underneath */
+  @media (max-width: 1179.98px) { #mobile-menu:not([hidden]) { position: fixed; inset: 60px 0 0; overflow-y: auto; z-index: 49; } }
+  body.mm-menu-open { overflow: hidden; }
 </style>
 
 <script>
   const toggle = document.querySelector<HTMLButtonElement>('[data-menu-toggle]');
   const menu = document.getElementById('mobile-menu');
+  const header = document.querySelector<HTMLElement>('[data-header]');
   const set = (open: boolean) => {
     if (!toggle || !menu) return;
     menu.hidden = !open;
     toggle.setAttribute('aria-expanded', String(open));
     toggle.querySelector<HTMLElement>('[data-icon-open]')!.hidden = open;
     toggle.querySelector<HTMLElement>('[data-icon-close]')!.hidden = !open;
+    document.body.classList.toggle('mm-menu-open', open);
+    if (open) menu.querySelector<HTMLElement>('a')?.focus();
+    else if (document.activeElement && menu.contains(document.activeElement)) toggle.focus();
   };
-  toggle?.addEventListener('click', () => set(menu!.hidden !== false));
+  const isOpen = () => !!menu && !menu.hidden;
+  toggle?.addEventListener('click', () => set(!isOpen()));
   document.querySelectorAll('[data-menu-close]').forEach((el) => el.addEventListener('click', () => set(false)));
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && isOpen()) set(false); });
+  document.addEventListener('pointerdown', (e) => { if (isOpen() && header && !header.contains(e.target as Node)) set(false); });
+  // Leaving the mobile breakpoint closes the menu so the desktop nav is not stuck with body scroll locked
+  window.matchMedia('(min-width: 1180px)').addEventListener('change', (e) => { if (e.matches && isOpen()) set(false); });
 </script>
