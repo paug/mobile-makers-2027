@@ -5,7 +5,9 @@ export const STATES = {
   showAgenda: false,
   cfpOpen: true,
   speakersAnnounced: false,
-  ticketPhase: 'early' as 'early' | 'regular',
+  showSponsorTiers: false,
+  // 'soon': ticketing not open yet, every tier shows "opening soon"
+  ticketPhase: 'soon' as 'soon' | 'early' | 'regular',
 };
 
 export const LINKS = {
@@ -21,14 +23,15 @@ export const LINKS = {
   youtubeUrl: '',
 };
 
-// [name, hue, LinkedIn URL]; leave the URL empty to hide the link
-export const TEAM: [string, Hue, string][] = [
-  ['Edouard Marquez', 'red', ''],
-  ['Martin Bonnin', 'cyan', ''],
-  ['Alex Bruneau', 'green', ''],
-  ['Benjamin Gonin', 'blue', ''],
-  ['Renaud Mathieu', 'cyan', ''],
-  ['Nicolas Guillot', 'red', ''],
+// [name, hue, LinkedIn URL, photo]; leave the URL empty to hide the link.
+// Photo: path under public/ (e.g. '/assets/team/renaud.jpg'); empty shows a plain colour block.
+export const TEAM: [string, Hue, string, string][] = [
+  ['Edouard Marquez', 'red', '', ''],
+  ['Martin Bonnin', 'cyan', '', ''],
+  ['Alex Bruneau', 'green', '', ''],
+  ['Benjamin Gonin', 'blue', '', ''],
+  ['Renaud Mathieu', 'cyan', '', ''],
+  ['Nicolas Guillot', 'red', '', ''],
 ];
 
 export type Hue = 'red' | 'cyan' | 'green' | 'blue';

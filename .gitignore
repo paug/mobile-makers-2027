@@ -4,3 +4,6 @@ dist/
 .DS_Store
 .firebase/
 firebase-debug.log
+
+# Local secrets (React Bits Pro license key, etc.)
+.env*

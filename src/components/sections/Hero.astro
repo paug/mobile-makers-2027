@@ -4,29 +4,25 @@ import ScrollTitle from '../ds/ScrollTitle.astro';
 import type { Model } from '../../i18n/model';
 const { m } = Astro.props as { m: Model };
 const { t } = m;
-const pieces = ['rect-blue', 'rect-red', 'tri-red', 'tri-blue', 'band', 'shadow mm-shadow-1', 'shadow mm-shadow-2', 'shadow mm-shadow-3'];
 ---
 <section id="event" class="mm-section" style="position:relative;overflow:hidden;background:var(--graphite);color:var(--paper-1)">
-  <div style="max-width:1200px;margin:0 auto;padding:clamp(48px,6vw,88px) 24px clamp(48px,5vw,72px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,520px),1fr));gap:40px;align-items:center;position:relative;z-index:1;min-height:calc(100vh - 220px)">
-    <div style="display:flex;flex-direction:column;gap:clamp(20px,2.2vw,30px);min-width:0">
-      <div style="display:flex;align-items:center;gap:12px"><span aria-hidden="true" style="width:36px;height:2px;background:var(--red);flex:none"></span><span style="font:600 13px/1.4 var(--font-mono);letter-spacing:.14em;text-transform:uppercase;color:var(--cyan-light)">{t.heroEyebrow}</span></div>
-      <ScrollTitle as="h1"><span style="display:block;font-family:var(--font-display);font-size:clamp(46px,7.6vw,116px);line-height:.94;letter-spacing:-0.025em;color:var(--paper-0);text-wrap:balance">{m.heroA}<br /><em style="font-style:italic;color:var(--cyan)">{m.heroB}</em></span></ScrollTitle>
-      <p style="margin:0;font:400 clamp(18px,1.6vw,22px)/1.5 var(--font-body);color:var(--paper-3);max-width:48ch;text-wrap:pretty">{t.heroSub}</p>
-      <div style="display:flex;gap:14px;flex-wrap:wrap">
-        <Button href="#tickets" size="lg" iconRight="arrow-right">{t.ctaTicket}</Button>
-        <Button href="#cfp" size="lg" variant="accent">{t.ctaTalk}</Button>
-      </div>
-      <dl style="margin:0;display:flex;flex-wrap:wrap;gap:12px 32px;padding-top:12px;border-top:1px solid rgba(255,255,255,.1)">
-        {m.heroFacts.map((f) => (
-          <div style="display:flex;align-items:baseline;gap:10px"><dt style="font:700 clamp(40px,3.6vw,56px)/.9 var(--font-display-condensed);letter-spacing:-0.02em;color:var(--paper-0)">{f.n}</dt><dd style="margin:0;font:500 14px/1.2 var(--font-display);letter-spacing:.02em;color:var(--paper-3)">{f.l}</dd></div>
-        ))}
-      </dl>
-    </div>
-    <div aria-hidden="true" class="hidden desk:flex" style="position:relative;height:clamp(440px,46vw,560px);min-width:0;align-items:center;justify-content:center">
-      <div class="mm-logo is-folding" data-logo-fold>
-        <div class="mm-stage">{pieces.map((p) => <div class={`mm-piece mm-${p}`}></div>)}</div>
+  <div style="max-width:1200px;margin:0 auto;padding:clamp(40px,5vw,72px) 24px clamp(48px,5vw,72px);display:flex;flex-direction:column;gap:clamp(32px,4vw,56px);position:relative;z-index:1">
+    <img src="/assets/logo/lockup-date-on-dark.png" alt={t.heroLogoAlt} width="1200" height="419" fetchpriority="high" style="display:block;width:100%;max-width:1040px;height:auto;margin:0 auto" />
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,440px),1fr));gap:20px 56px;align-items:end;padding-top:clamp(24px,3vw,40px);border-top:1px solid rgba(255,255,255,.1)">
+      <ScrollTitle as="h1" style="margin:0"><span style="display:block;font-family:var(--font-display);font-size:clamp(30px,3.6vw,52px);line-height:1;letter-spacing:-0.015em;color:var(--paper-0);text-wrap:balance">{m.heroA}<br /><em style="font-style:italic;color:var(--cyan)">{m.heroB}</em></span></ScrollTitle>
+      <div style="display:flex;flex-direction:column;gap:20px;min-width:0">
+        <p style="margin:0;font:400 clamp(16px,1.3vw,18px)/1.5 var(--font-body);color:var(--paper-3);max-width:52ch;text-wrap:pretty">{t.heroSub}</p>
+        <div style="display:flex;gap:12px;flex-wrap:wrap">
+          <Button href="#tickets" iconRight="arrow-right">{t.ctaTicket}</Button>
+          <Button href="#cfp" variant="accent">{t.ctaTalk}</Button>
+        </div>
       </div>
     </div>
+    <dl style="margin:0;display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px 32px">
+      {m.heroFacts.map((f) => (
+        <div style="display:flex;align-items:baseline;gap:10px"><dt style="font:700 clamp(32px,3vw,44px)/.9 var(--font-display-condensed);letter-spacing:-0.02em;color:var(--paper-0)">{f.n}</dt><dd style="margin:0;font:500 14px/1.2 var(--font-display);letter-spacing:.02em;color:var(--paper-3)">{f.l}</dd></div>
+      ))}
+    </dl>
   </div>
   <div aria-hidden="true" style="position:absolute;left:-10%;right:-10%;bottom:-40%;height:60%;background:radial-gradient(ellipse at 30% 100%, rgba(32,184,232,.22), transparent 60%), radial-gradient(ellipse at 75% 100%, rgba(232,64,44,.18), transparent 55%);pointer-events:none"></div>
 </section>
@@ -38,14 +34,3 @@ const pieces = ['rect-blue', 'rect-red', 'tri-red', 'tri-blue', 'band', 'shadow 
     ))}
   </div>
 </div>
-
-<script>
-  // Click replays the fold animation
-  document.querySelectorAll<HTMLElement>('[data-logo-fold]').forEach((el) => {
-    el.addEventListener('click', () => {
-      el.classList.remove('is-folding');
-      void el.offsetWidth;
-      el.classList.add('is-folding');
-    });
-  });
-</script>
