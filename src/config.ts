@@ -16,7 +16,7 @@ export const LINKS = {
   cfpUrl: 'https://mobilemakers.fr/cfp',
   sponsorUrl: 'https://mobilemakers.fr/sponsor-deck',
   mapsUrl: 'https://www.google.com/maps/search/?api=1&query=UGC+Cin%C3%A9+Cit%C3%A9+Bercy+Paris',
-  linkedinUrl: '',
+  linkedinUrl: 'https://www.linkedin.com/company/paris-android-user-group/',
   xUrl: '',
   youtubeUrl: '',
 };
