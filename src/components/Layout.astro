@@ -7,6 +7,12 @@ import Footer from './sections/Footer.astro';
 
 interface Props { m: Model; title: string; description: string }
 const { m, title, description } = Astro.props;
+const site = (Astro.site ?? new URL('https://mobilemakers.fr')).origin;
+const abs = (path: string) => site + path;
+const canonical = abs(Astro.url.pathname);
+const ogImage = abs('/assets/og/cover.png');
+const locale = m.lang === 'fr' ? 'fr_FR' : 'en_US';
+const altLocale = m.lang === 'fr' ? 'en_US' : 'fr_FR';
 ---
 <!doctype html>
 <html lang={m.lang}>
@@ -15,8 +21,25 @@ const { m, title, description } = Astro.props;
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
     <meta name="description" content={description} />
-    <link rel="alternate" hreflang="fr" href={m.langHrefs.fr} />
-    <link rel="alternate" hreflang="en" href={m.langHrefs.en} />
+    <link rel="canonical" href={canonical} />
+    <link rel="alternate" hreflang="fr" href={abs(m.langHrefs.fr)} />
+    <link rel="alternate" hreflang="en" href={abs(m.langHrefs.en)} />
+    <link rel="alternate" hreflang="x-default" href={abs(m.langHrefs.fr)} />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Mobile Makers 2027" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={m.t.heroLogoAlt} />
+    <meta property="og:locale" content={locale} />
+    <meta property="og:locale:alternate" content={altLocale} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
     <link rel="preload" href="/fonts/GillSans-Bold.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="/fonts/GillSans-Regular.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
