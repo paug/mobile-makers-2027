@@ -13,12 +13,45 @@ import Team from './sections/Team.astro';
 
 const { lang } = Astro.props as { lang: Lang };
 const m = buildModel(lang);
+const { t } = m;
 const meta = {
   fr: { title: 'Mobile Makers 2027 · 30 avril · Paris', description: "Mobile Makers, la conférence Android et Flutter. Une journée de talks, d'ateliers et de conversations, le 30 avril 2027 à l'UGC Ciné Cité Bercy, Paris. Organisée par le PAUG." },
   en: { title: 'Mobile Makers 2027 · April 30 · Paris', description: 'Mobile Makers, the Android and Flutter conference. One day of talks, workshops and conversations, April 30, 2027 at UGC Ciné Cité Bercy, Paris. Run by PAUG.' },
 }[lang];
+
+// schema.org Event, kept in sync with the visible content (offers follow ticketPhase).
+const site = 'https://mobilemakers.fr';
+const availability: Record<string, string> = { available: 'https://schema.org/InStock', soon: 'https://schema.org/PreOrder', ended: 'https://schema.org/SoldOut' };
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Event',
+  name: 'Mobile Makers 2027',
+  description: meta.description,
+  startDate: '2027-04-30T08:30:00+02:00',
+  endDate: '2027-04-30T20:00:00+02:00',
+  eventStatus: 'https://schema.org/EventScheduled',
+  eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
+  inLanguage: ['fr', 'en'],
+  url: site + m.home,
+  image: [site + '/assets/logo/lockup-date-on-dark.png'],
+  location: {
+    '@type': 'Place',
+    name: 'UGC Ciné Cité Bercy',
+    address: { '@type': 'PostalAddress', streetAddress: '2 Cour Saint-Émilion', postalCode: '75012', addressLocality: 'Paris', addressCountry: 'FR' },
+  },
+  organizer: { '@type': 'Organization', name: 'Paris Android User Group (PAUG)', url: site, email: 'contact@mobilemakers.fr' },
+  offers: m.tickets.map((tk, i) => ({
+    '@type': 'Offer',
+    name: tk.name,
+    price: t.prices[i],
+    priceCurrency: 'EUR',
+    availability: availability[tk.available ? 'available' : tk.soon ? 'soon' : 'ended'],
+    url: m.L.ticketUrl,
+  })),
+};
 ---
 <Layout m={m} title={meta.title} description={meta.description}>
+  <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
   <Hero m={m} />
   <WhyVenue m={m} />
   {m.showAgenda && <Agenda m={m} />}
