@@ -24,11 +24,11 @@ export const LINKS = {
 // [name, hue, LinkedIn URL, photo]; leave the URL empty to hide the link.
 // Photo: path under public/ (e.g. '/assets/team/renaud.jpg'); empty shows a plain colour block.
 export const TEAM: [string, Hue, string, string][] = [
-  ['Edouard Marquez', 'red', 'https://www.linkedin.com/in/edouard-marquez-32431514/', ''],
+  ['Edouard Marquez', 'red', 'https://www.linkedin.com/in/edouard-marquez-32431514/', '/assets/team/edouard.jpg'],
   ['Martin Bonnin', 'cyan', 'https://www.linkedin.com/in/martinbonnin/', ''],
-  ['Alex Bruneau', 'green', 'https://www.linkedin.com/in/alexandre-bruneau-03380654/', ''],
+  ['Alex Bruneau', 'green', 'https://www.linkedin.com/in/alexandre-bruneau-03380654/', '/assets/team/alex.jpg'],
   ['Benjamin Gonin', 'blue', 'https://www.linkedin.com/in/benjamingonin/', ''],
-  ['Renaud Mathieu', 'cyan', 'https://www.linkedin.com/in/renaudmathieu1/', ''],
+  ['Renaud Mathieu', 'cyan', 'https://www.linkedin.com/in/renaudmathieu1/', '/assets/team/renaud.jpg'],
   ['Nicolas Guillot', 'red', 'https://www.linkedin.com/in/guillotnico/', ''],
 ];
 

@@ -17,7 +17,11 @@ const { m, title, description } = Astro.props;
     <meta name="description" content={description} />
     <link rel="alternate" hreflang="fr" href={m.langHrefs.fr} />
     <link rel="alternate" hreflang="en" href={m.langHrefs.en} />
-    <link rel="icon" href="/assets/logo/lockup.png" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/favicon-32x32.png" type="image/png" sizes="32x32" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <meta name="theme-color" content="#282828" />
   </head>
   <body>
     <div style="min-height:100vh;overflow-x:clip">
