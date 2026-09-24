@@ -25,7 +25,7 @@ const { t } = m;
       </button>
     </div>
   </div>
-  <nav id="mobile-menu" aria-label="Sections" hidden class="desk:hidden" style="border-top:1px solid rgba(255,255,255,.1);background:var(--graphite);padding:12px 24px 20px;flex-direction:column;gap:4px">
+  <nav id="mobile-menu" aria-label={t.menuNav} hidden class="desk:hidden" style="border-top:1px solid rgba(255,255,255,.1);background:var(--graphite);padding:12px 24px 20px;flex-direction:column;gap:4px">
     {m.navItems.map((n) => <a href={n.href} data-menu-close class="mm-navlink-mobile">{n.label}</a>)}
     <div style="margin-top:12px"><Button href={m.home + '#tickets'} fullWidth iconRight="arrow-right" data-menu-close>{t.navCta}</Button></div>
   </nav>

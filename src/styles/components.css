@@ -5,7 +5,12 @@
 .mm-section { scroll-margin-top: 88px; }
 .mm-wrap { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
 
-/* Button */
+/* Skip link: off screen until focused */
+.mm-skip { position: absolute; left: 16px; top: -100px; z-index: 100; padding: 12px 16px; background: var(--paper-0); color: var(--ink-1); font: 600 15px/1 var(--font-display); text-decoration: none; box-shadow: var(--shadow-fold); }
+.mm-skip:focus { top: 16px; }
+.mm-sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+
+/* Button
 .mm-btn {
   display: inline-flex; align-items: center; justify-content: center; gap: 10px;
   height: var(--control-md); padding: 0 20px; font: var(--weight-semibold) var(--text-md)/1 var(--font-body);
@@ -51,6 +56,7 @@
   transition: background var(--dur-effect) var(--ease-emphasized), box-shadow var(--dur-effect), color var(--dur-effect);
 }
 .mm-tab:hover { color: var(--ink-1); }
+@media (pointer: coarse) { .mm-tab { height: 44px; } }
 .mm-tab[aria-selected="true"], .mm-tab[aria-current="page"] { background: var(--paper-0); color: var(--ink-1); box-shadow: var(--shadow-fold-sm); }
 
 /* Dog-ear + Card */

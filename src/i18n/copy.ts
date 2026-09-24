@@ -1,6 +1,7 @@
 // UI copy, ported from the Claude Design prototype.
 export const T = {
   fr: {
+    skip: 'Aller au contenu', menuNav: 'Menu mobile', langSwitch: 'Langue', whyTitle: 'Pourquoi Mobile Makers',
     menu: 'Menu', navCta: 'Prendre mon billet', ctaTicket: 'Prendre mon billet', ctaTalk: 'Proposer un talk', ctaSponsor: 'Devenir sponsor', ctaVolunteer: 'Rejoindre les bénévoles', ctaAgenda: "Voir l'agenda",
     nav: ["L'évènement", 'Agenda', 'Speakers', 'Sponsors', 'Billetterie', 'Appel à talks', "L'équipe"],
     heroLogoAlt: 'Mobile Makers, 30 avril, Paris', heroTitle: 'Android et Flutter. Une journée, une communauté.',
@@ -40,6 +41,7 @@ export const T = {
     copyright: '© ' + new Date().getFullYear() + ' Mobile Makers · PAUG'
   },
   en: {
+    skip: 'Skip to content', menuNav: 'Mobile menu', langSwitch: 'Language', whyTitle: 'Why Mobile Makers',
     menu: 'Menu', navCta: 'Get my ticket', ctaTicket: 'Get my ticket', ctaTalk: 'Submit a talk', ctaSponsor: 'Become a sponsor', ctaVolunteer: 'Join the volunteers', ctaAgenda: 'See the schedule',
     nav: ['Event', 'Schedule', 'Speakers', 'Sponsors', 'Tickets', 'Call for papers', 'Team'],
     heroLogoAlt: 'Mobile Makers, April 30, Paris', heroTitle: 'Android and Flutter. One day, one community.',

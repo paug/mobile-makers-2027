@@ -20,7 +20,7 @@ const { t } = m;
     </div>
     <dl style="margin:0;display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px 32px">
       {m.heroFacts.map((f) => (
-        <div style="display:flex;align-items:baseline;gap:10px"><dt style="font:700 clamp(32px,3vw,44px)/.9 var(--font-display-condensed);letter-spacing:-0.02em;color:var(--paper-0)">{f.n}</dt><dd style="margin:0;font:500 14px/1.2 var(--font-display);letter-spacing:.02em;color:var(--paper-3)">{f.l}</dd></div>
+        <div style="display:flex;flex-direction:row-reverse;justify-content:flex-end;align-items:baseline;gap:10px"><dt style="font:500 14px/1.2 var(--font-display);letter-spacing:.02em;color:var(--paper-3)">{f.l}</dt><dd style="margin:0;font:700 clamp(32px,3vw,44px)/.9 var(--font-display-condensed);letter-spacing:-0.02em;color:var(--paper-0)">{f.n}</dd></div>
       ))}
     </dl>
   </div>
