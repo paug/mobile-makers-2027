@@ -27,9 +27,9 @@ export const TEAM: [string, Hue, string, string][] = [
   ['Edouard Marquez', 'red', 'https://www.linkedin.com/in/edouard-marquez-32431514/', '/assets/team/edouard.jpg'],
   ['Martin Bonnin', 'cyan', 'https://www.linkedin.com/in/martinbonnin/', ''],
   ['Alex Bruneau', 'green', 'https://www.linkedin.com/in/alexandre-bruneau-03380654/', '/assets/team/alex.jpg'],
-  ['Benjamin Gonin', 'blue', 'https://www.linkedin.com/in/benjamingonin/', ''],
+  ['Benjamin Gonin', 'blue', 'https://www.linkedin.com/in/benjamingonin/', '/assets/team/benjamin.jpg'],
   ['Renaud Mathieu', 'cyan', 'https://www.linkedin.com/in/renaudmathieu1/', '/assets/team/renaud.jpg'],
-  ['Nicolas Guillot', 'red', 'https://www.linkedin.com/in/guillotnico/', ''],
+  ['Nicolas Guillot', 'red', 'https://www.linkedin.com/in/guillotnico/', '/assets/team/nicolas.jpg'],
 ];
 
 export type Hue = 'red' | 'cyan' | 'green' | 'blue';
