@@ -10,7 +10,7 @@ const isz = size === 'sm' ? 16 : size === 'lg' ? 22 : 18;
 const Tag = href && !disabled ? 'a' : 'button';
 // mailto: with target=_blank opens an empty tab in some browsers, so only http(s) links open in a new tab
 if (rest.target === '_blank' && !String(href ?? '').startsWith('http')) delete rest.target;
-const ext = rest.target === '_blank' ? { rel: 'noreferrer' } : {};
+const ext = rest.target === '_blank' ? { rel: 'noopener noreferrer' } : {};
 ---
 <Tag class:list={classes} href={Tag === 'a' ? href : undefined} disabled={Tag === 'button' ? disabled : undefined} {...ext} {...rest}>
   {icon && <Icon name={icon} size={isz} />}<slot />{iconRight && <Icon name={iconRight} size={isz} />}

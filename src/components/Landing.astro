@@ -14,40 +14,69 @@ import Team from './sections/Team.astro';
 const { lang } = Astro.props as { lang: Lang };
 const m = buildModel(lang);
 const { t } = m;
+// Title under 70 characters and description under 160, so search results show them in full.
 const meta = {
-  fr: { title: 'Mobile Makers 2027 · 30 avril · Paris', description: "Mobile Makers, la conférence Android et Flutter. Une journée de talks, d'ateliers et de conversations, le 30 avril 2027 à l'UGC Ciné Cité Bercy, Paris. Organisée par le PAUG." },
-  en: { title: 'Mobile Makers 2027 · April 30 · Paris', description: 'Mobile Makers, the Android and Flutter conference. One day of talks, workshops and conversations, April 30, 2027 at UGC Ciné Cité Bercy, Paris. Run by PAUG.' },
+  fr: { title: 'Mobile Makers 2027 : conférence Android et Flutter, 30 avril, Paris', description: "La conférence Android et Flutter à Paris. Talks, ateliers et rencontres le 30 avril 2027 à l'UGC Ciné Cité Bercy. Organisée par le PAUG." },
+  en: { title: 'Mobile Makers 2027: Android and Flutter conference, April 30, Paris', description: 'The Android and Flutter conference in Paris. Talks, workshops and meetups on April 30, 2027 at UGC Ciné Cité Bercy. Run by PAUG.' },
 }[lang];
 
-// schema.org Event, kept in sync with the visible content (offers follow ticketPhase).
+// schema.org graph: the Event, its organizer and the website. Kept in sync with the visible content
+// (offers follow ticketPhase, performers appear once the speakers are announced).
 const site = 'https://mobilemakers.fr';
 const availability: Record<string, string> = { available: 'https://schema.org/InStock', soon: 'https://schema.org/PreOrder', ended: 'https://schema.org/SoldOut' };
+const orgId = site + '/#organization';
+const sameAs = [m.L.linkedinUrl, m.L.xUrl, m.L.youtubeUrl].filter(Boolean);
+const performers = m.speakersAnnounced ? m.speakers.map((s) => ({ '@type': 'Person', name: s.name })) : [];
 const jsonLd = {
   '@context': 'https://schema.org',
-  '@type': 'Event',
-  name: 'Mobile Makers 2027',
-  description: meta.description,
-  startDate: '2027-04-30T08:30:00+02:00',
-  endDate: '2027-04-30T20:00:00+02:00',
-  eventStatus: 'https://schema.org/EventScheduled',
-  eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
-  inLanguage: ['fr', 'en'],
-  url: site + m.home,
-  image: [site + '/assets/logo/lockup-date-on-dark.png'],
-  location: {
-    '@type': 'Place',
-    name: 'UGC Ciné Cité Bercy',
-    address: { '@type': 'PostalAddress', streetAddress: '2 Cour Saint-Émilion', postalCode: '75012', addressLocality: 'Paris', addressCountry: 'FR' },
-  },
-  organizer: { '@type': 'Organization', name: 'Paris Android User Group (PAUG)', url: site, email: 'contact@mobilemakers.fr' },
-  offers: m.tickets.map((tk, i) => ({
-    '@type': 'Offer',
-    name: tk.name,
-    price: t.prices[i],
-    priceCurrency: 'EUR',
-    availability: availability[tk.available ? 'available' : tk.soon ? 'soon' : 'ended'],
-    url: m.L.ticketUrl,
-  })),
+  '@graph': [
+    {
+      '@type': 'Organization',
+      '@id': orgId,
+      name: 'Paris Android User Group (PAUG)',
+      alternateName: 'PAUG',
+      url: site,
+      logo: site + '/assets/logo/lockup-date-on-dark.png',
+      email: 'contact@mobilemakers.fr',
+      ...(sameAs.length && { sameAs }),
+    },
+    {
+      '@type': 'WebSite',
+      '@id': site + '/#website',
+      name: 'Mobile Makers 2027',
+      url: site + '/',
+      inLanguage: ['fr', 'en'],
+      publisher: { '@id': orgId },
+    },
+    {
+      '@type': 'Event',
+      '@id': site + '/#event',
+      name: 'Mobile Makers 2027',
+      description: meta.description,
+      startDate: '2027-04-30T08:30:00+02:00',
+      endDate: '2027-04-30T20:00:00+02:00',
+      eventStatus: 'https://schema.org/EventScheduled',
+      eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
+      inLanguage: ['fr', 'en'],
+      url: site + m.home,
+      image: [site + '/assets/og/cover.png', site + '/assets/logo/lockup-date-on-dark.png'],
+      location: {
+        '@type': 'Place',
+        name: 'UGC Ciné Cité Bercy',
+        address: { '@type': 'PostalAddress', streetAddress: '2 Cour Saint-Émilion', postalCode: '75012', addressLocality: 'Paris', addressCountry: 'FR' },
+      },
+      organizer: { '@id': orgId },
+      ...(performers.length && { performer: performers }),
+      offers: m.tickets.map((tk, i) => ({
+        '@type': 'Offer',
+        name: tk.name,
+        price: t.prices[i],
+        priceCurrency: 'EUR',
+        availability: availability[tk.available ? 'available' : tk.soon ? 'soon' : 'ended'],
+        url: m.L.ticketUrl,
+      })),
+    },
+  ],
 };
 ---
 <Layout m={m} title={meta.title} description={meta.description}>
