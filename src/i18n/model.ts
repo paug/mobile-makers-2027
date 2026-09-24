@@ -4,6 +4,13 @@ import { CONTACT, LINKS, STATES, TEAM, type Hue } from '../config';
 
 const ANCHORS = ['#event', '#agenda', '#speakers', '#sponsors', '#tickets', '#cfp', '#team'];
 
+// Legal pages, one slug per language. Keys match copy.ts footerLinks.
+export const LEGAL_PAGES = {
+  fr: { coc: '/code-de-conduite/', legal: '/mentions-legales/', privacy: '/confidentialite/' },
+  en: { coc: '/en/code-of-conduct/', legal: '/en/legal-notice/', privacy: '/en/privacy/' },
+} as const;
+export type LegalKey = keyof typeof LEGAL_PAGES.fr;
+
 const WHY_ART = [
   { bg: 'var(--red)', ink: 'var(--red)', shape: 'kite', foldHue: 'graphite' },
   { bg: 'var(--cyan)', ink: 'var(--cyan-dark)', shape: 'crane', foldHue: 'graphite' },
@@ -18,16 +25,18 @@ const HUES: Record<Hue, [string, string]> = {
   blue: ['var(--blue)', 'var(--blue-dark)'],
 };
 
-export function buildModel(lang: Lang) {
+// `langHrefs` is where the language switch should go; defaults to the two home pages.
+export function buildModel(lang: Lang, langHrefs: Record<Lang, string> = { fr: '/', en: '/en/' }) {
   const t = T[lang];
   const L = LINKS;
+  const home = lang === 'fr' ? '/' : '/en/';
   const { showAgenda, cfpOpen, speakersAnnounced, showSponsorTiers, ticketPhase: phase } = STATES;
 
   const socials = ([['linkedin', 'LinkedIn', L.linkedinUrl], [null, 'X', L.xUrl], ['youtube', 'YouTube', L.youtubeUrl], ['mail', 'Email', CONTACT]] as [string | null, string, string][])
     .filter(([, , href]) => href)
     .map(([icon, label, href]) => ({ icon, label, href, target: href.startsWith('mailto:') ? '_self' : '_blank' }));
 
-  const navItems = t.nav.map((label, i) => ({ label, href: ANCHORS[i] })).filter((n) => showAgenda || n.href !== '#agenda');
+  const navItems = t.nav.map((label, i) => ({ label, anchor: ANCHORS[i], href: home + ANCHORS[i] })).filter((n) => showAgenda || n.anchor !== '#agenda');
 
   const colors: Record<string, string> = { social: 'var(--cyan-dark)', keynote: 'var(--red)', parallel: 'var(--ink-1)', tbc: 'var(--ink-3)', party: 'var(--red)' };
   const tagBg: Record<string, string> = { social: 'var(--cyan-light)', keynote: 'var(--cyan-light)', parallel: 'var(--paper-2)', tbc: 'var(--cyan-light)', party: 'var(--cyan-light)' };
@@ -62,10 +71,11 @@ export function buildModel(lang: Lang) {
     name: t.phName, role: '[' + (lang === 'fr' ? 'Rôle' : 'Role') + ']', company: lang === 'fr' ? '[Entreprise]' : '[Company]', topics: [tr, i % 2 ? 'EN' : 'FR'], hue,
   }));
 
-  const footerHref: Record<string, string> = { coc: L.cocUrl, legal: L.legalUrl, privacy: L.privacyUrl };
+  const legal = LEGAL_PAGES[lang];
+  const footerHref: Record<string, string> = { ...legal, '#sponsors': home + '#sponsors' };
 
   return {
-    lang, t, L, socials, navItems, showAgenda, cfpOpen, speakersAnnounced, showSponsorTiers,
+    lang, t, L, home, langHrefs, legal, socials, navItems, showAgenda, cfpOpen, speakersAnnounced, showSponsorTiers,
     heroA: t.heroTitle.split('. ')[0] + '.',
     heroB: t.heroTitle.split('. ').slice(1).join('. '),
     marquee: Array.from({ length: 12 }, (_, i) => ['Android', 'Flutter', '30.04.2027', 'Paris', 'Kotlin', 'Dart'][i % 6]),

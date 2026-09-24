@@ -1,10 +1,10 @@
 ---
 import type { Lang } from '../i18n/copy';
-interface Props { lang: Lang; long?: boolean }
-const { lang, long } = Astro.props;
+interface Props { lang: Lang; long?: boolean; hrefs?: Record<Lang, string> }
+const { lang, long, hrefs = { fr: '/', en: '/en/' } } = Astro.props;
 const items = [
-  { value: 'fr', href: '/', label: long ? 'Français' : 'FR' },
-  { value: 'en', href: '/en/', label: long ? 'English' : 'EN' },
+  { value: 'fr', href: hrefs.fr, label: long ? 'Français' : 'FR' },
+  { value: 'en', href: hrefs.en, label: long ? 'English' : 'EN' },
 ];
 ---
 <div style="background:var(--paper-1);padding:2px">
