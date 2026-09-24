@@ -1,7 +1,7 @@
 // UI copy, ported from the Claude Design prototype.
 export const T = {
   fr: {
-    skip: 'Aller au contenu', menuNav: 'Menu mobile', langSwitch: 'Langue', whyTitle: 'Pourquoi Mobile Makers',
+    skip: 'Aller au contenu', menuNav: 'Menu mobile', website: 'Site web', profile: 'Profil', langSwitch: 'Langue', whyTitle: 'Pourquoi Mobile Makers',
     menu: 'Menu', navCta: 'Prendre mon billet', ctaTicket: 'Prendre mon billet', ctaTalk: 'Proposer un talk', ctaSponsor: 'Devenir sponsor', ctaVolunteer: 'Rejoindre les bénévoles', ctaAgenda: "Voir l'agenda",
     nav: ["L'évènement", 'Agenda', 'Speakers', 'Sponsors', 'Billetterie', 'Call for Papers', "L'équipe"],
     heroLogoAlt: 'Mobile Makers, 30 avril, Paris', heroTitle: 'Android et Flutter. Une journée, une communauté.',
@@ -41,7 +41,7 @@ export const T = {
     copyright: '© ' + new Date().getFullYear() + ' Mobile Makers · PAUG'
   },
   en: {
-    skip: 'Skip to content', menuNav: 'Mobile menu', langSwitch: 'Language', whyTitle: 'Why Mobile Makers',
+    skip: 'Skip to content', menuNav: 'Mobile menu', website: 'Website', profile: 'Profile', langSwitch: 'Language', whyTitle: 'Why Mobile Makers',
     menu: 'Menu', navCta: 'Get my ticket', ctaTicket: 'Get my ticket', ctaTalk: 'Submit a talk', ctaSponsor: 'Become a sponsor', ctaVolunteer: 'Join the volunteers', ctaAgenda: 'See the schedule',
     nav: ['Event', 'Schedule', 'Speakers', 'Sponsors', 'Tickets', 'Call for Papers', 'Team'],
     heroLogoAlt: 'Mobile Makers, April 30, Paris', heroTitle: 'Android and Flutter. One day, one community.',
@@ -60,7 +60,7 @@ export const T = {
     keynoteBadge: 'Opening keynote', phName: '[Speaker name]', phRole: '[Role] · [Company]', phBio: '[Two-line bio, supplied by the speaker.]', portrait: 'Portrait (to supply)',
     sponsorsEyebrow: 'Sponsors', sponsorsTitle: 'They keep the ecosystem thriving.', sponsorsLead: 'We are volunteers. Sponsoring is what makes the day possible and helps the community grow.',
     logoHere: 'Your logo here', partnersLabel: 'Community partners', partners: ['PAUG · organiser'],
-    whySponsor: [['A concentrated audience', '400+ Android and Flutter makers in one place. Last year: 42 % senior, 13 % principal or staff engineers.'], ['Visibility all day', 'A booth at the heart of the breaks, the website, the newsletter, the screens and the replay.'], ['Hire, in real life', 'Warm conversations with senior mobile profiles and future talent.']],
+    whySponsor: [['A concentrated audience', '400+ Android and Flutter makers in one place. Last year: 42% senior, 13% principal or staff engineers.'], ['Visibility all day', 'A booth at the heart of the breaks, the website, the newsletter, the screens and the replay.'], ['Hire, in real life', 'Warm conversations with senior mobile profiles and future talent.']],
     ticketsEyebrow: 'Tickets', ticketsTitle: 'Grab your seat.', ticketsLead: 'Seats are limited: do not wait too long.',
     tierNames: ['Early bird', 'Supporter', 'Regular', 'Student'], price: (p: string) => '€' + p + ' excl. VAT', prices: ['100', '200', '200', '100'],
     windowSoon: 'Opening soon', windows: ['During Early bird', 'During Early bird, to support the event', 'After Early bird', 'With proof'],
@@ -73,7 +73,7 @@ export const T = {
     cfpDatesLabel: 'Key dates', cfpDates: [['Opens', 'September 24, 2026'], ['Closes', 'January 18, 2027'], ['Notifications', 'End of January 2027']],
     cfpPerksLabel: 'What you get', cfpPerks: ['Your ticket, on us', 'A video replay of your talk'],
     cfpLang: 'Talks are accepted in French or English.', cfpDeadline: 'Closes on January 18, 2027', cfpClosedTitle: 'The call for papers is closed.', cfpClosedBody: 'Thanks for every proposal. The program committee reads everything; the schedule lands soon.',
-    teamEyebrow: 'Team', teamTitle: 'Made by hand, in Paris.', teamLead: 'A volunteer team from PAUG that builds events, apps, podcasts, specifications… and helps turtles.',
+    teamEyebrow: 'Team', teamTitle: 'Made by hand, in Paris.', teamLead: 'A volunteer team from PAUG that runs events, builds apps, records podcasts… and helps turtles.',
     volTitle: 'Volunteers make the day.', volBody: 'Registration, stage, rooms, party: on the day, volunteers keep Mobile Makers running. Want in?',
     contactTitle: 'Write to us', coc: 'Code of conduct',
     footerBlurb: 'One day for the people who build Android and Flutter apps. Paris, April 30, 2027, UGC Ciné Cité Bercy.', footerSections: 'Sections', footerAbout: 'About', footerLang: 'Language',

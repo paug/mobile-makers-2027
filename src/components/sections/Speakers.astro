@@ -41,8 +41,8 @@ const { t } = m;
             <p style="margin:0;font:400 17px/1.5 var(--font-body);color:var(--paper-3);text-wrap:pretty">{t.phBio}</p>
             <div style="display:flex;gap:6px;flex-wrap:wrap;padding-top:4px">
               <IconButton icon="linkedin" label="LinkedIn" size="sm" />
-              <IconButton icon="external-link" label="Site" size="sm" />
-              <IconButton icon="user" label="Profil" size="sm" />
+              <IconButton icon="external-link" label={t.website} size="sm" />
+              <IconButton icon="user" label={t.profile} size="sm" />
             </div>
           </div>
         </div>
@@ -52,7 +52,7 @@ const { t } = m;
               <SpeakerCard name={sp.name} role={sp.role} company={sp.company} topics={sp.topics} hue={sp.hue} />
               <div style="display:flex;gap:4px">
                 <IconButton icon="linkedin" label="LinkedIn" variant="ghost" size="sm" />
-                <IconButton icon="external-link" label="Site" variant="ghost" size="sm" />
+                <IconButton icon="external-link" label={t.website} variant="ghost" size="sm" />
               </div>
             </div>
           ))}
