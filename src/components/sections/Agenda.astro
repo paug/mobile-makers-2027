@@ -25,7 +25,7 @@ const tracks = [
     </div>
     <div class="desk:hidden" style="margin-bottom:20px">
       <div class="mm-tabs" role="tablist">
-        {tracks.map((tr, i) => <button type="button" class="mm-tab" role="tab" data-track-tab={tr.key} aria-selected={i === 0 ? 'true' : 'false'}>{tr.label}</button>)}
+        {tracks.map((tr, i) => <button type="button" class="mm-tab" role="tab" id={`tab-${tr.key}`} aria-controls={`panel-${tr.key}`} data-track-tab={tr.key} aria-selected={i === 0 ? 'true' : 'false'} tabindex={i === 0 ? 0 : -1}>{tr.label}</button>)}
       </div>
     </div>
     <div style="display:flex;flex-direction:column;border-top:1px solid var(--border-subtle)">
@@ -42,7 +42,7 @@ const tracks = [
             {s.parallel && (
               <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:16px">
                 {tracks.map((tr) => (
-                  <div class="mm-track" data-track-panel={tr.key} style="flex-direction:column;gap:12px">
+                  <div class="mm-track" data-track-panel={tr.key} role="region" aria-labelledby={`tab-${tr.key}`} style="flex-direction:column;gap:12px">
                     <div class="mm-label" style={`color:${tr.color}`}>{tr.label}</div>
                     {s[tr.key].map((tk) => (
                       <Card padding="20px">
@@ -77,10 +77,18 @@ const tracks = [
 
 <script>
   const section = document.getElementById('agenda');
-  section?.querySelectorAll<HTMLButtonElement>('[data-track-tab]').forEach((tab, _, all) => {
-    tab.addEventListener('click', () => {
-      section.dataset.track = tab.dataset.trackTab;
-      all.forEach((t) => t.setAttribute('aria-selected', String(t === tab)));
+  const tabs = [...(section?.querySelectorAll<HTMLButtonElement>('[data-track-tab]') ?? [])];
+  const select = (tab: HTMLButtonElement, focus = false) => {
+    section!.dataset.track = tab.dataset.trackTab;
+    tabs.forEach((t) => { t.setAttribute('aria-selected', String(t === tab)); t.tabIndex = t === tab ? 0 : -1; });
+    if (focus) tab.focus();
+  };
+  tabs.forEach((tab, i) => {
+    tab.addEventListener('click', () => select(tab));
+    // Arrow keys move between tabs, as in the WAI-ARIA tabs pattern
+    tab.addEventListener('keydown', (e) => {
+      const step = e.key === 'ArrowRight' ? 1 : e.key === 'ArrowLeft' ? -1 : e.key === 'Home' ? -i : e.key === 'End' ? tabs.length - 1 - i : 0;
+      if (step) { e.preventDefault(); select(tabs[(i + step + tabs.length) % tabs.length], true); }
     });
   });
 </script>
