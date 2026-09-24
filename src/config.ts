@@ -11,9 +11,10 @@ export const STATES = {
 };
 
 export const LINKS = {
-  ticketUrl: CONTACT + '?subject=Billet%20Mobile%20Makers%202027',
-  cfpUrl: CONTACT + '?subject=Proposition%20de%20talk',
-  sponsorUrl: CONTACT + '?subject=Sponsoring%20Mobile%20Makers%202027',
+  // Short links on the site domain, redirected by Firebase Hosting to the ticketing, CFP and sponsor deck
+  ticketUrl: 'https://mobilemakers.fr/tickets',
+  cfpUrl: 'https://mobilemakers.fr/cfp',
+  sponsorUrl: 'https://mobilemakers.fr/sponsor-deck',
   mapsUrl: 'https://www.google.com/maps/search/?api=1&query=UGC+Cin%C3%A9+Cit%C3%A9+Bercy+Paris',
   cocUrl: CONTACT + '?subject=Code%20de%20conduite',
   legalUrl: CONTACT,
