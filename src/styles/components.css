@@ -1,5 +1,5 @@
 /* Mobile Makers DS components, ported from the React bundle to static CSS. */
-.mm-eyebrow { font: 600 13px/1.4 var(--font-mono); letter-spacing: .12em; text-transform: uppercase; color: var(--cyan-dark); }
+.mm-eyebrow { font: 600 13px/1.4 var(--font-mono); letter-spacing: .12em; text-transform: uppercase; color: var(--cyan-text); }
 .mm-label { font: 600 12px/1 var(--font-mono); letter-spacing: .12em; text-transform: uppercase; }
 .mm-h2 { display: block; font-family: var(--font-display); font-size: clamp(38px, 6.2vw, 86px); line-height: .95; letter-spacing: -0.01em; text-wrap: balance; }
 .mm-section { scroll-margin-top: 88px; }
@@ -18,7 +18,8 @@
 .mm-btn--sm { height: var(--control-sm); padding: 0 14px; font-size: var(--text-sm); }
 .mm-btn--lg { height: var(--control-lg); padding: 0 28px; font-size: var(--text-lg); }
 .mm-btn--full { width: 100%; }
-.mm-btn--primary { --bg: var(--red); --fg: #fff; --hover-bg: var(--red-light); --glow: var(--shadow-fold-brand); }
+/* red-dark gives white text 6.4:1; the brand red (4.0:1) only shows on hover */
+.mm-btn--primary { --bg: var(--red-dark); --fg: #fff; --hover-bg: var(--red); --glow: var(--shadow-fold-brand); }
 .mm-btn--accent { --bg: var(--cyan); --fg: var(--ink-1); --hover-bg: var(--cyan-light); --glow: var(--shadow-fold-cyan); }
 .mm-btn--secondary { --bg: var(--paper-0); --fg: var(--ink-1); --hover-bg: var(--paper-2); border: var(--border-w-strong) solid var(--border-default); }
 .mm-btn--inverse { --bg: var(--graphite); --fg: var(--paper-1); --hover-bg: var(--ink-2); }
@@ -45,7 +46,7 @@
 .mm-tabs { display: flex; background: var(--surface-container); padding: 4px; }
 .mm-tab {
   height: 36px; padding: 0 16px; font: var(--weight-semibold) var(--text-sm)/1 var(--font-ui);
-  background: transparent; color: var(--ink-3); border: 0; border-radius: 0; cursor: pointer; text-decoration: none;
+  background: transparent; color: var(--ink-2); border: 0; border-radius: 0; cursor: pointer; text-decoration: none;
   display: inline-flex; align-items: center; justify-content: center; flex: 1 1 auto;
   transition: background var(--dur-effect) var(--ease-emphasized), box-shadow var(--dur-effect), color var(--dur-effect);
 }
@@ -69,7 +70,7 @@
   display: inline-flex; align-items: center; gap: 6px; height: 24px; padding: 0 10px; font: var(--type-caps);
   letter-spacing: var(--tracking-caps); text-transform: uppercase; white-space: nowrap; background: var(--paper-2); color: var(--ink-1);
 }
-.mm-badge--brand { background: var(--red); color: #fff; }
+.mm-badge--brand { background: var(--red-dark); color: #fff; }
 .mm-badge--accent { background: var(--cyan); }
 .mm-badge--success { background: var(--green); }
 .mm-badge--info { background: var(--cyan-light); }
@@ -115,7 +116,7 @@
 .mm-prose ol { list-style: decimal; padding-left: 22px; }
 .mm-prose li { margin-bottom: 6px; }
 .mm-prose li::marker { color: var(--red); }
-.mm-prose a { color: var(--cyan-dark); text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1.5px; }
+.mm-prose a { color: var(--cyan-text); text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1.5px; }
 .mm-prose a:hover { color: var(--ink-1); }
 .mm-prose address { font-style: normal; }
 .mm-prose .mm-callout { background: var(--surface-container-low); padding: 20px 24px; margin: 0 0 24px; }

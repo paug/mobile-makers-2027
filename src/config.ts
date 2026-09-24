@@ -25,7 +25,7 @@ export const LINKS = {
 // Photo: path under public/ (e.g. '/assets/team/renaud.jpg'); empty shows a plain colour block.
 export const TEAM: [string, Hue, string, string][] = [
   ['Edouard Marquez', 'red', 'https://www.linkedin.com/in/edouard-marquez-32431514/', '/assets/team/edouard.jpg'],
-  ['Martin Bonnin', 'cyan', 'https://www.linkedin.com/in/martinbonnin/', ''],
+  ['Martin Bonnin', 'cyan', 'https://www.linkedin.com/in/martinbonnin/', '/assets/team/martin.jpg'],
   ['Alex Bruneau', 'green', 'https://www.linkedin.com/in/alexandre-bruneau-03380654/', '/assets/team/alex.jpg'],
   ['Benjamin Gonin', 'blue', 'https://www.linkedin.com/in/benjamingonin/', '/assets/team/benjamin.jpg'],
   ['Renaud Mathieu', 'cyan', 'https://www.linkedin.com/in/renaudmathieu1/', '/assets/team/renaud.jpg'],
