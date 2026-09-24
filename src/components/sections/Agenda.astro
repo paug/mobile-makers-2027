@@ -1,6 +1,6 @@
 ---
 import Badge from '../ds/Badge.astro';
-import Card from '../ds/Card.astro';
+import FoldedCard from '../ds/FoldedCard.astro';
 import Icon from '../ds/Icon.astro';
 import ScrollTitle from '../ds/ScrollTitle.astro';
 import type { Model } from '../../i18n/model';
@@ -42,16 +42,16 @@ const tracks = [
             {s.parallel && (
               <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:16px">
                 {tracks.map((tr) => (
-                  <div class="mm-track" data-track-panel={tr.key} role="region" aria-labelledby={`tab-${tr.key}`} style="flex-direction:column;gap:12px">
+                  <div class="mm-track" data-unfold data-track-panel={tr.key} role="region" aria-labelledby={`tab-${tr.key}`} style="flex-direction:column;gap:12px">
                     <div class="mm-label" style={`color:${tr.color}`}>{tr.label}</div>
                     {s[tr.key].map((tk) => (
-                      <Card padding="20px">
-                        <div style="display:flex;flex-direction:column;gap:10px">
-                          <div style="display:flex;flex-wrap:wrap;gap:6px;align-items:center"><span style={`font:600 11px/1 var(--font-mono);letter-spacing:.08em;text-transform:uppercase;padding:5px 7px;background:${tr.tagBg};color:var(--ink-1)`}>{tk.track}</span><Badge>{tk.lang}</Badge><span style="font:500 13px/1 var(--font-mono);color:var(--ink-3);margin-left:auto">{tk.dur}</span></div>
+                      <FoldedCard foldSize={40}>
+                        <div style="display:flex;flex-direction:column;gap:10px;padding:20px">
+                          <div style="display:flex;flex-wrap:wrap;gap:6px;align-items:center;padding-right:40px"><span style={`font:600 11px/1 var(--font-mono);letter-spacing:.08em;text-transform:uppercase;padding:5px 7px;background:${tr.tagBg};color:var(--ink-1)`}>{tk.track}</span><Badge>{tk.lang}</Badge><span style="font:500 13px/1 var(--font-mono);color:var(--ink-3);margin-left:auto">{tk.dur}</span></div>
                           <h4 style="margin:0;font:600 19px/1.25 var(--font-display);color:var(--ink-1);text-wrap:pretty">{tk.title}</h4>
                           <div style="font:400 15px/1.4 var(--font-body);color:var(--ink-2)">{tk.speaker}</div>
                         </div>
-                      </Card>
+                      </FoldedCard>
                     ))}
                     <a href="#cfp" class="mm-open-slot"><span>{t.slotOpen}</span><Icon name="arrow-right" size={18} /></a>
                   </div>

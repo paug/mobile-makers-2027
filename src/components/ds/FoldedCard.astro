@@ -1,0 +1,12 @@
+---
+// FoldedCard: the card whose top-right corner is a real page-ear. The sheet is cut on the diagonal, the shadow rides on a
+// drop-shadow of the wrapper, a blurred cast shadow sits under the flap. The fold grows on hover / focus-within and the sheet lifts 2px.
+interface Props { tone?: 'paper' | 'inverse'; foldSize?: number; hoverFoldSize?: number; class?: string; style?: string; label?: string }
+const { tone = 'paper', foldSize = 56, hoverFoldSize, class: cls, style = '', label } = Astro.props;
+const vars = `--mm-fold:${foldSize}px;--mm-fold-hover:${hoverFoldSize ?? foldSize + 16}px;${style}`;
+---
+<div class:list={['mm-folded', tone === 'inverse' && 'mm-folded--inverse', cls]} style={vars}>
+  <article class="mm-folded__sheet" data-tone={tone} aria-label={label}><slot /></article>
+  <span class="mm-folded__cast" aria-hidden="true"></span>
+  <span class="mm-folded__flap" aria-hidden="true"></span>
+</div>

@@ -27,6 +27,7 @@
 --ease-snap:cubic-bezier(.6,0,.2,1);/* @kind other */
 --ease-spring:cubic-bezier(.34,1.4,.64,1);/* @kind other */
 --ease-spring-soft:cubic-bezier(.3,1.15,.5,1);/* @kind other */
+--fold-angle:88deg;/* @kind other */
 --ease-emphasized:cubic-bezier(.2,0,0,1);/* @kind other */
 --dur-spatial:420ms;/* @kind other */
 --dur-spatial-fast:260ms;/* @kind other */

@@ -1,5 +1,9 @@
 ---
 import Button from '../ds/Button.astro';
+import Fold from '../ds/Fold.astro';
+import FoldedCard from '../ds/FoldedCard.astro';
+import FoldedCardInsetLabel from '../ds/FoldedCardInsetLabel.astro';
+import FoldedCardMedia from '../ds/FoldedCardMedia.astro';
 import ScrollTitle from '../ds/ScrollTitle.astro';
 import HeroLogo from './HeroLogo.astro';
 import type { Model } from '../../i18n/model';
@@ -9,9 +13,9 @@ const { t } = m;
 <section id="event" class="mm-section" style="position:relative;overflow:hidden;background:var(--graphite);color:var(--paper-1)">
   <div style="max-width:1200px;margin:0 auto;padding:clamp(40px,5vw,72px) 24px clamp(48px,5vw,72px);display:flex;flex-direction:column;gap:clamp(32px,4vw,56px);position:relative;z-index:1">
     <HeroLogo alt={t.heroLogoAlt} />
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,440px),1fr));gap:20px 56px;align-items:end;padding-top:clamp(24px,3vw,40px);border-top:1px solid rgba(255,255,255,.1)">
-      <ScrollTitle as="h1" style="margin:0"><span style="display:block;font-family:var(--font-display);font-size:clamp(30px,3.6vw,52px);line-height:1;letter-spacing:-0.015em;color:var(--paper-0);text-wrap:balance">{m.heroA}<br /><em style="font-style:italic;color:var(--cyan)">{m.heroB}</em></span></ScrollTitle>
-      <div style="display:flex;flex-direction:column;gap:20px;min-width:0">
+    <div class="mm-hero-grid" style="align-items:end;padding-top:clamp(24px,3vw,40px);border-top:1px solid rgba(255,255,255,.1)">
+      <ScrollTitle as="h1" class="mm-hero-half mm-rise" style="margin:0;--rise-delay:500ms"><span style="display:block;font-family:var(--font-display);font-size:clamp(30px,3.6vw,52px);line-height:1;letter-spacing:-0.015em;color:var(--paper-0);text-wrap:balance">{m.heroA}<br /><em style="font-style:italic;color:var(--cyan)">{m.heroB}</em></span></ScrollTitle>
+      <div class="mm-hero-half mm-rise" style="display:flex;flex-direction:column;gap:20px;min-width:0;--rise-delay:650ms">
         <p style="margin:0;font:400 clamp(16px,1.3vw,18px)/1.5 var(--font-body);color:var(--paper-3);max-width:52ch;text-wrap:pretty">{t.heroSub}</p>
         <div style="display:flex;gap:12px;flex-wrap:wrap">
           <Button href="#tickets" iconRight="arrow-right">{t.ctaTicket}</Button>
@@ -19,11 +23,21 @@ const { t } = m;
         </div>
       </div>
     </div>
-    <dl style="margin:0;display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px 32px">
-      {m.heroFacts.map((f) => (
-        <div style="display:flex;flex-direction:row-reverse;justify-content:flex-end;align-items:baseline;gap:10px"><dt style="font:500 14px/1.2 var(--font-display);letter-spacing:.02em;color:var(--paper-3)">{f.l}</dt><dd style="margin:0;font:700 clamp(32px,3vw,44px)/.9 var(--font-display-condensed);letter-spacing:-0.02em;color:var(--paper-0)">{f.n}</dd></div>
+    <div aria-labelledby="why-title" role="region" class="mm-hero-grid">
+      <h2 id="why-title" class="mm-sr-only">{t.whyTitle}</h2>
+      {m.why.map((w, i) => (
+        <FoldedCard foldSize={40} class="mm-unfold-load" style={`--uf-i:${i}`}>
+          <FoldedCardMedia height="clamp(120px,11vw,140px)" style={`background:${w.bg};background-image:linear-gradient(115deg,rgba(255,255,255,.26) 0 46%,rgba(40,40,40,.18) 46% 100%)`}>
+            <Fold shape={w.shape} hue={w.foldHue} size={150} crease="diagonal" style="position:absolute;right:-24px;top:-32px" />
+            <FoldedCardInsetLabel style="padding-left:20px"><span style={`font:700 clamp(32px,3vw,42px)/.88 var(--font-display-condensed);letter-spacing:-0.02em;color:${w.ink}`}>{w.n}</span></FoldedCardInsetLabel>
+          </FoldedCardMedia>
+          <div style="padding:20px 20px 24px;display:flex;flex-direction:column;gap:8px;flex:1;min-width:0">
+            <h3 style="margin:0;font:600 clamp(20px,1.7vw,24px)/1.12 var(--font-display);letter-spacing:-0.01em;color:var(--ink-1);text-wrap:balance">{w.title}</h3>
+            <p style="margin:0;font:400 16px/1.5 var(--font-body);color:var(--ink-2);text-wrap:pretty">{w.body}</p>
+          </div>
+        </FoldedCard>
       ))}
-    </dl>
+    </div>
   </div>
   <div aria-hidden="true" style="position:absolute;left:-10%;right:-10%;bottom:-40%;height:60%;background:radial-gradient(ellipse at 30% 100%, rgba(32,184,232,.22), transparent 60%), radial-gradient(ellipse at 75% 100%, rgba(232,64,44,.18), transparent 55%);pointer-events:none"></div>
 </section>
