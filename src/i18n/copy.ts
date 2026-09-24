@@ -37,7 +37,7 @@ export const T = {
     contactTitle: 'Nous écrire', coc: 'Code de conduite',
     footerBlurb: 'Une journée pour celles et ceux qui fabriquent des apps Android et Flutter. Paris, 30 avril 2027, UGC Ciné Cité Bercy.', footerSections: 'Sections', footerAbout: 'À propos', footerLang: 'Langue',
     footerLinks: [['Code de conduite', 'coc'], ['Devenir sponsor', '#sponsors'], ['Mentions légales', 'legal'], ['Confidentialité', 'privacy']],
-    copyright: '© 2027 Mobile Makers · PAUG'
+    copyright: '© ' + new Date().getFullYear() + ' Mobile Makers · PAUG'
   },
   en: {
     menu: 'Menu', navCta: 'Get my ticket', ctaTicket: 'Get my ticket', ctaTalk: 'Submit a talk', ctaSponsor: 'Become a sponsor', ctaVolunteer: 'Join the volunteers', ctaAgenda: 'See the schedule',
@@ -76,7 +76,7 @@ export const T = {
     contactTitle: 'Write to us', coc: 'Code of conduct',
     footerBlurb: 'One day for the people who build Android and Flutter apps. Paris, April 30, 2027, UGC Ciné Cité Bercy.', footerSections: 'Sections', footerAbout: 'About', footerLang: 'Language',
     footerLinks: [['Code of conduct', 'coc'], ['Become a sponsor', '#sponsors'], ['Legal notice', 'legal'], ['Privacy', 'privacy']],
-    copyright: '© 2027 Mobile Makers · PAUG'
+    copyright: '© ' + new Date().getFullYear() + ' Mobile Makers · PAUG'
   }
 };
 
