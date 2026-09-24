@@ -10,7 +10,7 @@
 .mm-skip:focus { top: 16px; }
 .mm-sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
 
-/* Button
+/* Button */
 .mm-btn {
   display: inline-flex; align-items: center; justify-content: center; gap: 10px;
   height: var(--control-md); padding: 0 20px; font: var(--weight-semibold) var(--text-md)/1 var(--font-body);
