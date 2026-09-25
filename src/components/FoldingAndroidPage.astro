@@ -1,25 +1,25 @@
 ---
-// Standalone link page for the "folding & Flutter" workshop (shared as a QR code / short link).
+// Standalone link page for the "folding & Android" workshop (shared as a QR code / short link).
 import { buildModel } from '../i18n/model';
 import type { Lang } from '../i18n/copy';
 import Layout from './Layout.astro';
 import Button from './ds/Button.astro';
-import Hummingbird from './ds/Hummingbird.astro';
+import Bugdroid from './ds/Bugdroid.astro';
 
 interface Props { lang: Lang }
 const { lang } = Astro.props;
-const m = buildModel(lang, { fr: '/folding-flutter/', en: '/en/folding-flutter/' });
+const m = buildModel(lang, { fr: '/folding-android/', en: '/en/folding-android/' });
 
 const C = {
   fr: {
-    title: 'Bienvenue, ami·e Flutter !',
+    title: 'Bienvenue, ami·e Android !',
     description: "Si vous êtes arrivé·e jusqu'ici, vous avez sûrement récupéré un de nos flyers !\n\nMobile Makers, c'est 1 journée et 4 tracks entièrement dédiés au dévelopement mobile Android et Flutter, créé par la communauté, pour la communauté!\n\nCliquez ci-dessous pour regarder le tutoriel origami.\nN'oubliez pas de prendre votre place et/ou de remplir le CFP !",
-    watch: 'Pliez votre Dash!', tickets: 'Billetterie', cfp: 'CFP',
+    watch: 'Pliez votre Bugdroid !', tickets: 'Billetterie', cfp: 'CFP',
   },
   en: {
-    title: 'Welcome here, Flutter friend!',
+    title: 'Welcome here, Android friend!',
     description: "If you made it that far, you probably got one of our flyers!\n\nMobile Makers is 1 day and 4 tracks entirely dedicated to Android and Flutter mobile development, made by the community, for the community!\n\nClick below to watch the origami tutorial.\nDon't forget to grab your ticket and/or submit to the CFP!",
-    watch: 'Fold your Dash!', tickets: 'Get your ticket', cfp: 'CFP',
+    watch: 'Fold your Bugdroid!', tickets: 'Get your ticket', cfp: 'CFP',
   },
 }[lang];
 ---
@@ -29,13 +29,13 @@ const C = {
       <h1 class="mm-h2" style="margin:0;color:var(--ink-1);font-weight:600">{C.title}</h1>
       <p style="margin:0;font:400 19px/1.5 var(--font-body);color:var(--ink-2);text-wrap:pretty;white-space:pre-line">{C.description}</p>
       <div style="display:flex;flex-direction:column;gap:12px;padding-top:4px;align-items:flex-start">
-        <Button href="https://www.youtube.com/watch?v=wfPJ4jl9DPw" target="_blank" icon="youtube" iconRight="arrow-right" size="lg">{C.watch}</Button>
+        <Button href="https://www.youtube.com/watch?v=KRSmeyDfQ4U" target="_blank" icon="youtube" iconRight="arrow-right" size="lg">{C.watch}</Button>
         <Button href="https://www.billetweb.fr/mobile-makers-2027" target="_blank" variant="secondary" icon="ticket">{C.tickets}</Button>
         <Button href="https://conference-hall.io/mobile-makers-2027" target="_blank" variant="secondary" icon="mic">{C.cfp}</Button>
       </div>
     </div>
     <div style="display:flex;justify-content:center">
-      <Hummingbird size={260} color="var(--graphite)" />
+      <Bugdroid size={320} color="var(--graphite)" />
     </div>
   </section>
 </Layout>
