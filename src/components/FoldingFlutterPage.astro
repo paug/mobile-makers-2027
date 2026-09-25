@@ -1,0 +1,41 @@
+---
+// Standalone link page for the "folding & Flutter" workshop (shared as a QR code / short link).
+import { buildModel } from '../i18n/model';
+import type { Lang } from '../i18n/copy';
+import Layout from './Layout.astro';
+import Button from './ds/Button.astro';
+import Hummingbird from './ds/Hummingbird.astro';
+
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const m = buildModel(lang, { fr: '/folding-flutter/', en: '/en/folding-flutter/' });
+
+const C = {
+  fr: {
+    title: 'Bienvenue, ami·e Flutter !',
+    description: "Si vous êtes arrivé·e jusqu'ici, vous avez sûrement récupéré un de nos flyers ! Cliquez ci-dessous pour regarder le tutoriel origami.\nN'oubliez pas de prendre votre place et/ou de remplir le CFP !",
+    watch: 'Pliez votre dash!', tickets: 'Billetterie', cfp: 'CFP',
+  },
+  en: {
+    title: 'Welcome here, Flutter friend!',
+    description: "If you made it that far, you probably got one of our flyers! Please click below to watch the folding tutorial. Don't forget to buy your ticket and/or fill in the CFP!",
+    watch: 'Watch the tutorial', tickets: 'Get your ticket', cfp: 'Submit to the CFP',
+  },
+}[lang];
+---
+<Layout m={m} title={`${C.title} · Mobile Makers 2027`} description={C.description}>
+  <section class="mm-wrap" style="padding:clamp(64px,8vw,120px) 24px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:40px;align-items:center">
+    <div style="display:flex;flex-direction:column;gap:20px">
+      <h1 class="mm-h2" style="margin:0;color:var(--ink-1);font-weight:600">{C.title}</h1>
+      <p style="margin:0;font:400 19px/1.5 var(--font-body);color:var(--ink-2);text-wrap:pretty">{C.description}</p>
+      <div style="display:flex;flex-direction:column;gap:12px;padding-top:4px;align-items:flex-start">
+        <Button href="https://www.youtube.com/watch?v=wfPJ4jl9DPw" target="_blank" icon="youtube" iconRight="arrow-right" size="lg">{C.watch}</Button>
+        <Button href="https://www.billetweb.fr/mobile-makers-2027" target="_blank" variant="secondary" icon="ticket">{C.tickets}</Button>
+        <Button href="https://conference-hall.io/mobile-makers-2027" target="_blank" variant="secondary" icon="mic">{C.cfp}</Button>
+      </div>
+    </div>
+    <div style="display:flex;justify-content:center">
+      <Hummingbird size={260} color="var(--graphite)" />
+    </div>
+  </section>
+</Layout>
