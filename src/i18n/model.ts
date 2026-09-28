@@ -48,17 +48,17 @@ export function buildModel(lang: Lang, langHrefs: Record<Lang, string> = { fr: '
     flutter: [mkTalk('Flutter', 'EN'), mkTalk('Flutter', 'FR')],
   }));
 
-  // Soon: nothing on sale yet. Early bird: Early bird or Supporter. Regular: Regular or Student.
-  const states = { soon: ['soon', 'soon', 'soon', 'soon'], early: ['available', 'available', 'soon', 'soon'], regular: ['ended', 'ended', 'available', 'available'] }[phase];
+  // Soon: nothing on sale yet. Then Early bird, Regular and Late bird open one after the other.
+  const states = { soon: ['soon', 'soon', 'soon'], early: ['available', 'soon', 'soon'], regular: ['ended', 'available', 'soon'], late: ['ended', 'ended', 'available'] }[phase];
   const tickets = t.tierNames.map((name, i) => {
     const s = states[i];
     return {
-      name, price: t.price(t.prices[i]), window: phase === 'soon' ? t.windowSoon : t.windows[i], features: t.features,
+      name, price: t.price(t.prices[i]), window: t.windows[i], features: t.features,
       available: s === 'available', soon: s === 'soon', ended: s === 'ended',
-      badge: s === 'ended' ? t.ended : s === 'soon' ? t.soonBadge : t.available,
+      badge: s === 'ended' ? t.ended : s === 'available' ? t.available : null,
       badgeTone: (s === 'ended' ? 'brand' : s === 'soon' ? 'neutral' : 'success') as 'brand' | 'neutral' | 'success',
-      nameColor: s === 'available' ? 'var(--red)' : 'var(--ink-3)',
-      priceColor: s === 'available' ? 'var(--ink-1)' : 'var(--ink-3)',
+      nameColor: s === 'ended' ? 'var(--ink-3)' : 'var(--red)',
+      priceColor: s === 'ended' ? 'var(--ink-3)' : 'var(--ink-1)',
     };
   });
 

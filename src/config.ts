@@ -7,7 +7,7 @@ export const STATES = {
   speakersAnnounced: false,
   showSponsorTiers: false,
   // 'soon': ticketing not open yet, every tier shows "opening soon"
-  ticketPhase: 'soon' as 'soon' | 'early' | 'regular',
+  ticketPhase: 'soon' as 'soon' | 'early' | 'regular' | 'late',
 };
 
 export const LINKS = {

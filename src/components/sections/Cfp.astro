@@ -24,7 +24,7 @@ const row = 'display:flex;justify-content:space-between;gap:12px';
             <div style="display:flex;flex-wrap:wrap;gap:8px">{t.cfpTopics.map((tp) => <Tag>{tp}</Tag>)}</div>
           </div>
           <div style="display:flex;gap:10px;align-items:center;font:400 16px/1.4 var(--font-body);color:var(--ink-1)"><Icon name="mic" size={20} color="var(--cyan-dark)" /><span>{t.cfpLang}</span></div>
-          <div style="display:flex;gap:12px 20px;flex-wrap:wrap;align-items:center;padding-top:4px"><Button href={m.L.cfpUrl} target="_blank" size="lg" iconRight="arrow-right">{t.ctaTalk}</Button><span style="display:flex;gap:8px;align-items:center;font:500 16px/1.4 var(--font-body);color:var(--ink-2)"><Icon name="calendar" size={18} color="var(--red)" />{t.cfpDeadline}</span></div>
+          <div style="display:flex;gap:12px 20px;flex-wrap:wrap;align-items:center;padding-top:4px"><Button href={m.L.cfpUrl} target="_blank" size="lg" iconRight="external-link">{t.ctaTalk}</Button><span style="display:flex;gap:8px;align-items:center;font:500 16px/1.4 var(--font-body);color:var(--ink-2)"><Icon name="calendar" size={18} color="var(--red)" />{t.cfpDeadline}</span></div>
         </div>
         <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:16px;align-content:start;min-width:0">
           <div style={box}>
