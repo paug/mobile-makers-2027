@@ -72,7 +72,7 @@ export function buildModel(lang: Lang, langHrefs: Record<Lang, string> = { fr: '
   }));
 
   const legal = LEGAL_PAGES[lang];
-  const footerHref: Record<string, string> = { ...legal, '#sponsors': home + '#sponsors' };
+  const footerHref: Record<string, string> = { ...legal, blog: home + 'blog/', '#sponsors': home + '#sponsors' };
 
   return {
     lang, t, L, home, langHrefs, legal, socials, navItems, showAgenda, cfpOpen, speakersAnnounced, showSponsorTiers,
