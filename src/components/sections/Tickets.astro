@@ -25,14 +25,12 @@ const { t } = m;
             <ul style="list-style:none;margin:0;padding:0;display:grid;gap:10px;font:400 15px/1.45 var(--font-body);color:var(--ink-1);flex:1;align-content:start">
               {tk.features.map((f) => <li style="display:flex;gap:10px;align-items:flex-start"><Icon name="check" size={16} color="var(--red)" style="margin-top:3px" /><span>{f}</span></li>)}
             </ul>
-            {tk.available && <Button href={m.L.ticketUrl} target="_blank" fullWidth iconRight="arrow-right">{t.ctaTicket}</Button>}
-            {tk.soon && <Button variant="secondary" fullWidth disabled icon="clock">{t.soon}</Button>}
-            {tk.ended && <Button variant="secondary" fullWidth disabled>{t.ended}</Button>}
           </div>
         </FoldedCard>
         </div>
       ))}
     </div>
+    <div style="margin-top:24px;display:flex;justify-content:center"><Button href="https://www.billetweb.fr/mobile-makers-2027" target="_blank" size="lg" iconRight="external-link">{t.ctaTicket}</Button></div>
     <div style="margin-top:28px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:16px 40px;font:400 15px/1.5 var(--font-body);color:var(--ink-2)">
       {m.ticketNotes.map((n) => <div style="display:flex;gap:10px;align-items:flex-start"><Icon name={n.icon} size={18} color="var(--cyan-dark)" style="margin-top:3px" /><span>{n.text}</span></div>)}
     </div>

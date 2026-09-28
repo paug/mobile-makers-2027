@@ -122,10 +122,14 @@
 
 /* Hero: title, pitch and why cards share one column grid so their edges line up */
 .mm-hero-grid { display: grid; grid-template-columns: minmax(0,1fr); gap: 20px; }
-@media (min-width: 640px) { .mm-hero-grid { grid-template-columns: repeat(2, minmax(0,1fr)); } }
+@media (min-width: 640px) and (max-width: 1023px) {
+  .mm-hero-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
+  .mm-hero-card:last-child { grid-column: span 2; }
+}
 @media (min-width: 1024px) {
-  .mm-hero-grid { grid-template-columns: repeat(4, minmax(0,1fr)); }
-  .mm-hero-half { grid-column: span 2; }
+  .mm-hero-grid { grid-template-columns: repeat(6, minmax(0,1fr)); }
+  .mm-hero-half { grid-column: span 3; }
+  .mm-hero-card { grid-column: span 2; }
 }
 
 /* Social links */
