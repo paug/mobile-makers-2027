@@ -4,44 +4,44 @@ description: Join us on April 30, 2027 at UGC Bercy in Paris for Mobile Makers, 
 date: 2026-09-30
 ---
 
-It took some doing, but we can finally announce it! Join us on **April 30, 2027 at UGC Bercy in Paris** for Mobile Makers!
+It took a lot of work, but we can finally announce it\! Android Makers is back on **April 30, 2027 at UGC Bercy in Paris,** with a twist…
 
 ## Android Makers is now Mobile Makers
 
-Almost 10 years to the day after the [very first edition](https://paug.github.io/android-makers-2017/), Android Makers is joining forces with the Flutter meetup to become Mobile Makers.
+10 years after the very first edition, the [**PAUG**](https://paug.fr/) **is joining forces with the [Flutter meetup](https://www.meetup.com/fr-fr/flutter-paris/)** and to organize Mobile Makers, the biggest mobile event in France.
 
-We've been working alongside the Flutter meetup for years. They're just as excited as we are about the latest news from Mountain View, they're asking the same questions about where our jobs are headed, and they have a cute mascot. Sure, their programming language is a little quirky, but teaming up was the natural next step.
+We've been working alongside the Flutter meetup for years. They're just as excited as we are about the latest news from Mountain View, they have the same questions about how to design pixel perfect mobile apps, code and distribute them… Plus they have a cute mascot\! Teaming up felt like the natural next step.
 
-Android is still at the heart of the event, and you can count on us to bring you:
+## Packed content, real connections
+
+As you may have noticed, this year's edition is a condensed one. Without our long-time partner [droidcon](https://www.droidcon.com/), the PAUG is running the show on its own, with its own resources.
+
+At a time where [more and more conferences are struggling](https://lettreouverte.afup.org/), running the event on a single day allows us to limit the risk without compromising on quality. In fact, we’re aiming to increase quality even more with top-notch audio/video, packed schedule, more opportunities to connect and (a first in Android Makers history\!) included lunch.
+
+The content is the same content you are used to. With **4 tracks**, round tables, exhibition area, experts from all around the world, you can count on us to bring you:
 
 - What's new in Android and Kotlin
 - UI/UX best practices
 - The best tools to boost your productivity
 - How the developer role is evolving
-- The latest in AI!
+- The latest in AI\!
 
-Most of all, it's a chance to get together in person, meet actual humans, have fun, network and learn from each other!
+Most of all, it's a chance to get together in person, meet actual humans, have fun, network and learn from each other\!
 
-## We need you
+## 100% non-profit
 
-As you may have noticed, this year's edition is a leaner one.
+The whole team is made up of volunteers. This is the same team that has been running your mobile communities since 2011\. Every cent of revenue goes back into the event for the many years to come.
 
-We've decided to keep it to a single day to limit the risk. [Without our long-time partner droidcon](https://www.linkedin.com/feed/update/urn:li:activity:7473025373543497728/), [PAUG](http://paug.fr) is running the show on its own, on a modest budget.
+## Help us make this anniversary edition one to remember\!
 
-So we'll do everything we can to make it a packed day of meeting people, learning and discovering new things. We might even (a first in Android Makers history!) serve lunch to keep the conversations going!
+We’re giving it all to make this event a success but we’re missing just one ingredient, that one ingredient is you:
 
-But all of this costs money, and with [more and more conferences struggling](https://lettreouverte.afup.org/), we're counting on you to keep Android Makers alive.
+- [Get your ticket](https://www.billetweb.fr/mobile-makers-2027). The sooner the better, this is the best way to support us.
+- Submit a talk to the [CFP](https://conference-hall.io/mobile-makers-2027)\!
+- Bring your coworkers, and spread the word\!
+- Ask your company to [sponsor us](https://mobilemakers.fr/#sponsors). We have sponsorship packages for every budget.
 
-Here's how you can help:
-
-- [Get your ticket](https://www.billetweb.fr/mobile-makers-2027). Honestly, it's the best way to support us.
-- Submit a talk to the [CFP](https://conference-hall.io/mobile-makers-2027)!
-- Bring your coworkers, and spread the word!
-- Ask your company to [sponsor us](/en/#sponsors). We have sponsorship packages for every budget.
-
-The whole team is made up of volunteers, and every cent of revenue goes back into the event for 2028 and beyond. Help us make this anniversary edition one to remember!
-
-See you soon!
+See you soon\!
 
 The Mobile Makers team
 

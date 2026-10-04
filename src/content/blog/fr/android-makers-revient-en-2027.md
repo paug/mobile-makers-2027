@@ -4,46 +4,46 @@ subtitle: avec une nouvelle formule…
 description: Rendez-vous le 30 avril 2027 à l'UGC Bercy à Paris pour Mobile Makers, la nouvelle formule d'Android Makers avec le meetup Flutter.
 date: 2026-09-30
 ---
-
-Ça n’a pas été facile mais ça y est, on peut enfin vous le dire !
-Nous vous donnons rendez-vous le **30 avril 2027 à l’UGC Bercy** à Paris pour Mobile Makers !
+Ça nous a demandé énormément de boulot, mais ça y est, on peut enfin vous l’annoncer \! Android Makers revient le **30 avril 2027 à l’UGC Bercy, à Paris,** avec une nouvelle formule \!
 
 ## Android Makers devient Mobile Makers
 
-Presque 10 ans jour pour jour après la [première édition](https://paug.github.io/android-makers-2017/), “Android Makers” fait alliance avec le meetup Flutter et devient “Mobile Makers”.
+10 ans après la [toute première édition](https://paug.github.io/android-makers-2017/), le [**PAUG**](https://paug.fr/) **s’allie au [meetup Flutter](https://www.meetup.com/fr-fr/flutter-paris/)** pour organiser Mobile Makers, le plus grand événement mobile de France.
 
-Parce que ça fait des années qu’on travaille avec le meetup Flutter, parce qu’ils ont la même passion pour les dernières actualités de Mountain View, parce qu’ils ont les mêmes questions sur l’évolution du métier, parce qu’ils ont une mascotte mignonne, et même s'ils ont un langage un peu bizarre, c’était la suite logique pour nous de travailler ensemble.
+Ça fait des années qu’on travaille main dans la main avec le meetup Flutter. Ils sont aussi passionnés que nous par les dernières nouvelles de Mountain View, ils se posent les mêmes questions sur la façon de concevoir des apps mobiles aux petits oignons, de les coder et de les distribuer… et en plus ils ont une mascotte kawaiii \! S’associer était la suite logique.
 
-Android reste dans tous les cas au cœur de l’événement et vous pouvez bien sûr compter sur nous pour vous proposer :
+## Un programme dense, de vraies rencontres
+
+Vous l’avez sûrement remarqué : cette année, l’édition est condensée. Sans notre partenaire de longue date [droidcon](https://www.droidcon.com/), c’est le PAUG qui est aux manettes, avec ses propres moyens.
+
+À l’heure où [de plus en plus de conférences sont en difficulté](https://lettreouverte.afup.org/), tout concentrer sur une seule journée nous permet de limiter les risques sans rogner sur la qualité. On vise même encore mieux : un son et une vidéo au top, un programme bien rempli, plus d’occasions d’échanger et (une première dans l’histoire d’Android Makers \!) le déjeuner compris.
+
+Côté contenu, vous retrouverez ce que vous aimez. Avec **4 tracks**, des tables rondes, un espace d’exposition et des experts venus du monde entier, on vous prépare :
 
 - Les dernières nouveautés d’Android et de Kotlin
 - Les bonnes pratiques UI/UX
 - Les meilleurs outils pour gagner en productivité
 - L’évolution du métier de dev
-- Les dernières nouveautés de l’IA !
+- Les dernières nouveautés de l’IA \!
 
-Et surtout l’occasion de se retrouver en vrai, se retrouver entre humains, s’amuser, réseauter et apprendre ensemble !
+Et surtout, l’occasion de se retrouver en vrai, de rencontrer de vraies personnes, de s’amuser, de réseauter et d’apprendre les uns des autres \!
 
-## On a besoin de vous
+## 100 % bénévole
 
-Ça ne vous aura pas échappé, c’est une édition condensée qu’on vous propose cette année.
+Toute l’équipe est bénévole. C’est la même qui anime vos communautés mobile depuis 2011\. Chaque centime est réinvesti dans l’événement, pour qu’il dure encore de nombreuses années.
 
-Nous avons fait le choix de faire l'événement sur une seule journée. C’est une manière pour nous de réduire le risque. [Sans notre partenaire historique droidcon](https://www.linkedin.com/feed/update/urn:li:activity:7473025373543497728/), c’est le [PAUG](http://paug.fr) qui porte le projet, et nos finances sont modestes.
+## Aidez-nous à faire de cette édition anniversaire un moment inoubliable \!
 
-Alors on va faire notre maximum pour vous fournir une journée dense, en rencontres, en apprentissages, en découvertes, et peut-être même (pour une première historique à Android Makers), en lunch du midi pour favoriser les débats !
+On se donne à fond pour que cet événement soit une réussite, mais il nous manque un ingrédient, et cet ingrédient, c’est vous :
 
-Mais tout cela a un coût et à l'heure où [de plus en plus de conférences sont en crise](https://lettreouverte.afup.org/), on compte sur vous pour continuer à faire vivre Android Makers.
+- [Achetez votre billet](https://www.billetweb.fr/mobile-makers-2027). Plus tôt vous le prenez, mieux c’est : c’est la meilleure façon de nous soutenir.
+- Proposez un talk via le [CFP](https://conference-hall.io/mobile-makers-2027) \!
+- Faites venir vos collègues et parlez-en autour de vous \!
+- Demandez à votre entreprise de [nous sponsoriser](https://mobilemakers.fr/#sponsors). Nous avons des formules de sponsoring pour tous les budgets.
 
-Pour nous aider :
+A très bientôt \!
 
-- [Achetez votre billet](https://www.billetweb.fr/mobile-makers-2027), c’est vraiment la plus grande marque de soutien que vous pouvez nous apporter.
-- [Envoyez-nous vos propositions de talk](https://conference-hall.io/mobile-makers-2027).
-- Faites venir vos collègues ! Et parlez-en autour de vous.
-- Demandez à votre entreprise s'ils peuvent [sponsoriser](/#sponsors). Nous avons plusieurs options de sponsoring pour tous les budgets.
-
-Toute l’équipe est bénévole et l’ensemble des recettes sera réinvesti dans l’événement. On compte sur vous pour faire de cette édition anniversaire une réussite !
-
-À très bientôt !
+L’équipe Mobile Makers
 
 ---
 
