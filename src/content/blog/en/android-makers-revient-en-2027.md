@@ -8,7 +8,7 @@ It took a lot of work, but we can finally announce it\! Android Makers is back o
 
 ## Android Makers is now Mobile Makers
 
-10 years after the very first edition, the [**PAUG**](https://paug.fr/) **is joining forces with the [Flutter meetup](https://www.meetup.com/fr-fr/flutter-paris/)** and to organize Mobile Makers, the biggest mobile event in France.
+10 years after the very first edition of Android Makers, the [**PAUG**](https://paug.fr/) **and the Flutter community are joining forces** to organize Mobile Makers, the biggest mobile event in France.
 
 We've been working alongside the Flutter meetup for years. They're just as excited as we are about the latest news from Mountain View, they have the same questions about how to design pixel perfect mobile apps, code and distribute them… Plus they have a cute mascot\! Teaming up felt like the natural next step.
 

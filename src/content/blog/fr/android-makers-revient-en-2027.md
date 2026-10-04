@@ -8,7 +8,7 @@ date: 2026-09-30
 
 ## Android Makers devient Mobile Makers
 
-10 ans après la [toute première édition](https://paug.github.io/android-makers-2017/), le [**PAUG**](https://paug.fr/) **s’allie au [meetup Flutter](https://www.meetup.com/fr-fr/flutter-paris/)** pour organiser Mobile Makers, le plus grand événement mobile de France.
+10 ans après la [toute première édition d'Android Makers](https://paug.github.io/android-makers-2017/), le [**PAUG**](https://paug.fr/) **et la communauté Flutter s’allient** pour organiser Mobile Makers, le plus grand événement mobile de France.
 
 Ça fait des années qu’on travaille main dans la main avec le meetup Flutter. Ils sont aussi passionnés que nous par les dernières nouvelles de Mountain View, ils se posent les mêmes questions sur la façon de concevoir des apps mobiles aux petits oignons, de les coder et de les distribuer… et en plus ils ont une mascotte kawaiii \! S’associer était la suite logique.
 
