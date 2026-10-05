@@ -164,6 +164,7 @@
 .mm-prose a { color: var(--cyan-text); text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1.5px; }
 .mm-prose a:hover { color: var(--ink-1); }
 .mm-prose address { font-style: normal; }
+.mm-prose hr { margin: 32px 0; border: 0; border-top: 1px solid var(--border-default); }
 .mm-prose .mm-callout { background: var(--surface-container-low); padding: 20px 24px; margin: 0 0 24px; }
 
 /* Marquee */

@@ -13,6 +13,7 @@ const { t } = m;
     </a>
     <nav aria-label="Sections" class="mm-desk-flex" style="gap:2px;flex-wrap:wrap;justify-content:center">
       {m.navItems.map((n) => <a href={n.href} class="mm-navlink">{n.label}</a>)}
+      <a href={m.home + 'blog/'} class="mm-navlink">Blog</a>
     </nav>
     <div class="mm-desk-flex" style="gap:12px;align-items:center;flex:none">
       <LangSwitch lang={m.lang} hrefs={m.langHrefs} />
@@ -27,6 +28,7 @@ const { t } = m;
   </div>
   <nav id="mobile-menu" aria-label={t.menuNav} hidden class="mm-mobile-only" style="border-top:1px solid rgba(255,255,255,.1);background:var(--graphite);padding:12px 24px 20px;flex-direction:column;gap:4px">
     {m.navItems.map((n) => <a href={n.href} data-menu-close class="mm-navlink-mobile">{n.label}</a>)}
+    <a href={m.home + 'blog/'} data-menu-close class="mm-navlink-mobile">Blog</a>
     <div style="margin-top:12px"><Button href={m.home + '#tickets'} fullWidth iconRight="arrow-right" data-menu-close>{t.navCta}</Button></div>
   </nav>
 </header>
