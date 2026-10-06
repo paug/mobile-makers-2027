@@ -6,6 +6,7 @@ const m = buildModel('en', { fr: '/brand/', en: '/brand/' });
 
 const logos = [
   { file: 'logo', name: 'Logo', bg: 'var(--paper-1)' },
+  { file: 'logo-with-friends', name: 'Logo with friends', bg: 'var(--paper-1)' },
   { file: 'black-and-white', name: 'Black & white', bg: 'var(--paper-1)' },
   { file: 'bugdroid', name: 'Bugdroid', bg: 'var(--paper-1)' },
   { file: 'dash', name: 'Dash', bg: 'var(--paper-1)' },
@@ -15,8 +16,7 @@ const ui = [
   { file: 'button', name: 'Button' },
 ];
 const banners = [
-  { file: 'banner1', name: 'Banner 1' },
-  { file: 'banner2', name: 'Banner 2' },
+  { file: 'banner', name: 'Banner' },
 ];
 const colors = [
   { file: 'primary', name: 'Primary', hex: '#EA503F' },
@@ -45,7 +45,7 @@ const colors = [
       ))}
     </ul>
 
-    <h2 class="mm-brand-h">Banners</h2>
+    <h2 class="mm-brand-h">Banner</h2>
     <ul class="mm-brand-grid mm-brand-grid--wide">
       {banners.map((a) => (
         <li>
