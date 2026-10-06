@@ -12,9 +12,9 @@ date: 2026-09-30
 
 Ça fait des années qu’on travaille main dans la main avec le meetup Flutter. Ils sont aussi passionnés que nous par les dernières nouvelles de Mountain View, ils se posent les mêmes questions sur la façon de concevoir des apps mobiles aux petits oignons, de les coder et de les distribuer… et en plus ils ont une mascotte kawaiii \! S’associer était la suite logique.
 
-## Un programme dense, de vraies rencontres
+## Un programme condensé, avec de vrais humains!
 
-Vous l’avez sûrement remarqué : cette année, l’édition est condensée. Sans notre partenaire de longue date [droidcon](https://www.droidcon.com/), c’est le PAUG qui est aux manettes, avec ses propres moyens.
+Vous l’avez sûrement remarqué : cette année, l’édition est condensée. Sans notre partenaire historique [droidcon](https://www.droidcon.com/), c’est le PAUG qui est aux manettes, avec ses propres moyens.
 
 À l’heure où [de plus en plus de conférences sont en difficulté](https://lettreouverte.afup.org/), tout concentrer sur une seule journée nous permet de limiter les risques sans rogner sur la qualité. On vise même encore mieux : un son et une vidéo au top, un programme bien rempli, plus d’occasions d’échanger et (une première dans l’histoire d’Android Makers \!) le déjeuner compris.
 
@@ -30,7 +30,7 @@ Et surtout, l’occasion de se retrouver en vrai, de rencontrer de vraies person
 
 ## 100 % bénévole
 
-Toute l’équipe est bénévole. C’est la même qui anime vos communautés mobile depuis 2011\. Chaque centime est réinvesti dans l’événement, pour qu’il dure encore de nombreuses années.
+Toute l’équipe est bénévole. C’est la même qui anime vos communautés mobiles depuis 2011\. Chaque centime est réinvesti dans l’événement, pour qu’il dure encore de nombreuses années.
 
 ## Aidez-nous à faire de cette édition anniversaire un moment inoubliable \!
 
