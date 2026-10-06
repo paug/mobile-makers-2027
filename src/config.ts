@@ -16,7 +16,7 @@ export const LINKS = {
   cfpUrl: 'https://mobilemakers.fr/cfp',
   sponsorUrl: 'https://mobilemakers.fr/sponsor-deck',
   mapsUrl: 'https://www.google.com/maps/search/?api=1&query=UGC+Cin%C3%A9+Cit%C3%A9+Bercy+Paris',
-  linkedinUrl: 'https://www.linkedin.com/company/paris-android-user-group/',
+  linkedinUrl: 'https://www.linkedin.com/company/mobile-makers/about/',
   xUrl: '',
   youtubeUrl: '',
 };
@@ -24,12 +24,12 @@ export const LINKS = {
 // [name, hue, LinkedIn URL, photo]; leave the URL empty to hide the link.
 // Photo: path under public/ (e.g. '/assets/team/renaud.jpg'); empty shows a plain colour block.
 export const TEAM: [string, Hue, string, string][] = [
-  ['Edouard Marquez', 'red', 'https://www.linkedin.com/in/edouard-marquez-32431514/', '/assets/team/edouard.jpg'],
-  ['Martin Bonnin', 'cyan', 'https://www.linkedin.com/in/martinbonnin/', '/assets/team/martin.jpg'],
   ['Alex Bruneau', 'green', 'https://www.linkedin.com/in/alexandre-bruneau-03380654/', '/assets/team/alex.jpg'],
   ['Benjamin Gonin', 'blue', 'https://www.linkedin.com/in/benjamingonin/', '/assets/team/benjamin.jpg'],
-  ['Renaud Mathieu', 'cyan', 'https://www.linkedin.com/in/renaudmathieu1/', '/assets/team/renaud.jpg'],
+  ['Edouard Marquez', 'red', 'https://www.linkedin.com/in/edouard-marquez-32431514/', '/assets/team/edouard.jpg'],
+  ['Martin Bonnin', 'cyan', 'https://www.linkedin.com/in/martinbonnin/', '/assets/team/martin.jpg'],
   ['Nicolas Guillot', 'red', 'https://www.linkedin.com/in/guillotnico/', '/assets/team/nicolas.jpg'],
+  ['Renaud Mathieu', 'cyan', 'https://www.linkedin.com/in/renaudmathieu1/', '/assets/team/renaud.jpg'],
 ];
 
 export type Hue = 'red' | 'cyan' | 'green' | 'blue';
