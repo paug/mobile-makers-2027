@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   id="Layer_1"
+   data-name="Layer 1"
+   viewBox="0 0 1683 1422"
+   version="1.1"
+   sodipodi:docname="black_and_white.svg"
+   inkscape:version="1.4.3 (0d15f75, 2025-12-25)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview14"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="0.52287582"
+     inkscape:cx="841.5"
+     inkscape:cy="710.49375"
+     inkscape:window-width="2560"
+     inkscape:window-height="1280"
+     inkscape:window-x="1728"
+     inkscape:window-y="30"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="g14" />
+  <defs
+     id="defs1">
+    <style
+       id="style1">
+      .cls-1, .cls-2 {
+        fill: #fff;
+      }
+
+      .cls-1, .cls-3 {
+        opacity: .2;
+      }
+
+      .cls-4 {
+        fill: #1e1e1e;
+      }
+    </style>
+  </defs>
+  <rect
+     class="cls-4"
+     width="1683"
+     height="1422"
+     id="rect1" />
+  <g
+     id="g14">
+    <g
+       id="g7">
+      <path
+         class="cls-2"
+         d="M1282.91,1208.54H366.33c-27.82,0-50.38-24.49-50.38-54.7V158.7l966.96,1049.85Z"
+         id="path1" />
+      <path
+         class="cls-2"
+         d="M426.46,1208.54h889.99c27.25,0,49.34-24.69,49.34-55.15V158.7S426.46,1208.54,426.46,1208.54Z"
+         id="path2" />
+      <path
+         class="cls-2"
+         d="M1365.79,158.7c-262.88,293.81-525.77,587.62-788.65,881.44,74.39,74.39,148.78,148.78,223.17,223.17,188.49-368.2,376.99-736.4,565.48-1104.61Z"
+         id="path3" />
+      <path
+         class="cls-1"
+         d="M848.42,736.63c-140.65,157.3-281.31,314.61-421.96,471.91"
+         id="path4" />
+      <path
+         class="cls-1"
+         d="M1365.79,158.7c-179.13,349.93-358.26,699.87-537.38,1049.8,31.78.01,63.56.03,95.34.04,147.35-349.95,294.69-699.9,442.04-1049.85Z"
+         id="path5" />
+      <path
+         class="cls-1"
+         d="M577.16,1040.11c56.13,56.14,112.26,112.28,168.39,168.42-32.67.02-65.34.03-98.01.05-23.46-56.15-46.92-112.31-70.38-168.47Z"
+         id="path6" />
+      <path
+         class="cls-1"
+         d="M848.48,736.86c-140.67,157.23-281.34,314.45-422.02,471.68,110.61-190.09,221.21-380.19,331.82-570.28,30.07,32.87,60.13,65.74,90.2,98.6Z"
+         id="path7" />
+    </g>
+    <path
+       class="cls-2"
+       d="M 1282.91,1208.54 H 315.95 V 158.7 l 966.96,1049.85 z"
+       id="path8"
+       sodipodi:nodetypes="ccccc" />
+    <path
+       class="cls-3"
+       d="M849.47,736.63c-140.65,157.3-281.31,314.61-421.96,471.91"
+       id="path9" />
+    <path
+       class="cls-2"
+       d="m 427.51,1208.54 h 939.33 V 158.7 Z"
+       id="path10"
+       sodipodi:nodetypes="cccc" />
+    <path
+       class="cls-2"
+       d="M1366.85,158.7c-262.88,293.81-525.77,587.62-788.65,881.44,74.39,74.39,148.78,148.78,223.17,223.17,188.49-368.2,376.99-736.4,565.48-1104.61Z"
+       id="path11" />
+    <path
+       class="cls-3"
+       d="M1366.85,158.7c-179.13,349.93-358.26,699.87-537.38,1049.8,31.78.01,63.56.03,95.34.04,147.35-349.95,294.69-699.9,442.04-1049.85Z"
+       id="path12" />
+    <path
+       class="cls-3"
+       d="M578.21,1040.11c56.13,56.14,112.26,112.28,168.39,168.42-32.67.02-65.34.03-98.01.05-23.46-56.15-46.92-112.31-70.38-168.47Z"
+       id="path13" />
+    <path
+       class="cls-3"
+       d="M849.53,736.86c-140.67,157.23-281.34,314.45-422.02,471.68,110.61-190.09,221.21-380.19,331.82-570.28,30.07,32.87,60.13,65.74,90.2,98.6Z"
+       id="path14" />
+  </g>
+</svg>

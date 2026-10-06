@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   id="Layer_1"
+   data-name="Layer 1"
+   viewBox="0 0 1024 1024"
+   version="1.1"
+   sodipodi:docname="Logo.svg"
+   inkscape:version="1.4.3 (0d15f75, 2025-12-25)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview8"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="true"
+     inkscape:zoom="0.49883412"
+     inkscape:cx="-50.116861"
+     inkscape:cy="383.89515"
+     inkscape:window-width="2560"
+     inkscape:window-height="1280"
+     inkscape:window-x="1728"
+     inkscape:window-y="30"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="Layer_1">
+    <inkscape:grid
+       id="grid8"
+       units="px"
+       originx="0"
+       originy="0"
+       spacingx="1"
+       spacingy="1"
+       empcolor="#0099e5"
+       empopacity="0.30196078"
+       color="#0099e5"
+       opacity="0.14902"
+       empspacing="5"
+       enabled="true"
+       visible="true" />
+  </sodipodi:namedview>
+  <defs
+     id="defs1">
+    <style
+       id="style1">
+      .cls-1 {
+        fill: #20b9e8;
+      }
+
+      .cls-2 {
+        opacity: .2;
+      }
+
+      .cls-3 {
+        fill: #e83f2e;
+      }
+
+      .cls-4 {
+        fill: #ea503f;
+      }
+    </style>
+  </defs>
+  <path
+     class="cls-3"
+     d="M 881.24,927.2 H 74.3 V 51.1 Z"
+     id="path2"
+     sodipodi:nodetypes="cccc" />
+  <path
+     class="cls-1"
+     d="M 166.52,927.2 H 950.41 V 51.1 Z"
+     id="path4"
+     sodipodi:nodetypes="cccc" />
+  <path
+     class="cls-4"
+     d="M950.4,51.1c-219.38,245.19-438.76,490.38-658.14,735.57,62.08,62.08,124.16,124.16,186.24,186.24,157.3-307.27,314.6-614.53,471.9-921.8Z"
+     id="path5" />
+  <path
+     class="cls-2"
+     d="M950.4,51.1c-149.48,292.02-298.97,584.05-448.45,876.07,26.52.01,53.04.02,79.57.04,122.96-292.03,245.92-584.07,368.89-876.1Z"
+     id="path6" />
+  <path
+     class="cls-2"
+     d="M292.29,786.64c46.84,46.85,93.68,93.69,140.52,140.54-27.26.02-54.52.03-81.79.04-19.58-46.86-39.16-93.72-58.74-140.59Z"
+     id="path7" />
+  <path
+     class="cls-2"
+     d="M518.7,533.58c-117.39,131.21-234.78,262.41-352.18,393.62,92.3-158.64,184.6-317.27,276.9-475.91,25.09,27.43,50.18,54.86,75.27,82.28Z"
+     id="path8" />
+</svg>

@@ -1,0 +1,93 @@
+---
+import Layout from '../components/Layout.astro';
+import { buildModel } from '../i18n/model';
+
+const m = buildModel('en', { fr: '/brand/', en: '/brand/' });
+
+const logos = [
+  { file: 'logo', name: 'Logo', bg: 'var(--paper-1)' },
+  { file: 'logo-with-friends', name: 'Logo with friends', bg: 'var(--paper-1)' },
+  { file: 'black-and-white', name: 'Black & white', bg: 'var(--paper-1)' },
+  { file: 'bugdroid', name: 'Bugdroid', bg: 'var(--paper-1)' },
+  { file: 'dash', name: 'Dash', bg: 'var(--paper-1)' },
+];
+const ui = [
+  { file: 'text', name: 'Text' },
+  { file: 'button', name: 'Button' },
+];
+const banners = [
+  { file: 'banner', name: 'Banner' },
+];
+const colors = [
+  { file: 'primary', name: 'Primary', hex: '#EA503F' },
+  { file: 'primary-dark', name: 'Primary dark', hex: '#E83F2E' },
+  { file: 'secondary', name: 'Secondary', hex: '#20B9E8' },
+  { file: 'ombre', name: 'Shadow' },
+];
+---
+<Layout m={m} title="Brand assets · Mobile Makers 2027" description="Logos, banners and colors for Mobile Makers 2027.">
+  <article class="mm-wrap" style="padding-top:clamp(48px,6vw,80px);padding-bottom:clamp(48px,6vw,80px)">
+    <div style="display:flex;flex-direction:column;gap:12px;max-width:720px;margin-bottom:40px">
+      <div class="mm-eyebrow">About</div>
+      <h1 class="mm-h2" style="margin:0;color:var(--ink-1);font-size:clamp(36px,5vw,64px);font-weight:600">Brand assets</h1>
+      <p style="margin:0;font:400 17px/1.6 var(--font-body);color:var(--ink-2)">Logos, banners and colors for Mobile Makers 2027. Click an asset to open or download the SVG.</p>
+    </div>
+
+    <h2 class="mm-brand-h">Logos and mascots</h2>
+    <ul class="mm-brand-grid">
+      {logos.map((a) => (
+        <li>
+          <a href={`/assets/brand/${a.file}.svg`} download style={`background:${a.bg}`}>
+            <img src={`/assets/brand/${a.file}.svg`} alt={a.name} loading="lazy" />
+          </a>
+          <span>{a.name}</span>
+        </li>
+      ))}
+    </ul>
+
+    <h2 class="mm-brand-h">Banner</h2>
+    <ul class="mm-brand-grid mm-brand-grid--wide">
+      {banners.map((a) => (
+        <li>
+          <a href={`/assets/brand/${a.file}.svg`} download>
+            <img src={`/assets/brand/${a.file}.svg`} alt={a.name} loading="lazy" />
+          </a>
+          <span>{a.name}</span>
+        </li>
+      ))}
+    </ul>
+
+    <h2 class="mm-brand-h">Colors</h2>
+    <ul class="mm-brand-grid">
+      {colors.map((c) => (
+        <li>
+          <a href={`/assets/brand/${c.file}.svg`} download>
+            <img src={`/assets/brand/${c.file}.svg`} alt={c.hex ? `${c.name} ${c.hex}` : c.name} loading="lazy" />
+          </a>
+          <span>{c.name}{c.hex && <> · <code>{c.hex}</code></>}</span>
+        </li>
+      ))}
+    </ul>
+    <h2 class="mm-brand-h">UI elements</h2>
+    <ul class="mm-brand-grid">
+      {ui.map((a) => (
+        <li>
+          <a href={`/assets/brand/${a.file}.svg`} download>
+            <img src={`/assets/brand/${a.file}.svg`} alt={a.name} loading="lazy" />
+          </a>
+          <span>{a.name}</span>
+        </li>
+      ))}
+    </ul>
+  </article>
+</Layout>
+
+<style>
+  .mm-brand-h { margin: 48px 0 16px; font: 600 26px/1.15 var(--font-display); letter-spacing: -0.01em; color: var(--ink-1); }
+  .mm-brand-grid { list-style: none; margin: 0; padding: 0; display: grid; gap: 24px; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); }
+  .mm-brand-grid--wide { grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); }
+  .mm-brand-grid a { display: flex; align-items: center; justify-content: center; aspect-ratio: 1; padding: 16px; border: var(--border-w-strong, 1px) solid var(--border-default); }
+  .mm-brand-grid--wide a { aspect-ratio: auto; }
+  .mm-brand-grid img { max-width: 100%; max-height: 100%; display: block; }
+  .mm-brand-grid span { display: block; margin-top: 8px; font: 500 14px/1.4 var(--font-mono); color: var(--ink-3); }
+</style>

@@ -37,7 +37,7 @@ export const T = {
     volTitle: 'Les bénévoles font la journée.', volBody: "Accueil, régie, salles : le jour J, ce sont les bénévoles qui font tourner Mobile Makers. Envie de nous rejoindre ?",
     contactTitle: 'Nous écrire', coc: 'Code de conduite',
     footerBlurb: 'Une journée pour celles et ceux qui fabriquent des applications mobiles (Android,  Flutter…). Paris, 30 avril 2027, UGC Ciné Cité Bercy.', footerSections: 'Sections', footerAbout: 'À propos', footerLang: 'Langue',
-    footerLinks: [['Blog', 'blog'], ['Code de conduite', 'coc'], ['Devenir sponsor', '#sponsors'], ['Mentions légales', 'legal'], ['Confidentialité', 'privacy']],
+    footerLinks: [['Blog', 'blog'],  ['Brand', '/brand/'], ['Code de conduite', 'coc'], ['Devenir sponsor', '#sponsors'], ['Mentions légales', 'legal'], ['Confidentialité', 'privacy']],
     copyright: '© ' + new Date().getFullYear() + ' Mobile Makers · Paris Android User Group (PAUG)'
   },
   en: {
@@ -77,7 +77,7 @@ export const T = {
     volTitle: 'Volunteers make the day.', volBody: 'Registration, stage, rooms: on the day, volunteers keep Mobile Makers running. Want in?',
     contactTitle: 'Write to us', coc: 'Code of conduct',
     footerBlurb: 'One day for the people who build Android and Flutter apps. Paris, April 30, 2027, UGC Ciné Cité Bercy.', footerSections: 'Sections', footerAbout: 'About', footerLang: 'Language',
-    footerLinks: [['Blog', 'blog'], ['Code of conduct', 'coc'], ['Become a sponsor', '#sponsors'], ['Legal notice', 'legal'], ['Privacy', 'privacy']],
+    footerLinks: [['Blog', 'blog'], ['Brand', '/brand/'], ['Code of conduct', 'coc'], ['Become a sponsor', '#sponsors'], ['Legal notice', 'legal'], ['Privacy', 'privacy']],
     copyright: '© ' + new Date().getFullYear() + ' Mobile Makers · Paris Android User Group (PAUG)'
   }
 };
