@@ -5,7 +5,7 @@ export const T = {
     menu: 'Menu', navCta: 'Prendre mon billet', ctaTicket: 'Prendre mon billet', ctaTalk: 'Proposer un talk', ctaSponsor: 'Devenir sponsor', ctaVolunteer: 'Rejoindre les bénévoles', ctaAgenda: "Voir l'agenda",
     nav: ["L'évènement", 'Agenda', 'Speakers', 'Sponsors', 'Billetterie', 'Call for Papers', "L'équipe"],
     heroLogoAlt: 'Mobile Makers, 30 avril, Paris', heroTitle: 'Android, Flutter. Le rendez-vous des dévelopeurs mobiles',
-    heroSub: 'Mobile Makers réunit à Paris celles et ceux qui fabriquent des applications mobiles (Android,  Flutter…) : des talks, des ateliers et de vraies échanges. Tout cela porté par la communauté du PAUG.',
+    heroSub: 'Mobile Makers réunit à Paris celles et ceux qui fabriquent des applications mobiles (Android,  Flutter…) : des talks, des ateliers et de vrais échanges. Tout cela porté par la communauté du PAUG.',
     why: [['Une seule journée', 'Un format concentré : moins de friction pour vous, pour nous et pour les bénévoles. Chaque moment compte.'], ['Deux écosystèmes', 'Android et Flutter : tout sur Kotlin, Compose, Dart et plus encore.'], ["La communauté d'abord", 'Un programme choisi par des développeurs, pour des développeurs. Organisé par le PAUG, porté par des bénévoles.']],
     venueEyebrow: 'Le lieu', venueTitle: 'UGC Ciné Cité Bercy, Paris.', venueLead: 'Des salles de cinéma pour quatre tracks et un espace cocktail. Votre démo mobile, sur grand écran.',
     venueStats: [['450', 'places dans la grande salle'], ['4', 'tracks : 3 salles et des table-rondes'], ['600', "personnes dans l'espace cocktail"]],
