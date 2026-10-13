@@ -19,7 +19,7 @@ export const LINKS = {
   linkedinUrl: 'https://www.linkedin.com/company/mobile-makers/about/',
   xUrl: 'https://x.com/AndroidMakersFR',
   bskyUrl: 'https://bsky.app/profile/androidmakers.bsky.social',
-  youtubeUrl: '',
+  youtubeUrl: 'https://www.youtube.com/@Mobile-Makers',
 };
 
 // [name, hue, LinkedIn URL, photo]; leave the URL empty to hide the link.
