@@ -32,7 +32,7 @@ export function buildModel(lang: Lang, langHrefs: Record<Lang, string> = { fr: '
   const home = lang === 'fr' ? '/' : '/en/';
   const { showAgenda, cfpOpen, speakersAnnounced, showSponsorTiers, ticketPhase: phase } = STATES;
 
-  const socials = ([['linkedin', 'LinkedIn', L.linkedinUrl], [null, 'X', L.xUrl], ['youtube', 'YouTube', L.youtubeUrl], ['mail', 'Email', CONTACT]] as [string | null, string, string][])
+  const socials = ([['linkedin', 'LinkedIn', L.linkedinUrl], ['twitter', 'X', L.xUrl], ['sky', 'Bluesky', L.bskyUrl], ['youtube', 'YouTube', L.youtubeUrl], ['mail', 'Email', CONTACT]] as [string | null, string, string][])
     .filter(([, , href]) => href)
     .map(([icon, label, href]) => ({ icon, label, href, target: href.startsWith('mailto:') ? '_self' : '_blank' }));
 
