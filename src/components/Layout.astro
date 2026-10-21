@@ -19,6 +19,27 @@ const altLocale = m.lang === 'fr' ? 'en_US' : 'fr_FR';
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script is:inline>
+      // Language redirect, home pages only so deep links and crawlers keep the page they asked for.
+      // An explicit choice (cookie, set by the language switch) wins over the browser language.
+      (function () {
+        try {
+          var path = location.pathname, here = path === '/' ? 'fr' : path === '/en/' ? 'en' : null;
+          if (!here || /bot|crawl|spider|lighthouse/i.test(navigator.userAgent)) return;
+          var m = document.cookie.match(/(?:^|; )lang=(fr|en)/), want = m && m[1];
+          if (!want) {
+            var langs = navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language];
+            for (var i = 0; i < langs.length && !want; i++) {
+              var l = String(langs[i]).slice(0, 2).toLowerCase();
+              if (l === 'fr' || l === 'en') want = l;
+            }
+            want = want || 'en';
+            document.cookie = 'lang=' + want + '; path=/; max-age=31536000; samesite=lax';
+          }
+          if (want !== here) location.replace((want === 'fr' ? '/' : '/en/') + location.search + location.hash);
+        } catch (e) {}
+      })();
+    </script>
     <title>{title}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
