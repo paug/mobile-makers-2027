@@ -17,8 +17,9 @@ export const LINKS = {
   sponsorUrl: 'https://mobilemakers.fr/sponsor-deck',
   mapsUrl: 'https://www.google.com/maps/search/?api=1&query=UGC+Cin%C3%A9+Cit%C3%A9+Bercy+Paris',
   linkedinUrl: 'https://www.linkedin.com/company/mobile-makers/about/',
-  xUrl: '',
-  youtubeUrl: '',
+  xUrl: 'https://x.com/AndroidMakersFR',
+  bskyUrl: 'https://bsky.app/profile/androidmakers.bsky.social',
+  youtubeUrl: 'https://www.youtube.com/@Mobile-Makers',
 };
 
 // [name, hue, LinkedIn URL, photo]; leave the URL empty to hide the link.
