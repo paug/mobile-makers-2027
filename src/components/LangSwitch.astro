@@ -18,5 +18,9 @@ const items = [
   // Keep the section the reader is on when switching language (the hash is only known client side)
   const sync = () => document.querySelectorAll<HTMLAnchorElement>('[data-lang-href]').forEach((a) => { a.hash = location.hash; });
   sync();
+  // Remember an explicit choice so the home page stops redirecting on browser language
+  document.querySelectorAll<HTMLAnchorElement>('[data-lang-href]').forEach((a) => {
+    a.addEventListener('click', () => { document.cookie = `lang=${a.hreflang}; path=/; max-age=31536000; samesite=lax`; });
+  });
   addEventListener('hashchange', sync);
 </script>
