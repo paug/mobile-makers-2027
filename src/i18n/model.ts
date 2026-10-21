@@ -2,12 +2,12 @@
 import { T, type Lang } from './copy';
 import { CONTACT, LINKS, STATES, TEAM, type Hue } from '../config';
 
-const ANCHORS = ['#event', '#agenda', '#speakers', '#sponsors', '#tickets', '#cfp', '#team'];
+const ANCHORS = ['#venue', '#agenda', '#speakers', '#sponsors', '#tickets', '#cfp', '#team'];
 
 // Legal pages, one slug per language. Keys match copy.ts footerLinks.
 export const LEGAL_PAGES = {
-  fr: { coc: '/code-de-conduite/', legal: '/mentions-legales/', privacy: '/confidentialite/' },
-  en: { coc: '/en/code-of-conduct/', legal: '/en/legal-notice/', privacy: '/en/privacy/' },
+  fr: { coc: '/code-de-conduite/', legal: '/mentions-legales/', privacy: '/confidentialite/', faq: '/faq/' },
+  en: { coc: '/en/code-of-conduct/', legal: '/en/legal-notice/', privacy: '/en/privacy/', faq: '/en/faq/' },
 } as const;
 export type LegalKey = keyof typeof LEGAL_PAGES.fr;
 
