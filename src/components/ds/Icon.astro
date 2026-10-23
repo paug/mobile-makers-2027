@@ -25,5 +25,6 @@ const P: Record<string, string> = {
 };
 interface Props { name: string; size?: number; color?: string; style?: string; class?: string }
 const { name, size = 20, color = 'currentColor', style = '', class: cls } = Astro.props;
+const isBluesky = name === 'bluesky';
 ---
-<svg aria-hidden="true" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class={cls} style={`display:inline-block;flex:none;${style}`}><path d={P[name]} /></svg>
+<svg aria-hidden="true" width={size} height={size} viewBox="0 0 24 24" fill={isBluesky ? color : 'none'} stroke={isBluesky ? 'none' : color} stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class={cls} style={`display:inline-block;flex:none;${style}`}><path d={P[name]} transform={isBluesky ? 'translate(-6.5 -5.5) scale(0.67)' : undefined} /></svg>
