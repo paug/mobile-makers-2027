@@ -1,16 +1,29 @@
 ---
 import LegalPage from '../components/LegalPage.astro';
+import { faqJsonLd, type Faq } from '../components/faqJsonLd';
+
+// Answers are HTML paragraphs; the JSON-LD gets them as plain text.
+const faqs: Faq[] = [
+  { q: 'Les talks seront-ils en français ou en anglais ?', a: [
+    "La grande majorité de la conférence sera en anglais. Nous visons environ 75 % de talks en anglais sur l'ensemble de l'évènement. Pour la track Flutter en particulier, la communauté étant très internationale, elle sera très probablement 100 % en anglais. De plus, il y aura toujours un talk en anglais à tout moment de la journée.",
+  ] },
+  { q: "Pourquoi l'évènement ne dure-t-il qu'une seule journée ?", a: [
+    "Cette année, nous organisons l'évènement de manière 100% bénévole. Une seule journée limite le risque pour nos finances limitées. Le format condensé est plus accessible pour les freelances et les équipes.",
+    'Une seule journée pour se mettre à jour sur les dernières nouveautés de l\'écosystème mobile ! Plus d\'infos dans <a href="/blog/android-makers-revient-en-2027/">l\'article de blog</a>.',
+  ] },
+  { q: 'Y aura-t-il une soirée ?', a: [
+    'Question très importante :)',
+    'Oui!',
+    'La soirée officielle aura lieu le jeudi 29 avril. Plus de détails bientôt, il nous tarde de vous retrouver !',
+  ] },
+];
 ---
 <LegalPage lang="fr" page="faq" eyebrow="Infos pratiques" title="FAQ" description="Les questions fréquentes sur Mobile Makers 2027." updated="21 octobre 2026">
-  <h2>Les talks seront-ils en français ou en anglais ?</h2>
-  <p>La grande majorité de la conférence sera en anglais. Nous visons environ 75 % de talks en anglais sur l'ensemble de l'évènement. Pour la track Flutter en particulier, la communauté étant très internationale, elle sera très probablement 100 % en anglais. De plus, il y aura toujours un talk en anglais à tout moment de la journée.</p>
-
-  <h2>Pourquoi l'évènement ne dure-t-il qu'une seule journée ?</h2>
-  <p>Cette année, nous organisons l'évènement de manière 100% bénévole. Une seule journée limite le risque pour nos finances limitées. Le format condensé est plus accessible pour les freelances et les équipes.</p>
-  <p>Une seule journée pour se mettre à jour sur les dernières nouveautés de l'écosystème mobile ! Plus d'infos dans <a href="/blog/android-makers-revient-en-2027/">l'article de blog</a>.</p>
-
-  <h2>Y aura-t-il une soirée ?</h2>
-  <p>Question très importante :)</p>
-  <p>Oui!</p>
-  <p>La soirée officielle aura lieu le jeudi 29 avril. Plus de détails bientôt, il nous tarde de vous retrouver !</p>
+  <script type="application/ld+json" set:html={JSON.stringify(faqJsonLd(faqs))} />
+  {faqs.map(({ q, a }) => (
+    <>
+      <h2>{q}</h2>
+      {a.map((p) => <p set:html={p} />)}
+    </>
+  ))}
 </LegalPage>

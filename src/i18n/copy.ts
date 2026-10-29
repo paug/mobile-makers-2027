@@ -4,7 +4,8 @@ export const T = {
     skip: 'Aller au contenu', menuNav: 'Menu mobile', website: 'Site web', profile: 'Profil', langSwitch: 'Langue', whyTitle: 'Pourquoi Mobile Makers',
     menu: 'Menu', navCta: 'Prendre mon billet', ctaTicket: 'Prendre mon billet', ctaTalk: 'Proposer un talk', ctaSponsor: 'Devenir sponsor', ctaVolunteer: 'Rejoindre les bénévoles', ctaAgenda: "Voir l'agenda",
     nav: ['Le lieu', 'Agenda', 'Speakers', 'Sponsors', 'Billetterie', 'Call for Papers', "L'équipe"],
-    heroLogoAlt: 'Mobile Makers, 30 avril, Paris', heroTitle: 'Android, Flutter. Le rendez-vous des dévelopeurs mobiles',
+    heroLogoAlt: 'Mobile Makers, 30 avril, Paris', heroTitle: 'Android, Flutter. Le rendez-vous des développeurs mobiles',
+    heroKicker: 'Mobile Makers 2027, la conférence Android et Flutter à Paris', heroLegacy: "La nouvelle formule d'Android Makers, avec la communauté Flutter.", heroLegacyLink: "Lire l'annonce",
     heroSub: 'Mobile Makers réunit à Paris celles et ceux qui fabriquent des applications mobiles (Android,  Flutter…) : des talks, des ateliers et de vrais échanges. Tout cela porté par la communauté du PAUG.',
     why: [['Une seule journée', 'Un format concentré : moins de friction pour vous, pour nous et pour les bénévoles. Chaque moment compte.'], ['Deux écosystèmes', 'Android et Flutter : tout sur Kotlin, Compose, Dart et plus encore.'], ["La communauté d'abord", 'Un programme choisi par des développeurs, pour des développeurs. Organisé par le PAUG, porté par des bénévoles.']],
     venueEyebrow: 'Le lieu', venueTitle: 'UGC Ciné Cité Bercy, Paris.', venueLead: 'Des salles de cinéma pour quatre tracks et un espace cocktail. Votre démo mobile, sur grand écran.',
@@ -37,7 +38,7 @@ export const T = {
     volTitle: 'Les bénévoles font la journée.', volBody: "Accueil, régie, salles : le jour J, ce sont les bénévoles qui font tourner Mobile Makers. Envie de nous rejoindre ?",
     contactTitle: 'Nous écrire', coc: 'Code de conduite',
     footerBlurb: 'Une journée pour celles et ceux qui fabriquent des applications mobiles (Android,  Flutter…). Paris, 30 avril 2027, UGC Ciné Cité Bercy.', footerSections: 'Sections', footerAbout: 'À propos', footerLang: 'Langue',
-    footerLinks: [['Blog', 'blog'],  ['Brand', '/brand/'], ['FAQ', 'faq'], ['Code de conduite', 'coc'], ['Devenir sponsor', '#sponsors'], ['Mentions légales', 'legal'], ['Confidentialité', 'privacy']],
+    footerLinks: [['Blog', 'blog'],  ['Brand', '/brand/'], ['FAQ', 'faq'], ['Billetterie', 'tickets'], ['Appel à talks', 'cfp'], ['Code de conduite', 'coc'], ['Devenir sponsor', '#sponsors'], ['Mentions légales', 'legal'], ['Confidentialité', 'privacy']],
     copyright: '© ' + new Date().getFullYear() + ' Mobile Makers · Paris Android User Group (PAUG)'
   },
   en: {
@@ -45,6 +46,7 @@ export const T = {
     menu: 'Menu', navCta: 'Get my ticket', ctaTicket: 'Get my ticket', ctaTalk: 'Submit a talk', ctaSponsor: 'Become a sponsor', ctaVolunteer: 'Join the volunteers', ctaAgenda: 'See the schedule',
     nav: ['Venue', 'Schedule', 'Speakers', 'Sponsors', 'Tickets', 'Call for Papers', 'Team'],
     heroLogoAlt: 'Mobile Makers, April 30, Paris', heroTitle: 'Android, Flutter. Where your mobile dreams come true',
+    heroKicker: 'Mobile Makers 2027, the Android and Flutter conference in Paris', heroLegacy: 'The new format of Android Makers, together with the Flutter community.', heroLegacyLink: 'Read the announcement',
     heroSub: 'Mobile Makers brings together the people who build Android and Flutter apps: talks, workshops and real hallway conversations, in Paris, run by the PAUG community.',
     why: [['One day', 'A focused format: less friction for you, for us and for the volunteers. Every moment counts.'], ['Two ecosystems', 'Android and Flutter: everything you want to know about Kotlin, Compose, Dart and more.'], ['Community first', 'A program curated by developers, for developers. Organized by PAUG, powered by volunteers.']],
     venueEyebrow: 'The venue', venueTitle: 'UGC Ciné Cité Bercy, Paris.', venueLead: 'Cinema rooms for four tracks and a cocktail space. Your mobile demo, on the big screen.',
@@ -77,7 +79,7 @@ export const T = {
     volTitle: 'Volunteers make the day.', volBody: 'Registration, stage, rooms: on the day, volunteers keep Mobile Makers running. Want in?',
     contactTitle: 'Write to us', coc: 'Code of conduct',
     footerBlurb: 'One day for the people who build Android and Flutter apps. Paris, April 30, 2027, UGC Ciné Cité Bercy.', footerSections: 'Sections', footerAbout: 'About', footerLang: 'Language',
-    footerLinks: [['Blog', 'blog'], ['Brand', '/brand/'], ['FAQ', 'faq'], ['Code of conduct', 'coc'], ['Become a sponsor', '#sponsors'], ['Legal notice', 'legal'], ['Privacy', 'privacy']],
+    footerLinks: [['Blog', 'blog'], ['Brand', '/brand/'], ['FAQ', 'faq'], ['Tickets', 'tickets'], ['Call for Papers', 'cfp'], ['Code of conduct', 'coc'], ['Become a sponsor', '#sponsors'], ['Legal notice', 'legal'], ['Privacy', 'privacy']],
     copyright: '© ' + new Date().getFullYear() + ' Mobile Makers · Paris Android User Group (PAUG)'
   }
 };

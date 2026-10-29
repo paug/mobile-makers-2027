@@ -1,14 +1,27 @@
 ---
 import LegalPage from '../../components/LegalPage.astro';
+import { faqJsonLd, type Faq } from '../../components/faqJsonLd';
+
+// Answers are HTML paragraphs; the JSON-LD gets them as plain text.
+const faqs: Faq[] = [
+  { q: 'Are the talks going to be in French or in English?', a: [
+    'The vast majority of the conference will be in English. We are aiming for about 75% English talks across the whole event. For the Flutter track specifically, since the community is very international, it is highly likely to be 100% in English. Furthermore, there will always be an English talk happening at any given time.',
+  ] },
+  { q: 'Why is the event on a single day?', a: [
+    'We are running the event as volunteers this year, with limited resources. One day keeps the risk lower for our finances. Furthermore, we believe the dense format is easier for freelancers and teams to attend.',
+    'One day to catch up with the latest news in the mobile ecosystem! Read more in <a href="/en/blog/android-makers-revient-en-2027/">the blog post</a>.',
+  ] },
+  { q: 'Is there going to be a party?', a: [
+    "Yes! That's a very important part of the event! The official party will happen on Thursday, April 29th. Stay tuned!",
+  ] },
+];
 ---
 <LegalPage lang="en" page="faq" eyebrow="Practical info" title="FAQ" description="Frequently asked questions about Mobile Makers 2027." updated="October 21, 2026">
-  <h2>Are the talks going to be in French or in English?</h2>
-  <p>The vast majority of the conference will be in English. We are aiming for about 75% English talks across the whole event. For the Flutter track specifically, since the community is very international, it is highly likely to be 100% in English. Furthermore, there will always be an English talk happening at any given time.</p>
-
-  <h2>Why is the event on a single day?</h2>
-  <p>We are running the event as volunteers this year, with limited resources. One day keeps the risk lower for our finances. Furthermore, we believe the dense format is easier for freelancers and teams to attend.</p>
-  <p>One day to catch up with the latest news in the mobile ecosystem! Read more in <a href="/en/blog/android-makers-revient-en-2027/">the blog post</a>.</p>
-
-  <h2>Is there going to be a party?</h2>
-  <p>Yes! That's a very important part of the event! The official party will happen on Thursday, April 29th. Stay tuned!</p>
+  <script type="application/ld+json" set:html={JSON.stringify(faqJsonLd(faqs))} />
+  {faqs.map(({ q, a }) => (
+    <>
+      <h2>{q}</h2>
+      {a.map((p) => <p set:html={p} />)}
+    </>
+  ))}
 </LegalPage>

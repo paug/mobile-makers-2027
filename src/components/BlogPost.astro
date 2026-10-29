@@ -15,8 +15,26 @@ const hrefs = { [lang]: postHref(lang, slug), [other]: translated ? postHref(oth
 const m = buildModel(lang, hrefs);
 const { Content } = await render(post);
 const back = lang === 'fr' ? '← Tous les articles' : '← All posts';
+
+// BlogPosting structured data. The organization is repeated inline: Google does not resolve @id across pages.
+const site = 'https://mobilemakers.fr';
+const org = { '@type': 'Organization', '@id': site + '/#organization', name: 'Paris Android User Group (PAUG)', url: site, logo: site + '/icon-512.png' };
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BlogPosting',
+  headline: post.data.title,
+  description: post.data.description,
+  datePublished: post.data.date.toISOString().slice(0, 10),
+  inLanguage: lang,
+  url: site + hrefs[lang],
+  mainEntityOfPage: site + hrefs[lang],
+  image: site + '/assets/og/cover.png',
+  author: org,
+  publisher: org,
+};
 ---
-<Layout m={m} title={`${post.data.title} · Mobile Makers 2027`} description={post.data.description}>
+<Layout m={m} title={`${post.data.title} · Mobile Makers 2027`} description={post.data.description} ogType="article">
+  <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
   <article class="mm-wrap" style="padding-top:clamp(48px,6vw,80px);padding-bottom:clamp(48px,6vw,80px)">
     <div style="display:flex;flex-direction:column;gap:12px;max-width:720px;margin-bottom:40px">
       <a class="mm-eyebrow" href={blogHome(lang)} style="text-decoration:none">{back}</a>

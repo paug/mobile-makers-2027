@@ -25,7 +25,7 @@ const meta = {
 const site = 'https://mobilemakers.fr';
 const availability: Record<string, string> = { available: 'https://schema.org/InStock', soon: 'https://schema.org/PreOrder', ended: 'https://schema.org/SoldOut' };
 const orgId = site + '/#organization';
-const sameAs = [m.L.linkedinUrl, m.L.xUrl, m.L.youtubeUrl].filter(Boolean);
+const sameAs = [m.L.linkedinUrl, m.L.xUrl, m.L.bskyUrl, m.L.youtubeUrl].filter(Boolean);
 const performers = m.speakersAnnounced ? m.speakers.map((s) => ({ '@type': 'Person', name: s.name })) : [];
 const jsonLd = {
   '@context': 'https://schema.org',
@@ -36,7 +36,7 @@ const jsonLd = {
       name: 'Paris Android User Group (PAUG)',
       alternateName: 'PAUG',
       url: site,
-      logo: site + '/assets/logo/lockup-date-on-dark.png',
+      logo: site + '/icon-512.png',
       email: 'contact@mobilemakers.fr',
       ...(sameAs.length && { sameAs }),
     },
@@ -52,6 +52,8 @@ const jsonLd = {
       '@type': 'Event',
       '@id': site + '/#event',
       name: 'Mobile Makers 2027',
+      // Formerly Android Makers: the blog post announcing the new format explains the change.
+      alternateName: 'Android Makers 2027',
       description: meta.description,
       startDate: '2027-04-30T08:30:00+02:00',
       endDate: '2027-04-30T20:00:00+02:00',
@@ -59,11 +61,13 @@ const jsonLd = {
       eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
       inLanguage: ['fr', 'en'],
       url: site + m.home,
-      image: [site + '/assets/og/cover.png', site + '/assets/logo/lockup-date-on-dark.png'],
+      // Google picks the best fit among several aspect ratios (cover 1.9:1, venue photo 4:3, square logo).
+      image: [site + '/assets/og/cover.png', site + '/assets/venue/facade.webp', site + '/icon-512.png'],
       location: {
         '@type': 'Place',
         name: 'UGC Ciné Cité Bercy',
         address: { '@type': 'PostalAddress', streetAddress: '2 Cour Saint-Émilion', postalCode: '75012', addressLocality: 'Paris', addressCountry: 'FR' },
+        geo: { '@type': 'GeoCoordinates', latitude: 48.8335, longitude: 2.3862 },
       },
       organizer: { '@id': orgId },
       ...(performers.length && { performer: performers }),
@@ -72,6 +76,8 @@ const jsonLd = {
         name: tk.name,
         price: t.prices[i],
         priceCurrency: 'EUR',
+        // Prices on the site are shown excluding VAT.
+        priceSpecification: { '@type': 'PriceSpecification', price: t.prices[i], priceCurrency: 'EUR', valueAddedTaxIncluded: false },
         availability: availability[tk.available ? 'available' : tk.soon ? 'soon' : 'ended'],
         url: m.L.ticketUrl,
       })),
