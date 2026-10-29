@@ -14,9 +14,10 @@ const { t } = m;
   <div style="max-width:1200px;margin:0 auto;padding:clamp(40px,5vw,72px) 24px clamp(48px,5vw,72px);display:flex;flex-direction:column;gap:clamp(32px,4vw,56px);position:relative;z-index:1">
     <HeroLogo alt={t.heroLogoAlt} />
     <div class="mm-hero-grid" style="align-items:end;padding-top:clamp(24px,3vw,40px);border-top:1px solid rgba(255,255,255,.1)">
-      <ScrollTitle as="h1" class="mm-hero-half mm-rise" style="margin:0;--rise-delay:500ms"><span style="display:block;font-family:var(--font-display);font-size:clamp(30px,3.6vw,52px);line-height:1;letter-spacing:-0.015em;color:var(--paper-0);text-wrap:balance">{m.heroA}<br /><em style="font-style:italic;color:var(--cyan)">{m.heroB}</em></span></ScrollTitle>
+      <ScrollTitle as="h1" class="mm-hero-half mm-rise" style="margin:0;--rise-delay:500ms"><span class="mm-eyebrow" style="display:block;margin-bottom:16px;color:var(--cyan-light)">{t.heroKicker}</span><span style="display:block;font-family:var(--font-display);font-size:clamp(30px,3.6vw,52px);line-height:1;letter-spacing:-0.015em;color:var(--paper-0);text-wrap:balance">{m.heroA}<br /><em style="font-style:italic;color:var(--cyan)">{m.heroB}</em></span></ScrollTitle>
       <div class="mm-hero-half mm-rise" style="display:flex;flex-direction:column;gap:20px;min-width:0;--rise-delay:650ms">
         <p style="margin:0;font:400 clamp(16px,1.3vw,18px)/1.5 var(--font-body);color:var(--paper-3);max-width:52ch;text-wrap:pretty">{t.heroSub}</p>
+        <p style="margin:0;font:400 15px/1.5 var(--font-body);color:var(--paper-3)">{t.heroLegacy} <a href={m.home + 'blog/android-makers-revient-en-2027/'} style="color:var(--cyan-light)">{t.heroLegacyLink}</a></p>
         <div style="display:flex;gap:12px;flex-wrap:wrap">
           <Button href="#tickets" iconRight="arrow-right">{t.ctaTicket}</Button>
           <Button href="#cfp" variant="accent">{t.ctaTalk}</Button>

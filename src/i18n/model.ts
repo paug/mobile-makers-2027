@@ -4,10 +4,10 @@ import { CONTACT, LINKS, STATES, TEAM, type Hue } from '../config';
 
 const ANCHORS = ['#venue', '#agenda', '#speakers', '#sponsors', '#tickets', '#cfp', '#team'];
 
-// Legal pages, one slug per language. Keys match copy.ts footerLinks.
+// Legal pages plus the standalone CFP and tickets pages, one slug per language. Keys match copy.ts footerLinks where they exist.
 export const LEGAL_PAGES = {
-  fr: { coc: '/code-de-conduite/', legal: '/mentions-legales/', privacy: '/confidentialite/', faq: '/faq/' },
-  en: { coc: '/en/code-of-conduct/', legal: '/en/legal-notice/', privacy: '/en/privacy/', faq: '/en/faq/' },
+  fr: { coc: '/code-de-conduite/', legal: '/mentions-legales/', privacy: '/confidentialite/', faq: '/faq/', cfp: '/appel-a-talks/', tickets: '/billetterie/' },
+  en: { coc: '/en/code-of-conduct/', legal: '/en/legal-notice/', privacy: '/en/privacy/', faq: '/en/faq/', cfp: '/en/call-for-papers/', tickets: '/en/tickets/' },
 } as const;
 export type LegalKey = keyof typeof LEGAL_PAGES.fr;
 

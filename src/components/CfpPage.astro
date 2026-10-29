@@ -1,0 +1,63 @@
+---
+// Standalone, indexable Call for Papers page (the short link /cfp still redirects to Conference Hall).
+import { buildModel, LEGAL_PAGES } from '../i18n/model';
+import type { Lang } from '../i18n/copy';
+import Layout from './Layout.astro';
+import Cfp from './sections/Cfp.astro';
+
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const m = buildModel(lang, { fr: LEGAL_PAGES.fr.cfp, en: LEGAL_PAGES.en.cfp });
+
+const C = {
+  fr: {
+    title: 'Call for Papers Android et Flutter 2027 · Mobile Makers',
+    description: "Proposez un talk Android ou Flutter à Mobile Makers, le 30 avril 2027 à Paris. Talks de 40 min ou lightning de 20 min, CFP ouvert jusqu'au 18 janvier 2027.",
+    h1: 'Call for Papers Mobile Makers 2027 : proposez un talk Android ou Flutter',
+    intro: "Mobile Makers est la conférence dédiée au développement mobile Android et Flutter, organisée par la communauté PAUG le 30 avril 2027 à l'UGC Ciné Cité Bercy, à Paris. L'appel à talks (CFP) est ouvert : racontez ce que vous avez livré, appris ou cassé devant plus de 400 makers.",
+    moreTitle: 'Bon à savoir avant de proposer',
+    more: [
+      "Deux formats sont acceptés : le talk de 40 minutes et le lightning talk de 20 minutes.",
+      "Les sujets bienvenus couvrent le mobile au sens large : Android, Flutter, multiplateforme, Kotlin, Dart, IA, carrière et communauté.",
+      "Les propositions sont déposées sur Conference Hall jusqu'au 18 janvier 2027, et les réponses sont envoyées fin janvier 2027.",
+      "Les talks sont acceptés en français ou en anglais. La grande majorité de la conférence sera en anglais, avec toujours un talk en anglais à tout moment de la journée.",
+      "Les speakers reçoivent leur billet, le replay vidéo de leur talk et un accompagnement si c'est leur première fois sur scène.",
+    ],
+    faq: 'Une question ? Consultez la FAQ', faqHref: '/faq/',
+  },
+  en: {
+    title: 'Call for Papers 2027: Android and Flutter talks · Mobile Makers',
+    description: 'Submit an Android or Flutter talk to Mobile Makers, on April 30, 2027 in Paris. 40-minute talks or 20-minute lightning talks, CFP open until January 18, 2027.',
+    h1: 'Mobile Makers 2027 Call for Papers: submit an Android or Flutter talk',
+    intro: 'Mobile Makers is the conference dedicated to Android and Flutter mobile development, organised by the PAUG community on April 30, 2027 at UGC Ciné Cité Bercy in Paris. The call for papers (CFP) is open: tell 400+ makers what you shipped, learned or broke.',
+    moreTitle: 'Good to know before you submit',
+    more: [
+      'Two formats are accepted: the 40-minute talk and the 20-minute lightning talk.',
+      'Welcome topics cover mobile in the broad sense: Android, Flutter, cross-platform, Kotlin, Dart, AI, career and community.',
+      'Proposals are submitted on Conference Hall until January 18, 2027, and notifications go out at the end of January 2027.',
+      'Talks are accepted in French or English. The vast majority of the conference will be in English, with an English talk at any given time of the day.',
+      'Speakers get their ticket, a video replay of their talk, and support if it is their first time on stage.',
+    ],
+    faq: 'Questions? Read the FAQ', faqHref: '/en/faq/',
+  },
+}[lang];
+---
+<Layout m={m} title={C.title} description={C.description}>
+  <header class="mm-wrap" style="padding-top:clamp(48px,6vw,80px)">
+    <div style="display:flex;flex-direction:column;gap:20px;max-width:820px">
+      <div class="mm-eyebrow">Call for Papers</div>
+      <h1 class="mm-h2" style="margin:0;color:var(--ink-1);font-size:clamp(32px,4.6vw,56px);font-weight:600">{C.h1}</h1>
+      <p style="margin:0;font:400 19px/1.5 var(--font-body);color:var(--ink-2);text-wrap:pretty">{C.intro}</p>
+    </div>
+  </header>
+  <Cfp m={m} />
+  <section class="mm-wrap" style="padding-top:64px;padding-bottom:clamp(48px,6vw,80px)">
+    <div style="display:flex;flex-direction:column;gap:16px;max-width:820px">
+      <h2 style="margin:0;color:var(--ink-1);font:600 clamp(24px,3vw,32px)/1.2 var(--font-display)">{C.moreTitle}</h2>
+      <ul style="margin:0;padding-left:20px;display:grid;gap:10px;font:400 17px/1.5 var(--font-body);color:var(--ink-1)">
+        {C.more.map((x) => <li>{x}</li>)}
+      </ul>
+      <p style="margin:0"><a href={C.faqHref} class="mm-textlink">{C.faq}</a></p>
+    </div>
+  </section>
+</Layout>
