@@ -6,8 +6,8 @@ export const STATES = {
   cfpOpen: true,
   speakersAnnounced: false,
   showSponsorTiers: false,
-  // 'early': Early bird is on sale; Regular and Late bird are not open yet.
-  ticketPhase: 'early' as 'soon' | 'early' | 'regular' | 'late',
+  // 'regular': Early bird has ended, Regular is on sale, Late bird is not open yet.
+  ticketPhase: 'regular' as 'soon' | 'early' | 'regular' | 'late',
   // Overrides the Early bird tier with a "Sold out" badge, whatever the phase
   earlyBirdSoldOut: true,
 };
