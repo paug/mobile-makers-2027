@@ -59,7 +59,7 @@
 @media (pointer: coarse) { .mm-tab { height: 44px; } }
 .mm-tab[aria-selected="true"], .mm-tab[aria-current="page"] { background: var(--paper-0); color: var(--ink-1); box-shadow: var(--shadow-fold-sm); }
 
-/* FoldedCard: sheet cut on the diagonal, blurred cast shadow under a lit-to-shade flap, fold grows on hover */
+/* FoldedCard: sheet cut on the diagonal, a flat paper-3 flap (the back of the page), fold grows on hover */
 @property --mm-fold-now { syntax: '<length>'; inherits: true; initial-value: 56px; }
 .mm-folded {
   --mm-fold-now: var(--mm-fold); --mm-folded-bg: var(--paper-0);
@@ -78,16 +78,11 @@
   clip-path: polygon(0 0, calc(100% - var(--mm-fold-now)) 0, 100% var(--mm-fold-now), 100% 100%, 0 100%);
 }
 .mm-folded--inverse .mm-folded__sheet { box-shadow: none; }
-.mm-folded__cast, .mm-folded__flap {
-  position: absolute; top: 0; right: 0; width: var(--mm-fold-now); height: var(--mm-fold-now);
-  clip-path: polygon(0 0, 0 100%, 100% 100%); pointer-events: none;
-}
-.mm-folded__cast { z-index: 1; background: rgba(40,40,40,.3); filter: blur(5px); transform: translate(-3px,4px) scale(1.04); transform-origin: 0 0; opacity: .9; }
 .mm-folded__flap {
-  z-index: 2; background: linear-gradient(135deg, #fff 0%, var(--paper-0) 55%, #C4C4BE 100%);
-  border-bottom-left-radius: 2px; box-shadow: inset 1px -1px 0 rgba(255,255,255,.35);
+  position: absolute; z-index: 2; top: 0; right: 0; width: var(--mm-fold-now); height: var(--mm-fold-now); pointer-events: none;
+  clip-path: polygon(0 0, 0 100%, 100% 100%); background: var(--paper-3);
 }
-.mm-folded--inverse .mm-folded__flap { background: linear-gradient(135deg, rgba(255,255,255,.34) 0%, var(--graphite) 55%, #0C0C0C 100%); }
+.mm-folded--inverse .mm-folded__flap { background: var(--graphite-light); }
 .mm-folded__media { position: relative; overflow: hidden; flex: none; background: var(--paper-2); }
 .mm-folded__media-inner { position: absolute; inset: 0; transition: transform var(--dur-spatial) var(--ease-spring-soft); }
 .mm-folded:hover .mm-folded__media-inner, .mm-folded:focus-within .mm-folded__media-inner { transform: scale(1.04); }

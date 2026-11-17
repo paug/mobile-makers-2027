@@ -8,6 +8,8 @@ export const STATES = {
   showSponsorTiers: false,
   // 'early': Early bird is on sale; Regular and Late bird are not open yet.
   ticketPhase: 'early' as 'soon' | 'early' | 'regular' | 'late',
+  // Overrides the Early bird tier with a "Sold out" badge, whatever the phase
+  earlyBirdSoldOut: true,
 };
 
 export const LINKS = {

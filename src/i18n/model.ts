@@ -30,7 +30,7 @@ export function buildModel(lang: Lang, langHrefs: Record<Lang, string> = { fr: '
   const t = T[lang];
   const L = LINKS;
   const home = lang === 'fr' ? '/' : '/en/';
-  const { showAgenda, cfpOpen, speakersAnnounced, showSponsorTiers, ticketPhase: phase } = STATES;
+  const { showAgenda, cfpOpen, speakersAnnounced, showSponsorTiers, ticketPhase: phase, earlyBirdSoldOut } = STATES;
 
   const socials = ([['linkedin', 'LinkedIn', L.linkedinUrl], ['x-social', 'X', L.xUrl], ['bluesky', 'Bluesky', L.bskyUrl], ['youtube', 'YouTube', L.youtubeUrl], ['mail', 'Email', CONTACT]] as [string | null, string, string][])
     .filter(([, , href]) => href)
@@ -51,11 +51,12 @@ export function buildModel(lang: Lang, langHrefs: Record<Lang, string> = { fr: '
   // Soon: nothing on sale yet. Then Early bird, Regular and Late bird open one after the other.
   const states = { soon: ['soon', 'soon', 'soon'], early: ['available', 'soon', 'soon'], regular: ['ended', 'available', 'soon'], late: ['ended', 'ended', 'available'] }[phase];
   const tickets = t.tierNames.map((name, i) => {
-    const s = states[i];
+    const soldOut = i === 0 && earlyBirdSoldOut;
+    const s = soldOut ? 'ended' : states[i];
     return {
       name, price: t.price(t.prices[i]), window: t.windows[i], features: t.features,
       available: s === 'available', soon: s === 'soon', ended: s === 'ended',
-      badge: s === 'ended' ? t.ended : s === 'available' ? t.available : null,
+      badge: soldOut ? t.soldOut : s === 'ended' ? t.ended : s === 'available' ? t.available : null,
       badgeTone: (s === 'ended' ? 'brand' : s === 'soon' ? 'neutral' : 'success') as 'brand' | 'neutral' | 'success',
       nameColor: s === 'ended' ? 'var(--ink-3)' : 'var(--red)',
       priceColor: s === 'ended' ? 'var(--ink-3)' : 'var(--ink-1)',
