@@ -6,8 +6,8 @@ export const STATES = {
   cfpOpen: true,
   speakersAnnounced: false,
   showSponsorTiers: false,
-  // 'soon': ticketing not open yet, every tier shows "opening soon"
-  ticketPhase: 'soon' as 'soon' | 'early' | 'regular' | 'late',
+  // 'early': Early bird is on sale; Regular and Late bird are not open yet.
+  ticketPhase: 'early' as 'soon' | 'early' | 'regular' | 'late',
 };
 
 export const LINKS = {
